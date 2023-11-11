@@ -5,7 +5,7 @@ async function getData() {
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
+    throw new Error("Failed to fetch data from API");
   }
 
   return res.json();
@@ -15,9 +15,9 @@ export default async function Page() {
   const data = await getData();
 
   return (
-    <ul>
-      {data.results.map((planet) => (
-        <li key={planet.id}>{planet.name}</li>
+    <ul className="grid gap-4 grid-cols-3">
+      {data.results.map((planet, index) => (
+        <li className="border shadow hover:shadow-lg p-2" key={index}>{planet.name}</li>
       ))}
     </ul>
   )
