@@ -1,3 +1,5 @@
+//import { fetchPlanets } from '@/app/lib/data';
+
 async function getData() {
   const res = await fetch("https://swapi.dev/api/planets");
   // The return value is *not* serialized
@@ -13,6 +15,7 @@ async function getData() {
 
 export default async function Page() {
   const data = await getData();
+  //const data = await fetchPlanets();
 
   return (
     <ul className="grid gap-4 grid-cols-3">
