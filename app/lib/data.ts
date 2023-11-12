@@ -229,11 +229,8 @@ export async function getUser(email: string) {
   }
 }
 
-export async function fetchPlanets() {
-  // Add noStore() here prevent the response from being cached.
-  // This is equivalent to in fetch(..., {cache: 'no-store'}).
-
-  const res = await fetch("https://swapi.dev/api/planets");
+export async function getData(endpoint: string) {
+  const res = await fetch(endpoint);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -242,5 +239,5 @@ export async function fetchPlanets() {
     throw new Error("Failed to fetch data from API");
   }
 
-  return res.json();  
+  return res.json();
 }
