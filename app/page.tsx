@@ -1,9 +1,35 @@
+'use client';
+
 import AcmeLogo from "@/app/ui/acme-logo";
 import { lusitana } from '@/app/ui/fonts';
 import Link from "next/link";
 import Image from 'next/image';
+import React, { useState } from "react";
+import { redirect } from "next/navigation";
 
 export default function Page() {
+
+  function SearchForm() {
+    const [qt, setQt] = useState("");
+    return (
+      <form action="results?qt={qt}">
+        <label htmlFor="qt">Search</label>
+        <input
+          type="text"
+          placeholder="what are you looking for?"
+          name="qt"
+          id="qt"
+          value={qt}
+          onChange={(e) => setQt(e.target.value)}
+        />
+        <button type="submit">Search</button>
+      
+        <p>{!!qt && `Query term set to: ${qt}`}</p>
+      
+      </form>
+    )
+  }
+
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
@@ -15,35 +41,12 @@ export default function Page() {
           <p
             className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}
           >
-            <strong>Welcome to Acme.</strong> This is the example for the{" "}
-            <a href="https://nextjs.org/learn/" className="text-blue-500">
-              Next.js Learn Course
-            </a>
-            , brought to you by Vercel.
+            <strong>Welcome to Acme.</strong> This is the NextJS prototype wireframe.
           </p>
-          <Link
-            href="/login"
-            className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
-          >
-            <span>Log in</span>
-          </Link>
+          <SearchForm />
         </div>
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
-          {/* Add Hero Images Here */}
-          <Image
-            src="/hero-desktop.png"
-            width={1000}
-            height={760}
-            className="hidden md:block"
-            alt="Screenshots of the dashboard project showing desktop and mobile versions"
-          />
-          <Image
-            src="/hero-mobile.png"
-            width={560}
-            height={620}
-            className="block md:hidden"
-            alt="Screenshots of the dashboard project showing desktop and mobile versions"
-          />
+          ToDo add in a search form...
         </div>
       </div>
     </main>

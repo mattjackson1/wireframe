@@ -6,7 +6,7 @@ export default async function Page() {
   const data = await getData("https://swapi.dev/api/planets");
 
   return (
-    <ul className="grid gap-4 grid-cols-3">
+    <div className="grid gap-4 grid-cols-3">
       {data.results.map((planet, index) => (
         <Card key={index}>
           <Link
@@ -17,6 +17,6 @@ export default async function Page() {
           </Link>
         </Card>
       ))}
-    </ul>
+    </div>
   )
 }
