@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { useSearchParams } from 'next/navigation';
 
@@ -8,7 +8,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
   const searchParams = useSearchParams();
 
   const [qt, setQt] = useState(searchParams.get('qt'));
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { value: SetStateAction<string | null>; }; }) => {
     setQt(e.target.value);
   }
 
