@@ -16,7 +16,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       <Header />
       <main className="flex min-h-screen flex-col p-6">
         <div className="grid gap-4 grid-cols-3">
-          <Card>
+          <div className="bg-gray-50 p-3">
             <div className="flex mb-2">
               <h2 className="grow">{record.title}</h2>
               {!!record.logo && (
@@ -38,7 +38,7 @@ export default async function Page({ params }: { params: { id: string } }) {
               dangerouslySetInnerHTML={{ __html: record.description }}
               className="mb-1"
             ></div>
-          </Card>
+          </div>
         </div>
       </main>
     </>
