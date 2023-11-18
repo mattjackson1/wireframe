@@ -4,6 +4,7 @@ import { getData } from '@/app/lib/data';
 import { Card } from '@/app/ui/card';
 import Link from "next/link";
 import { useSearchParams } from 'next/navigation';
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode, Key } from 'react';
 
 export default async function Page() {
   const searchParams = useSearchParams();
@@ -17,7 +18,7 @@ export default async function Page() {
       <main className="flex min-h-screen flex-col p-6">
 
         <div className="grid gap-4 grid-cols-3">
-          {data.records.map((record, index) => (
+          {data.records.map((record: { externalId: any; title: string | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; public_address_map_postcode: string | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; }, index: Key | null | undefined) => (
             <Card key={index}>
               <Link
                 className="block"
