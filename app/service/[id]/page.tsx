@@ -21,18 +21,19 @@ export default async function Page({ params }: { params: { id: string } }) {
               <h2 className="grow">{record.title}</h2>
               {!!record.logo && (
                 <Suspense fallback={<h2>Loading...</h2>}>
-                <Image
-                  src={record.logo.filename}
-                  className="rounded-full"
-                  alt={record.logo.description}
-                  width={100}
-                  height={100}
-                />
+                  <Image
+                    src={record.logo.filename}
+                    className="rounded-full"
+                    alt={record.logo.description}
+                    width={100}
+                    height={100}
+                  />
                 </Suspense>
               )}
             </div>
             {!!record.contact_telephone && `Tel: ${record.contact_telephone}`}
-            {!!record.location_postcode && `Postcode: ${record.location_postcode}`}
+            {!!record.location_postcode &&
+              `Postcode: ${record.location_postcode}`}
             <div
               dangerouslySetInnerHTML={{ __html: record.description }}
               className="mb-1"
