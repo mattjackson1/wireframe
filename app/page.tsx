@@ -1,7 +1,6 @@
 import Header from '@/app/ui/header';
 import { lusitana } from '@/app/ui/fonts';
 import Channels from './channels';
-import Link from "next/link";
 
 import { redirect } from "next/navigation";
 
