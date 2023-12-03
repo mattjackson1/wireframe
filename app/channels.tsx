@@ -8,9 +8,9 @@ export default async function Channels() {
     return (        
         <div className="grid gap-4 grid-cols-3">
             <h2 className="col-span-3 font-bold">Choose a channel</h2>
-            {data.typeLists.map((typeList) => (
-                typeList.types.map((type) => (
-                    <Card>
+            {data.typeLists.map((typeList: any) => (
+                typeList.types.map((type: any) => (
+                    <Card key={type.name}>
                         <Link href="/results?qt={type.name}">
                             <h2 className="font-bold">{type.displayName}</h2>
 
