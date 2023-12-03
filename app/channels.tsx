@@ -16,7 +16,6 @@ export default async function Channels() {
 
                             <div dangerouslySetInnerHTML={{ __html: type.description }}></div>
                             
-                            
                         </Link>
                     </Card>
                 ))

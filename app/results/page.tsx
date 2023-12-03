@@ -30,6 +30,7 @@ export default async function Page() {
             </Card>
           ))}
         </div>
+        
       </main>
     </>
   )
