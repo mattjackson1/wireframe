@@ -31,9 +31,8 @@ export default async function Page({ params }: { params: { id: string } }) {
                 </Suspense>
               )}
             </div>
-            {!!record.contact_telephone && `Tel: ${record.contact_telephone}`}
-            {!!record.location_postcode &&
-              `Postcode: ${record.location_postcode}`}
+            {record.contact_telephone && `Tel: ${record.contact_telephone}`}
+            {record.public_address_postcode && `Postcode: ${record.public_address_postcode}`}
             <div
               dangerouslySetInnerHTML={{ __html: record.description }}
               className="mb-1"
