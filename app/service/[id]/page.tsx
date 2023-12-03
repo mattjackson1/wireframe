@@ -1,10 +1,7 @@
 import { Suspense } from "react";
-import AcmeLogo from "@/app/ui/acme-logo";
 import { getData } from "@/app/lib/data";
-import { Card } from "@/app/ui/card";
 import Image from "next/image";
 import Header from "@/app/ui/header";
-import { useSearchParams } from "next/navigation";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const record = await getData(

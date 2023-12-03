@@ -17,7 +17,7 @@ export default async function Results() {
         {data.records.map(
           (
             record: {
-              externalId: any;
+              externalId: string;
               title: string;
               public_address_map_postcode: string;
             },
@@ -25,8 +25,7 @@ export default async function Results() {
           ) => (
             <Card key={index}>
               <Link className="block" href={`service/${record.externalId}`}>
-                {record.title}
-                <br />
+                <h2>{record.title}</h2>
                 {record.public_address_map_postcode}
               </Link>
             </Card>

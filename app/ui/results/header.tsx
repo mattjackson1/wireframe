@@ -1,5 +1,5 @@
 import AcmeLogo from "@/app/ui/acme-logo";
-import Search from '@/app/ui/results/search';
+import Search from './search';
 
 export default function Header() {
     return (
