@@ -7,14 +7,14 @@ import { useSearchParams } from 'next/navigation';
 export default function Search({ placeholder }: { placeholder: string }) {
   const searchParams = useSearchParams();
 
-  const [qt, setQt] = useState(searchParams.get('qt'));
+  const [query, setquery] = useState(searchParams.get('query'));
   const handleChange = (e: { target: { value: SetStateAction<string | null>; }; }) => {
-    setQt(e.target.value);
+    setquery(e.target.value);
   }
 
   return (
     <form
-      action="/results?qt={qt}"
+      action="/results?query={query}"
       className="flex flex-1 flex-shrink-0 justify-center"
     >
       <div className="relative flex min-w-[50%]">
@@ -22,9 +22,9 @@ export default function Search({ placeholder }: { placeholder: string }) {
           Search
         </label>
         <input
-          name="qt"
+          name="query"
           id="search"
-          value={qt}
+          value={query}
           onChange={handleChange}
           className="peer block w-full transition-all border-0 border-b border-white py-[9px] pl-10 text-sm outline-2 text-white hover:text-gray-900 focus:text-gray-900 placeholder:text-white hover:placeholder:text-gray-500 focus:placeholder:text-gray-500 bg-transparent hover:bg-white focus:bg-white"
           placeholder={placeholder}

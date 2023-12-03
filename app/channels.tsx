@@ -11,7 +11,7 @@ export default async function Channels() {
             {data.typeLists.map((typeList: any) => (
                 typeList.types.map((type: any) => (
                     <Card key={type.name}>
-                        <Link href="/results?qt={type.name}">
+                        <Link href="/results?query={type.name}">
                             <h2 className="font-bold">{type.displayName}</h2>
 
                             <div dangerouslySetInnerHTML={{ __html: type.description }}></div>
