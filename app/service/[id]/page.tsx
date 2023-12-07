@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import { getData } from "@/app/lib/data";
 import Image from "next/image";
 import Header from "@/app/ui/header";
+import Map from '@/app/ui/map';
+import 'leaflet/dist/leaflet.css';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const record = await getData(
@@ -16,6 +18,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <div className="bg-gray-50 p-3">
             <div className="flex mb-2">
               <h2 className="grow">{record.title}</h2>
+              
               {!!record.logo && (
                 <Suspense fallback={<h2>Loading...</h2>}>
                   <Image
@@ -35,7 +38,11 @@ export default async function Page({ params }: { params: { id: string } }) {
               className="mb-1"
             ></div>
           </div>
-        </div>
+
+          <Suspense fallback={<h2>Loading the map...</h2>}>
+            <Map />
+          </Suspense>
+        </div>        
       </main>
     </>
   );
