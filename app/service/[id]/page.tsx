@@ -3,22 +3,20 @@ import { getData } from "@/app/lib/data";
 import Image from "next/image";
 import Header from "@/app/ui/header";
 import Map from '@/app/ui/map';
-import 'leaflet/dist/leaflet.css';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const record = await getData(
     `https://api.openobjects.com/v2/infolink/records/${params.id}?key=6037874de4b0d1e39971ca2e`
-  );
-  const coords = [{record.title},{record.title}];
+  );  
 
   return (
     <>
       <Header />
       <main className="flex min-h-screen flex-col p-6">
-        <div className="grid gap-4 grid-cols-3">
+        <div className="grid gap-4 grid-cols-2">
           <div className="bg-gray-50 p-3">
             <div className="flex mb-2">
-              <h2 className="grow">{record.title}</h2>
+              <h1 className="grow">{record.title}</h1>
               
               {!!record.logo && (
                 <Suspense fallback={<h2>Loading...</h2>}>
@@ -41,9 +39,9 @@ export default async function Page({ params }: { params: { id: string } }) {
           </div>
 
           <Suspense fallback={<h2>Loading the map...</h2>}>
-            <Map marker={coords} />
+            <Map latitude={record.location_postcode?.latitude} longitude={record.location_postcode?.longitude} />
           </Suspense>
-        </div>        
+        </div>
       </main>
     </>
   );
