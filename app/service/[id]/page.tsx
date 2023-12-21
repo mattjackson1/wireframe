@@ -9,6 +9,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   const record = await getData(
     `https://api.openobjects.com/v2/infolink/records/${params.id}?key=6037874de4b0d1e39971ca2e`
   );
+  const coords = [{record.title},{record.title}];
 
   return (
     <>
@@ -40,7 +41,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           </div>
 
           <Suspense fallback={<h2>Loading the map...</h2>}>
-            <Map />
+            <Map marker={coords} />
           </Suspense>
         </div>        
       </main>
