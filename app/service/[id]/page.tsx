@@ -13,8 +13,8 @@ export default async function Page({ params }: { params: { id: string } }) {
     <>
       <Header />
       <main className="flex min-h-screen flex-col p-6">
-        <div className="grid gap-4 grid-cols-2">
-          <div className="bg-gray-50 p-3">
+        <div className="grid gap-4 grid-cols-3">
+          <div className="bg-gray-50 p-3 col-span-2">
             <div className="flex mb-2">
               <h1 className="grow">{record.title}</h1>
               
