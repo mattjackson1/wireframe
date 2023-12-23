@@ -4,7 +4,7 @@ import Link from "next/link";
 import Channel from './channel';
 
 export default async function Channels() {
-    const data = await getData(`https://api.openobjects.com/v2/infolink/typelists?key=6037874de4b0d1e39971ca2e`);
+    const data = await getData(`https://api.openobjects.com/v2/infolink/typelists?key=${process.env.API_KEY}`);
 
    
 
