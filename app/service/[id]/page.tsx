@@ -17,20 +17,26 @@ export default async function Page({ params }: { params: { id: string } }) {
           <div className="bg-gray-50 p-3 col-span-2">
             <div className="flex mb-2">
               <h1 className="grow">{record.title}</h1>
-              
+
               {!!record.logo && (
                 <Suspense fallback={<h2>Loading...</h2>}>
                   <Image
                     src={record.logo.filename}
-                    className="rounded-full"
                     alt={record.logo.description}
+                    className="flex"
                     width={100}
                     height={100}
                   />
                 </Suspense>
               )}
             </div>
-            <dl className="grid grid-cols-2 gap-4">
+
+            <div
+              dangerouslySetInnerHTML={{ __html: record.description }}
+              className="mb-3"
+            ></div>
+
+            <dl className="grid grid-cols-2 gap-2">
               {record.contact_telephone && (
                 <>
                   <dd className="bg-gray-200 p-2">Tel:</dd>
@@ -44,10 +50,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                 </>
               )}
             </dl>
-            <div
-              dangerouslySetInnerHTML={{ __html: record.description }}
-              className="mb-1"
-            ></div>
+            
           </div>
 
           <Suspense fallback={

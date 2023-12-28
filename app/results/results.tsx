@@ -12,25 +12,27 @@ export default async function Results() {
   );
   return (
     <>
-      <h1>{data.totalRecords > 0 ? data.totalRecords : 'Sorry, no'} results</h1>
+      <h1>{data.totalRecords > 0 ? data.totalRecords : 'Sorry, no'} services</h1>
       <div className="grid gap-4 grid-cols-3">
-        {data.records.map(
-          (
-            record: {
-              externalId: string;
-              title: string;
-              public_address_map_postcode: string;
-            },
-            index: Key | null | undefined
-          ) => (
-            <Card key={index}>
-              <Link className="block" href={`service/${record.externalId}`}>
-                <h2>{record.title}</h2>
-                {record.public_address_map_postcode}
-              </Link>
-            </Card>
-          )
-        )}
+        <div className="grid gap-4">
+          {data.records.map(
+            (
+              record: {
+                externalId: string;
+                title: string;
+                public_address_map_postcode: string;
+              },
+              index: Key | null | undefined
+            ) => (
+              <Card key={index}>
+                <Link className="block" href={`service/${record.externalId}`}>
+                  <h2>{record.title}</h2>
+                  {record.public_address_map_postcode}
+                </Link>
+              </Card>
+            )
+          )}
+        </div>
       </div>
     </>
   );
