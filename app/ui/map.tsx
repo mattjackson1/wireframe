@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { MapContainer as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-//import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css';
+import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css';
 
 export default function Map({ latitude, longitude }: { latitude: number; longitude: number }) {
 
@@ -12,7 +12,6 @@ export default function Map({ latitude, longitude }: { latitude: number; longitu
 
   // useEffect to check if it's safe to render on the client side
   useEffect(() => {
-    // Check if window is defined, indicating that the code is running on the client side
     if (typeof window !== 'undefined') {
       setSafeToRender(true);
     }

@@ -1,13 +1,12 @@
-'use client';
+'use client'
 
 import Header from '@/app/ui/results/header';
 import Results from '@/app/results/results';
 import Map from '@/app/ui/map';
 import { ResultsSkeleton } from '@/app/ui/skeletons';
 import { Suspense } from 'react';
-
+  
 export default function Page() {
-
   return (
     <>
       <Header />
