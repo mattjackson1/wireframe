@@ -1,8 +1,9 @@
-import { Suspense } from "react";
+import { Suspense, Fragment } from "react";
 import { getData } from "@/app/lib/data";
 import Image from "next/image";
 import Header from "@/app/ui/header";
 import Map from '@/app/ui/map';
+import { fields } from '@/app/lib/display-fields';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const record = await getData(
@@ -36,19 +37,25 @@ export default async function Page({ params }: { params: { id: string } }) {
               className="mb-3"
             ></div>
 
+            {/* Loop through and display each display field that has a value */}
             <dl className="grid grid-cols-2 gap-2">
-              {record.contact_telephone && (
-                <>
-                  <dd className="bg-gray-200 p-2">Tel:</dd>
-                  <dt className="bg-gray-100 p-2">{record.contact_telephone}</dt>
-                </>
-              )}
-              {record.public_address_postcode && (
-                <>
-                  <dd className="bg-gray-200 p-2">Postcode:</dd>
-                  <dt className="bg-gray-100 p-2">{record.public_address_postcode}</dt>
-                </>
-              )}
+              {fields.map((field, index) => (
+                record[field.name] && (
+                  <Fragment key={index}>
+                    <dd className="bg-gray-200 p-2">{`${field.label}`}</dd>
+                    <dt className="bg-gray-100 p-2">                      
+                      
+                      
+                      {typeof record[field.name] === 'object'
+                        ? record[field.name].displayName // Access the property of the object (adjust as needed)
+                        : `${record[field.name]}` // Render as a string for non-object values
+                      }  
+                      
+                      
+                    </dt>
+                  </Fragment>
+                )
+              ))}
             </dl>
             
           </div>

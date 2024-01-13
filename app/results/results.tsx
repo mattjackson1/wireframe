@@ -12,7 +12,7 @@ export default async function Results() {
   );
   return (
     <>
-      <h1>{data.totalRecords > 0 ? data.totalRecords : 'Sorry, we found no matching'} services</h1>
+      <h1>Found {data.totalRecords > 0 ? data.totalRecords : ' no matching'} services</h1>
       <div className="grid gap-4 grid-cols-3">
         <div className="grid gap-4">
           {data.records.map(
