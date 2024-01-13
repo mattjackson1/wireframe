@@ -1,14 +1,11 @@
 'use client';
 
 import { MapContainer as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
-import { usePathname } from 'next/navigation';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css'; // Re-uses images from ~leaflet package
 import 'leaflet-defaulticon-compatibility';
 
 export default function Map({ latitude, longitude }: { latitude: number; longitude: number }) {
-
-  const pathname = usePathname();
 
   return (
     <LeafletMap
@@ -22,15 +19,11 @@ export default function Map({ latitude, longitude }: { latitude: number; longitu
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-
-      {/* TEMPORARY - don't show pin on results page */}
-      {pathname !== '/results' && (
-            <Marker position={[latitude, longitude]}>
-              <Popup>
-                lat: {latitude}, lng: {longitude}
-              </Popup>
-            </Marker>
-      )}
+      <Marker position={[latitude, longitude]}>
+        <Popup>
+          lat: {latitude}, lng: {longitude}
+        </Popup>
+      </Marker>
 
     </LeafletMap>
   );
