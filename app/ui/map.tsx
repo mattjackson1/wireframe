@@ -6,7 +6,7 @@ import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css'; // Re-uses images from ~leaflet package
 import 'leaflet-defaulticon-compatibility';
 
-export default function Map({ latitude, longitude, marker }: { latitude: number; longitude: number; marker: boolean }) {
+export default function Map({ latitude, longitude }: { latitude: number; longitude: number }) {
   const markerPosition: LatLngExpression = [latitude, longitude];
 
   return (
