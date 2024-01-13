@@ -1,16 +1,15 @@
-import React from 'react';
+'use client';
+
 import { MapContainer as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
+import { usePathname } from 'next/navigation';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css'; // Re-uses images from ~leaflet package
 import 'leaflet-defaulticon-compatibility';
 
-interface MapProps {
-  latitude: number;
-  longitude: number;
-  showMarker: boolean;
-}
+export default function Map({ latitude, longitude }: { latitude: number; longitude: number }) {
 
-export default function Map({ latitude, longitude, showMarker = true }: MapProps): JSX.Element {
+  const pathname = usePathname();
+
   return (
     <LeafletMap
       className="w-100 h-[500px]"
@@ -23,13 +22,16 @@ export default function Map({ latitude, longitude, showMarker = true }: MapProps
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {showMarker && (
-        <Marker position={[latitude, longitude]}>
-          <Popup>
-            lat: {latitude}, lng: {longitude}
-          </Popup>
-        </Marker>
+
+      {/* TEMPORARY - don't show pin on results page */}
+      {pathname !== '/results' && (
+            <Marker position={[latitude, longitude]}>
+              <Popup>
+                lat: {latitude}, lng: {longitude}
+              </Popup>
+            </Marker>
       )}
+
     </LeafletMap>
   );
 }
