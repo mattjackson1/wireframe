@@ -1,7 +1,9 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import { MapContainer as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css';
+//import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css';
 
 export default function Map({ latitude, longitude }: { latitude: number; longitude: number }) {
 

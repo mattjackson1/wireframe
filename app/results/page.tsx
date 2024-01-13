@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import Header from '@/app/ui/results/header';
 import Results from '@/app/results/results';
