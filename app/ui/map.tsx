@@ -20,7 +20,7 @@ export default function Map({ latitude, longitude, marker }: { latitude: number;
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {marker !== false && 
+      {markerPosition[0] !== 52.5 && 
         <Marker position={markerPosition}>
           <Popup>
             lat: {markerPosition[0]}, lng: {markerPosition[1]}
