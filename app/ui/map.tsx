@@ -1,18 +1,16 @@
 'use client';
 
 import { MapContainer as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
-import { LatLngExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css'; // Re-uses images from ~leaflet package
 import 'leaflet-defaulticon-compatibility';
 
 export default function Map({ latitude, longitude, showMarker }: { latitude: number; longitude: number; showMarker: boolean }) {
-  const markerPosition: LatLngExpression = [latitude, longitude];
-
+  
   return (
     <LeafletMap
       className="w-100 h-[500px]"
-      center={markerPosition}
+      center={[latitude, longitude]}
       zoom={13}
       scrollWheelZoom={false}
     >
@@ -23,9 +21,9 @@ export default function Map({ latitude, longitude, showMarker }: { latitude: num
       
       {showMarker}
 
-      <Marker position={markerPosition}>
+      <Marker position={[latitude, longitude]}>
         <Popup>
-          lat: {markerPosition[0]}, lng: {markerPosition[1]}
+          lat: {latitude}, lng: {longitude}
         </Popup>
       </Marker>
 
