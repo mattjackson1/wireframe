@@ -27,7 +27,7 @@ export default function Page() {
             </button>
           }>
             <div className="col-span-2">
-              map...
+              <Map latitude={52.5} longitude={1.7} />
             </div>
           </Suspense>
         </div>
