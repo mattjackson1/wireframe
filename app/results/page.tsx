@@ -26,7 +26,7 @@ export default function Page() {
             </button>
           }>
             <div className="col-span-2">
-              <Map latitude={52.5} longitude={1.7} />
+              No Geo-data to plot onto map...
             </div>
           </Suspense>
         </div>
