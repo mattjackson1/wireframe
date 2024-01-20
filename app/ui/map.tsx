@@ -15,7 +15,7 @@ export default function Map({ latitude, longitude, zoom = 13 }: MapProps) {
 
   return (
     <LeafletMap
-      className="w-100 h-[500px]"
+      className="w-100 h-[500px] col-span-3 md:col-auto"
       center={[latitude, longitude]}
       zoom={zoom}
       scrollWheelZoom={false}
