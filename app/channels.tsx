@@ -8,7 +8,7 @@ export default async function Channels() {
 
     return (        
         <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
-            <h2 className="col-span-2 sm:col-span-3 lg:col-span-2 xl:col-span-3 font-bold">Choose a channel</h2>
+            <h2 className="sr-only">Choose a channel</h2>
             {data.typeLists.map((typeList: any) => (
                 <Channel typeList={typeList} key={typeList.name}/>
             ))}

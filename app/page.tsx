@@ -17,7 +17,7 @@ export default function Page() {
               <strong>Welcome to Acme.</strong> This is the NextJS prototype wireframe.
             </p>
           </div>
-          <div className="flex items-center justify-center p-6 lg:w-3/5 lg:px-28 lg:py-12">
+          <div className="flex items-center justify-center p-3">
             <Channels />
           </div>
         </div>
