@@ -4,6 +4,7 @@ import Link from 'next/link';
  
 export default function NotFound() {
   return (
+
     <>
       <Header />
       <main className="flex flex-col">
@@ -17,5 +18,5 @@ export default function NotFound() {
       </main>
       <Footer />
     </>
-  )
+  );
 }
