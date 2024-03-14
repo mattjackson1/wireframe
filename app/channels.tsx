@@ -1,6 +1,4 @@
 import { getData } from '@/app/lib/data';
-import { Card } from '@/app/ui/card';
-import Link from "next/link";
 import Channel from './channel';
 
 export default async function Channels() {
