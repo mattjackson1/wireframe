@@ -10,7 +10,7 @@ export default async function Results() {
   const data = await getData(
     `https://api.openobjects.com/v2/infolink/records?key=6037874de4b0d1e39971ca2e&count=10&query=${query}`
   );
-  return (       
+  return (
     <div className="grid gap-4">
       <h1>Found {data.totalRecords > 0 ? data.totalRecords : ' no matching'} services</h1>
 
