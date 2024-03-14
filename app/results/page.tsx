@@ -1,6 +1,7 @@
 'use client';
 
 import Header from '@/app/ui/results/header';
+import Footer from "@/app/ui/footer";
 import Results from '@/app/results/results';
 import { ResultsSkeleton } from '@/app/ui/skeletons';
 import { Suspense, useMemo } from 'react';
@@ -40,6 +41,7 @@ export default function Page() {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   )
 }

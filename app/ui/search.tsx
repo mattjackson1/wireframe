@@ -24,10 +24,10 @@ export default function Search({ placeholder }: { placeholder: string }) {
           id="search"
           value={query || ''}
           onChange={handleChange}
-          className="peer block w-full transition-all border-0 border-b border-white py-[9px] pl-10 text-sm outline-2 text-white hover:text-gray-900 focus:text-gray-900 placeholder:text-white hover:placeholder:text-gray-500 focus:placeholder:text-gray-500 bg-transparent hover:bg-white focus:bg-white"
+          className="peer block w-full transition-all border-0 border-b border-blue-600 py-[9px] pl-10 text-sm outline-2 text-blue-600 hover:text-gray-900 focus:text-gray-900 placeholder:text-blue-600 hover:placeholder:text-gray-500 focus:placeholder:text-gray-500 bg-white"
           placeholder={placeholder}
         />
-        <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 text-white peer-hover:text-gray-900 peer-focus:text-gray-900" />
+        <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 text-blue-600 peer-hover:text-gray-900 peer-focus:text-gray-900" />
       </div>
     </form>
   );

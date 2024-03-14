@@ -1,4 +1,5 @@
 import Header from "@/app/ui/header";
+import Footer from "@/app/ui/footer";
 
 export default function Loading() {
   // You can add any UI inside Loading, including a Skeleton.
@@ -6,8 +7,9 @@ export default function Loading() {
     <>
       <Header />
       <main className="flex min-h-screen flex-col p-6">
-      LOADING RESULTS...
-    </main>
+        LOADING RESULTS...
+      </main>
+      <Footer />
     </>
   );
 }

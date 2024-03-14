@@ -2,6 +2,7 @@ import { Suspense, Fragment } from "react";
 import { getData } from "@/app/lib/data";
 import Image from "next/image";
 import Header from "@/app/ui/header";
+import Footer from "@/app/ui/footer";
 import Map from '@/app/ui/map';
 import { fields } from '@/app/lib/display-fields';
 
@@ -75,6 +76,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           </Suspense>
         </div>
       </main>
+      <Footer />
     </>
   );
 }
