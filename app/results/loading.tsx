@@ -6,7 +6,7 @@ export default function Loading() {
   return (
     <>
       <Header />
-      <main className="flex min-h-screen flex-col p-6">
+      <main className="flex flex-col p-6 mb-3">
         LOADING RESULTS...
       </main>
       <Footer />

@@ -10,7 +10,7 @@ export default function Page() {
 
     <>
       <Header />
-      <main className="flex min-h-screen flex-col">
+      <main className="flex flex-col">
         <div className="bg-blue-100 p-4">
           <h2 className="text-2xl font-semibold mb-2">Welcome to Suffolk InfoLink, your community directory</h2>
           <p className="text-lg">Explore thousands of activities, services and events across Suffolk</p>

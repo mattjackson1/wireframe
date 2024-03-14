@@ -14,7 +14,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   return (
     <>
       <Header />
-      <main className="flex min-h-screen flex-col p-6">
+      <main className="flex flex-col p-6 mb-3">
         <div className="grid gap-4 grid-cols-3">
           <div className="bg-gray-50 p-3 col-span-3 md:col-span-2">
             <div className="flex items-start mb-2">
