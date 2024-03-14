@@ -3,8 +3,15 @@ import Link from "next/link";
 import logo from "@/app/ui/suffolk-council-logo.png";
 export default function Footer() {
     return (
-        <footer className="flex h-20 shrink-0 items-end bg-primary">
-            xxxxx
+        <footer className="flex h-20 shrink-0 justify-between px-3 pt-1 bg-primary">
+            <ul class="pt-4 mr-4">
+                <li class="inline mr-3"><a class="text-white no-underline hover:underline" href="about.page">About Us</a></li>
+                <li class="inline mr-3"><a class="text-white no-underline hover:underline" href="contact.page">Contact Suffolk InfoLink</a></li>
+                <li class="inline mr-3"><a class="text-white no-underline hover:underline" href="help.page">Help</a></li>
+                <li class="inline mr-3"><a class="text-white no-underline hover:underline" href="disclaimer.page">Disclaimer</a></li>
+                <li class="inline mr-3"><a class="text-white no-underline hover:underline" href="privacy_policy.page">Privacy</a></li>
+                <li class="inline mr-3"><a class="text-white no-underline hover:underline" href="sign_in.page">Update your page</a></li>
+            </ul>
             <Link href="https://www.suffolk.gov.uk">
                 <Image
                     priority
