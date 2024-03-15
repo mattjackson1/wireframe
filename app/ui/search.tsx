@@ -3,11 +3,26 @@
 import { SetStateAction, useState } from 'react';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from "react";
 export default function Search({ placeholder }: { placeholder: string }) {
-  const searchParams = useSearchParams();
-  const [query, setquery] = useState(searchParams.get('query'));
-  const handleChange = (e: { target: { value: SetStateAction<string | null>; }; }) => {
-    setquery(e.target.value);
+  
+  
+  
+
+  function SearchInput() {
+    const searchParams = useSearchParams();
+    const [query, setquery] = useState(searchParams.get('query'));
+    const handleChange = (e: { target: { value: SetStateAction<string | null>; }; }) => {
+      setquery(e.target.value);
+    }
+    return <input
+      name="query"
+      id="search"
+      value={query || ''}
+      onChange={handleChange}
+      className="peer block w-full transition-all border-0 border-b border-blue-600 py-[9px] pl-10 text-sm outline-2 text-blue-600 hover:text-gray-900 focus:text-gray-900 placeholder:text-blue-600 hover:placeholder:text-gray-500 focus:placeholder:text-gray-500 bg-white"
+      placeholder={placeholder}
+    />
   }
 
   return (
@@ -19,14 +34,9 @@ export default function Search({ placeholder }: { placeholder: string }) {
         <label htmlFor="search" className="sr-only">
           Search
         </label>
-        <input
-          name="query"
-          id="search"
-          value={query || ''}
-          onChange={handleChange}
-          className="peer block w-full transition-all border-0 border-b border-blue-600 py-[9px] pl-10 text-sm outline-2 text-blue-600 hover:text-gray-900 focus:text-gray-900 placeholder:text-blue-600 hover:placeholder:text-gray-500 focus:placeholder:text-gray-500 bg-white"
-          placeholder={placeholder}
-        />
+        <Suspense>
+          <SearchInput />
+        </Suspense>
         <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 text-blue-600 peer-hover:text-gray-900 peer-focus:text-gray-900" />
       </div>
     </form>
