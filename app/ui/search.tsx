@@ -4,11 +4,9 @@ import { SetStateAction, useState } from 'react';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from "react";
+
 export default function Search({ placeholder }: { placeholder: string }) {
   
-  
-  
-
   function SearchInput() {
     const searchParams = useSearchParams();
     const [query, setquery] = useState(searchParams.get('query'));
