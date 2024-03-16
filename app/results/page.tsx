@@ -29,12 +29,13 @@ export default function Page() {
       <Header />
       <main className="flex flex-col p-6 mb-3">
         <div className="grid gap-4 grid-cols-3">
-          <Suspense fallback={<div><h1>Finding services...</h1><ResultsSkeleton /></div>}>
-            <Results />
-          </Suspense>
-
+          <div className="col-span-3 md:col-span-1">
+            <Suspense fallback={<div><h1>Finding services...</h1><ResultsSkeleton /></div>}>
+              <Results />
+            </Suspense>
+          </div>
         
-          <div className="col-span-2">
+          <div className="col-span-3 md:col-span-2">
             <Suspense>
               <Map latitude={52.2} longitude={0.75} zoom={10} />
             </Suspense>
