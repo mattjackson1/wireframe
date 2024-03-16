@@ -29,7 +29,7 @@ export default function Page() {
       <Header />
       <main className="flex flex-col p-6 mb-3">
         <div className="grid gap-4 grid-cols-3">
-          <Suspense fallback={<ResultsSkeleton />}>
+          <Suspense fallback={<div><h1>Finding services...</h1><ResultsSkeleton /></div>}>
             <Results />
           </Suspense>
 

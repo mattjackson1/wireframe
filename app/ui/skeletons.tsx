@@ -4,9 +4,9 @@ const shimmer =
 
 export function CardSkeleton() {
   return (
-    <div className={`${shimmer} relative overflow-hidden rounded-xl bg-gray-100 p-2 shadow-sm`}>
-      <div className="flex items-center justify-center truncate rounded-xl bg-white px-4 py-8">
-        <div className="h-7 w-20 rounded-md bg-gray-200" />
+    <div className={`${shimmer} relative overflow-hidden rounded-xl bg-gray-100 p-3 shadow-sm mb-2`}>
+      <div className="rounded-xl bg-white px-4 py-3">
+        <div className="h-14 rounded-md bg-gray-100" />
       </div>
     </div>
   );
@@ -25,10 +25,12 @@ export function CardsSkeleton() {
 
 export function ResultsSkeleton() {
   return (
-    <>
+    <div className="flex flex-col">
       <CardSkeleton />
-      
-    </>
+      <CardSkeleton />
+      <CardSkeleton />
+      <CardSkeleton />      
+    </div>
   );
 }
 
