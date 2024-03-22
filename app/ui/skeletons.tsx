@@ -6,7 +6,8 @@ export function CardSkeleton() {
   return (
     <div className={`${shimmer} relative overflow-hidden rounded-xl bg-gray-100 p-3 shadow-sm mb-2`}>
       <div className="rounded-xl bg-white px-4 py-3">
-        <div className="h-14 rounded-md bg-gray-100" />
+        <div className="h-4 mb-3 w-1/2 rounded-md bg-gray-100" />
+        <div className="h-10 rounded-md bg-gray-100" />
       </div>
     </div>
   );
