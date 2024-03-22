@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from "next/link";
 import logo from "@/app/ui/infolink-logo.svg";
 import Search from '@/app/ui/search';
+import Navbar from '@/app/ui/navbar';
 
 export default function Header() {
     return (
@@ -15,6 +16,8 @@ export default function Header() {
                 />
             </Link>
             <Search placeholder="Search Suffolk's API..." />
+
+            <Navbar />
         </header>
     )
 }

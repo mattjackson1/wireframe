@@ -11,7 +11,6 @@ export default function Footer() {
             <ul className="pt-4 mr-4">
                 <li className="inline-block mr-3"><a className="text-white no-underline hover:underline" href="about.page">About Us</a></li>
                 <li className="inline-block mr-3"><a className="text-white no-underline hover:underline" href="contact.page">Contact Suffolk InfoLink</a></li>
-                <li className="inline-block mr-3"><a className="text-white no-underline hover:underline" href="help.page">Help</a></li>
                 <li className="inline-block mr-3"><a className="text-white no-underline hover:underline" href="disclaimer.page">Disclaimer</a></li>
                 <li className="inline-block mr-3"><a className="text-white no-underline hover:underline" href="privacy_policy.page">Privacy</a></li>
                 <li className="inline"><a className="text-white no-underline hover:underline" href="sign_in.page">Update your page</a></li>

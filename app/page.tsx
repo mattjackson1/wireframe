@@ -21,17 +21,17 @@ export default function Page() {
           </div>
           
           <div className="p-3">
-            <div className="grid gap-4 grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2">
               <div className="flex justify-between content-center border border-gray-300 rounded-lg px-3 py-5 mb-3 bg-gray-50 shadow hover:bg-gray-300 hover:shadow-lg hover:-translate-y-0.5 transition-all ease-in-out duration-200">
                 <div>
                   <h2 className="font-semibold">Is your Organisation Listed?</h2>
                   <p>Add and update your record today.</p>
                 </div>
-                <ArrowRightCircleIcon className="h-10 text-primary"/>
+                <ArrowRightCircleIcon className="shrink-0 h-10 text-primary"/>
               </div>
               <div className="flex justify-between content-center border border-gray-300 rounded-lg px-3 py-5 mb-3 bg-gray-50 shadow hover:bg-gray-300 hover:shadow-lg hover:-translate-y-0.5 transition-all ease-in-out duration-200">
                 <h2 className="font-semibold">Do you need help to get online?</h2>
-                <ArrowRightCircleIcon className="h-10 text-primary"/>
+                <ArrowRightCircleIcon className="shrink-0 h-10 text-primary"/>
               </div>
             </div>
 
