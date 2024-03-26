@@ -22,7 +22,7 @@ export default function MyComponent() {
     return (
         <>
             {!cookieExists && 
-                <div className="w-100 p-3 m-1 bg-yellow-200">
+                <div className="fixed inset-x-0 bottom-0 w-100 p-3 m-1 bg-yellow-200">
                     <h2>About Cookies On This Site</h2>
                     <p>We would like to use analytics cookies, which sends anonymous information about how our site is used to the Google Analytics service, which we use to improve this site.</p>
                     <p>Let us know if this is OK. We will save your choice in a cookie.</p>
