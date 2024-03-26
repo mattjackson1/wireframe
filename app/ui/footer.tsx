@@ -15,7 +15,7 @@ export default function Footer() {
                 <li className="inline-block mr-3"><a className="text-white no-underline hover:underline" href="privacy_policy.page">Privacy</a></li>
                 <li className="inline"><a className="text-white no-underline hover:underline" href="sign_in.page">Update your page</a></li>
             </ul>
-            <ul className="pt-4 mr-4 flex-1">
+            <ul className="pt-4 pb-4 md:pb-0 md:mr-4 flex-1 text-center md:text-left">
                 <li className="inline-block mr-3">
                     <Link href="https://twitter.com/suffolkcc">
                         <Image
@@ -44,7 +44,7 @@ export default function Footer() {
                     </Link>
                 </li>
             </ul>
-            <Link href="https://www.suffolk.gov.uk" className="mx-auto md:mx-0" target="_blank">
+            <Link href="https://www.suffolk.gov.uk" className="mx-auto mb-2 md:mx-0 md:mb-0" target="_blank">
                 <Image
                     priority
                     src={logo}

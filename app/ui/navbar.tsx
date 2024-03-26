@@ -21,15 +21,15 @@ export default function Navbar() {
                 <Bars3Icon className="h-[32px] w-[32px]" />
             </button>            
             <nav className="flex flex-row">
-                            
+                <div className={(!isOpen && "hidden") + " fixed inset-0 flex bg-gray-900/80"}></div>    
                 <ul
-                    className={(!isOpen && "hidden md:flex") + " fixed top-0 left-0 right-0  md:relative gap-5 bg-white justify-center "}
+                    className={(!isOpen ? "hidden md:flex w-0" : "w-3/4 ") + " md:w-auto fixed top-0 bottom-0 left-0 md:relative gap-5 bg-white justify-center"}
                 >
                     {menu.map((item, index) => (
                         <a
                             href={item.url}
                             key={index}
-                            className={(isOpen && "w-100 p-2") + "flex items-center hover:underline underline-offset-4"}
+                            className={(isOpen && "w-100 p-2") + " flex items-center hover:underline underline-offset-4"}
                         >
                             {item.name}
                         </a>
