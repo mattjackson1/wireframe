@@ -1,10 +1,11 @@
 import Header from '@/app/ui/header';
 import Footer from '@/app/ui/footer';
-import { lusitana } from '@/app/ui/fonts';
+//import { lusitana } from '@/app/ui/fonts';
 import { ArrowRightCircleIcon } from '@heroicons/react/24/outline';
 import Channels from './channels';
-
-import { redirect } from "next/navigation";
+//import { redirect } from "next/navigation";
+import MyModal from '@/app/ui/myModal';
+import NHSWidget from '@/app/ui/nhs-widget';
 
 export default function Page() {
   return (
@@ -12,6 +13,9 @@ export default function Page() {
     <>
       <Header />
       <main className="flex flex-col">
+
+        <MyModal/>
+
         <div className="bg-blue-100 p-4">
           <h2 className="text-2xl font-semibold mb-2">Welcome to Suffolk InfoLink, your community directory</h2>
           <p className="text-lg">Explore thousands of activities, services and events across Suffolk</p>
@@ -36,6 +40,14 @@ export default function Page() {
             </div>
 
             <Channels />
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <section className="mt-4 p-3 bg-white rounded">
+                <h2 className="mb-3">Latest News</h2>
+              </section>
+
+              <NHSWidget uid="db37cf30-d9fa-11e9-b821-6d2c470f88f4" />
+            </div>
           </div>
         </div>
       </main>
