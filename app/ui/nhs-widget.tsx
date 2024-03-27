@@ -1,4 +1,4 @@
-export default function NHSWidget({ uid }: String) {
+export default function NHSWidget(uid : String) {
     return (  
 
         <section className="mt-4 p-3 bg-white rounded">
