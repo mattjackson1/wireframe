@@ -1,13 +1,8 @@
-
-import Header from '@/app/ui/header';
-import Footer from '@/app/ui/footer';
 import Link from 'next/link';
  
 export default function NotFound() {
   return (
-
     <>
-      <Header />
       <main className="flex flex-col">
         <div className="bg-blue-100 text-center p-4">
             <h1 className="font-bold">Page not found</h1>
@@ -17,7 +12,6 @@ export default function NotFound() {
             <Link href="/">Why not return to the home page?</Link>
         </div>
       </main>
-      <Footer />
     </>
   );
 }

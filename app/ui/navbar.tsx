@@ -3,12 +3,13 @@
 import { useState } from 'react';
 import { Bars3Icon } from '@heroicons/react/20/solid';
 
+
 const menu = [
     { name: 'Home', url: '\\' },
     { name: 'Help', url: '\help' },
 ];
 
-export default function Navbar() {
+export default function Navbar({typeListsArray}: {typeListsArray: []}) {
     const [isOpen, setOpen] = useState(false);
     const toggleMenu = () => setOpen(!isOpen);
 
@@ -29,13 +30,26 @@ export default function Navbar() {
                     className={(!isOpen ? "-left-3/4 w-3/4" : "left-0 w-3/4") + " inset-y-0 duration-500 transition-all md:w-auto fixed md:relative md:flex gap-5 bg-white justify-center"}
                 >
                     {menu.map((item, index) => (
-                        <a
-                            href={item.url}
-                            key={index}
-                            className={(isOpen && "w-100") + " p-2 flex items-center hover:underline underline-offset-4"}
-                        >
-                            {item.name}
-                        </a>
+                        <li key={index}>
+                            <a
+                                href={item.url}                                
+                                className={(isOpen && "w-100") + " p-2 flex items-center hover:underline underline-offset-4 text-lg md:text-base"}
+                            >
+                                {item.name}
+                            </a>
+                        </li>
+                    ))}
+
+                    {typeListsArray.map((typeList: any, index: number) => (                        
+                        typeList.types.map((type: any, subindex: number) => (
+                            <li key={index + '-' + subindex}>
+                                <a
+                                    className={(isOpen && "w-100") + " p-2 flex items-center hover:underline underline-offset-4 text-lg md:text-base"}
+                                >
+                                    {type.displayName}
+                                </a>
+                            </li>
+                        ))
                     ))}
                 </ul>
             </nav>

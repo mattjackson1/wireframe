@@ -1,5 +1,3 @@
-import Header from '@/app/ui/header';
-import Footer from '@/app/ui/footer';
 //import { lusitana } from '@/app/ui/fonts';
 import { ArrowRightCircleIcon } from '@heroicons/react/24/outline';
 import Channels from './channels';
@@ -7,11 +5,17 @@ import Channels from './channels';
 import MyModal from '@/app/ui/myModal';
 import NHSWidget from '@/app/ui/nhs-widget';
 
-export default function Page() {
+
+
+export default function Page({
+  params,
+}: {
+  params: { typeListsArray: []}
+}) {
+
   return (
 
     <>
-      <Header />
       <main className="flex flex-col">
 
         <MyModal/>
@@ -44,6 +48,10 @@ export default function Page() {
             <div className="grid gap-4 sm:grid-cols-2">
               <section className="mt-4 p-3 bg-white rounded">
                 <h2 className="mb-3">Latest News</h2>
+
+              
+                
+
               </section>
 
               <NHSWidget uid="db37cf30-d9fa-11e9-b821-6d2c470f88f4" />
@@ -51,7 +59,6 @@ export default function Page() {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 }

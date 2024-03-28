@@ -4,7 +4,7 @@ import logo from "@/app/ui/infolink-logo.svg";
 import Search from './search';
 import Navbar from '@/app/ui/navbar';
 
-export default function Header() {
+export default function Header({typeListsArray}: {typeListsArray: []}) {
     return (
         <header className="flex flex-wrap md:h-20 shrink-0 items-end bg-gradient-to-r from-blue-100 to-transparent p-4 mb-3">
             <Link href="/">
@@ -17,7 +17,7 @@ export default function Header() {
             </Link>
             <Search placeholder="Search Suffolk's API..." />
 
-            <Navbar />
+            <Navbar typeListsArray={typeListsArray} />
         </header>
     )
 }
