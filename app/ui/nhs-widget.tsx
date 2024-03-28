@@ -1,8 +1,4 @@
-interface NHSWidgetProps {
-    uid: string;
-}
-
-export default function NHSWidget({ uid }: NHSWidgetProps) {
+export default function NHSWidget({ uid }: {uid: string}) {
     return (
         <section className="mt-4 p-3 bg-white rounded">
             <h2 className="mb-3">Access Your Local NHS Services</h2>
