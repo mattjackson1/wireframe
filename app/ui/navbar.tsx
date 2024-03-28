@@ -27,7 +27,7 @@ export default function Navbar({typeListsArray}: {typeListsArray: []}) {
                     onClick={toggleMenu}
                 ></div>    
                 <ul
-                    className={(!isOpen ? "-left-3/4 w-3/4" : "left-0 w-3/4") + " inset-y-0 duration-500 transition-all md:w-auto fixed md:relative md:flex gap-5 bg-white justify-center"}
+                    className={(!isOpen ? "-left-3/4 w-3/4" : "left-0 w-3/4") + " md:left-0 md:w-auto inset-y-0 duration-500 transition-all fixed md:relative md:flex gap-5 bg-white justify-center"}
                 >
                     {menu.map((item, index) => (
                         <li key={index}>
