@@ -20,7 +20,7 @@ npm i
 
 ### Executing scripts
 
--   To start up the dev environment (http:\\localhost:3000)
+-   To start up the dev environment (on http://localhost:3000)
 
 ```
 npm run dev
