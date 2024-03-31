@@ -1,9 +1,13 @@
-'use client';
+"use client";
 
-import { MapContainer as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css'; // Re-uses images from ~leaflet package
-import 'leaflet-defaulticon-compatibility';
+import {
+  MapContainer as LeafletMap,
+  TileLayer,
+  Marker,
+  Popup,
+} from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css"; // Re-uses images from ~leaflet package
 
 interface MapProps {
   latitude: number;
@@ -12,10 +16,9 @@ interface MapProps {
 }
 
 export default function Map({ latitude, longitude, zoom = 13 }: MapProps) {
-
   return (
     <LeafletMap
-      className="w-100 h-[500px] col-span-3 md:col-auto"
+      className="w-100 col-span-3 h-[500px] md:col-auto"
       center={[latitude, longitude]}
       zoom={zoom}
       scrollWheelZoom={false}

@@ -1,11 +1,13 @@
-import '@/app/ui/global.css';
-import { inter } from '@/app/ui/fonts';
-import { getData } from '@/app/lib/data';
-import Header from '@/app/ui/header';
-import Footer from '@/app/ui/footer';
-import CookieBanner from '@/app/ui/cookie-banner';
+import "@/app/ui/global.css";
+import { inter } from "@/app/ui/fonts";
+import { getData } from "@/app/lib/data";
+import Header from "@/app/ui/header";
+import Footer from "@/app/ui/footer";
+import CookieBanner from "@/app/ui/cookie-banner";
 
-const data = await getData(`https://api.openobjects.com/v2/infolink/typelists?key=${process.env.API_KEY}`);
+const data = await getData(
+  `https://api.openobjects.com/v2/infolink/typelists?key=${process.env.API_KEY}`,
+);
 const typeListsArray = data.typeLists;
 
 export default function RootLayout({
@@ -14,10 +16,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
   params: {
-    typeListsArray: []
-  }
+    typeListsArray: [];
+  };
 }) {
-
   params.typeListsArray = typeListsArray;
 
   return (
@@ -26,7 +27,7 @@ export default function RootLayout({
         <Header typeListsArray={params.typeListsArray} />
         {children}
         <Footer />
-        <CookieBanner/>
+        <CookieBanner />
       </body>
     </html>
   );

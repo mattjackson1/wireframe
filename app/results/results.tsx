@@ -8,11 +8,14 @@ export default async function Results() {
   const searchParams = useSearchParams();
   const query = searchParams.get("query");
   const data = await getData(
-    `https://api.openobjects.com/v2/infolink/records?key=6037874de4b0d1e39971ca2e&count=10&query=${query}`
+    `https://api.openobjects.com/v2/infolink/records?key=6037874de4b0d1e39971ca2e&count=10&query=${query}`,
   );
   return (
     <div className="grid gap-4">
-      <h1>Found {data.totalRecords > 0 ? data.totalRecords : ' no matching'} services</h1>
+      <h1>
+        Found {data.totalRecords > 0 ? data.totalRecords : " no matching"}{" "}
+        services
+      </h1>
 
       {data.records.map(
         (
@@ -21,7 +24,7 @@ export default async function Results() {
             title: string;
             public_address_map_postcode: string;
           },
-          index: Key | null | undefined
+          index: Key | null | undefined,
         ) => (
           <Card key={index}>
             <Link className="block" href={`service/${record.externalId}`}>
@@ -29,7 +32,7 @@ export default async function Results() {
               {record.public_address_map_postcode}
             </Link>
           </Card>
-        )
+        ),
       )}
     </div>
   );

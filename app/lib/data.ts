@@ -1,5 +1,5 @@
 export async function getData(endpoint: string) {
-  const res = await fetch(endpoint, { cache: 'no-store' });
+  const res = await fetch(endpoint, { cache: "no-store" });
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
