@@ -3,7 +3,15 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 
-export default function MyModal() {
+export default function MyModal({
+    children,
+    btnText,
+    title,
+}: {
+    children: React.ReactNode;
+    btnText: string | React.ReactNode;
+    title: string;
+}) {
     let [isOpen, setIsOpen] = useState(false);
 
     function closeModal() {
@@ -19,9 +27,9 @@ export default function MyModal() {
             <button
                 type="button"
                 onClick={openModal}
-                className="mx-auto mb-1 w-[150px] rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+                className="mx-auto mb-1 rounded-md bg-black/20 px-4 py-2 text-sm text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
             >
-                Open a modal
+                {btnText}
             </button>
 
             <Transition appear show={isOpen} as={Fragment}>
@@ -52,20 +60,19 @@ export default function MyModal() {
                                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                                     <Dialog.Title
                                         as="h3"
-                                        className="text-lg font-medium leading-6 text-gray-900"
+                                        className="flex justify-between text-lg leading-6 text-gray-900"
                                     >
-                                        The modal is open!
-                                    </Dialog.Title>
-
-                                    <div className="mt-4">
+                                        {title}
                                         <button
                                             type="button"
-                                            className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                                            className="rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                                             onClick={closeModal}
                                         >
-                                            Got it, thanks!
+                                            x
                                         </button>
-                                    </div>
+                                    </Dialog.Title>
+
+                                    {children}
                                 </Dialog.Panel>
                             </Transition.Child>
                         </div>

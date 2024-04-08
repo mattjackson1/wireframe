@@ -2,15 +2,12 @@
 import { ArrowRightCircleIcon } from '@heroicons/react/24/outline';
 import Channels from './channels';
 //import { redirect } from "next/navigation";
-import MyModal from '@/app/ui/myModal';
 import NHSWidget from '@/app/ui/nhs-widget';
 
 export default function Page({ params }: { params: { typeListsArray: [] } }) {
     return (
         <>
             <main className="flex flex-col">
-                <MyModal />
-
                 <div className="bg-blue-100 p-4">
                     <h2 className="mb-2 text-2xl font-semibold">
                         Welcome to Suffolk InfoLink, your community directory

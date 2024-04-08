@@ -3,6 +3,7 @@ import { getData } from '@/app/lib/data';
 import Image from 'next/image';
 import Map from '@/app/ui/map';
 import { fields } from '@/app/lib/display-fields';
+import Share from '@/components/share';
 
 export default async function Page({ params }: { params: { id: string } }) {
     const record = await getData(
@@ -12,6 +13,10 @@ export default async function Page({ params }: { params: { id: string } }) {
 
     return (
         <main className="mb-3 flex flex-col p-6">
+            <Suspense fallback={<span>Loading social sharing...</span>}>
+                <Share />
+            </Suspense>
+
             <div className="grid grid-cols-3 gap-4">
                 <div className="col-span-3 bg-gray-50 p-3 md:col-span-2">
                     <div className="mb-2 flex items-start">
