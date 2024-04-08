@@ -1,6 +1,6 @@
 'use client';
 
-import { HasCookie, ClearCookieMessage } from '@/app/actions';
+import { HasCookie, ClearCookieMessage } from '@/actions';
 import { useState, useEffect } from 'react';
 
 export default function MyComponent() {
