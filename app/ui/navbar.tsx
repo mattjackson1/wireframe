@@ -17,7 +17,7 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
             <button onClick={toggleMenu} className="m-2 border p-1 md:hidden">
                 <Bars3Icon className="h-[32px] w-[32px]" />
             </button>
-            <nav className="flex flex-row">
+            <nav className="flex flex-row bg-blue-50">
                 <div
                     className={
                         (!isOpen && 'hidden') +
@@ -28,7 +28,7 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
                 <ul
                     className={
                         (!isOpen ? '-left-3/4 w-3/4' : 'left-0 w-3/4') +
-                        ' fixed inset-y-0 justify-center gap-5 bg-white transition-all duration-500 md:relative md:left-0 md:flex md:w-auto'
+                        ' fixed inset-y-0 justify-center gap-5 transition-all duration-500 md:relative md:left-0 md:flex md:w-auto'
                     }
                 >
                     {menu.map((item, index) => (

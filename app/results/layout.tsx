@@ -1,7 +1,7 @@
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
 import { getData } from '@/app/lib/data';
-import Header from '@/app/ui/header';
+import Header from '@/app/ui/results/header';
 import Footer from '@/app/ui/footer';
 import CookieBanner from '@/app/ui/cookie-banner';
 
@@ -19,6 +19,8 @@ export default function RootLayout({
         typeListsArray: [];
     };
 }) {
+    params.typeListsArray = typeListsArray;
+
     return (
         <html lang="en">
             <body className={`${inter.className} antialiased`}>
