@@ -24,10 +24,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${inter.className} antialiased`}>
+                <CookieBanner />
                 <Header typeListsArray={params.typeListsArray} />
                 {children}
                 <Footer />
-                <CookieBanner />
             </body>
         </html>
     );

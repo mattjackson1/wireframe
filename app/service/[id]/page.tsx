@@ -18,11 +18,11 @@ export default async function Page({ params }: { params: { id: string } }) {
                         <h1 className="grow">{record.title}</h1>
 
                         {!!record.logo && (
-                            <Suspense fallback={<h2>Loading...</h2>}>
+                            <Suspense fallback={<span>Loading...</span>}>
                                 <Image
+                                    className="flex"
                                     src={record.logo.filename}
                                     alt={record.logo.description}
-                                    className="flex"
                                     width={100}
                                     height={100}
                                 />
@@ -31,7 +31,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                     </div>
 
                     <div
-                        dangerouslySetInnerHTML={{ __html: record.description }}
+                        dangerouslySetInnerHTML={markup}
                         className="mb-3"
                     ></div>
 
