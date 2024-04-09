@@ -30,18 +30,3 @@ export async function getData(endpoint) {
         }
     }
 }
-
-export async function Typelists() {
-    try {
-        const data = await getData(
-            `https://api.openobjects.com/v2/infolink/typelists?key=${process.env.API_KEY}`,
-        );
-        return data.typeLists;
-    } catch (error) {
-        if (error instanceof TypeError) {
-            console.error("Network error:", error);
-        } else {
-            console.error("Error fetching data:", error);
-        }
-    }
-}

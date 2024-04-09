@@ -31,6 +31,7 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
                 ></div>
                 <ul
                     className={
+                        'bg-blue-50 ' +
                         (!isOpen ? '-left-3/4 w-3/4' : 'left-0 w-3/4') +
                         ' fixed inset-y-0 justify-center gap-5 transition-all duration-500 md:relative md:left-0 md:flex md:w-auto'
                     }
