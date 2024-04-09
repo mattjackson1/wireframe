@@ -1,5 +1,5 @@
 import { Suspense, Fragment } from 'react';
-import { getData } from '@/app/lib/data';
+import { getData } from '@/actions';
 import Image from 'next/image';
 import { fields } from '@/app/lib/display-fields';
 

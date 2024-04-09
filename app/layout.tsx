@@ -1,6 +1,6 @@
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
-import { getData } from '@/app/lib/data';
+import { getData } from '@/actions';
 import Header from '@/app/ui/header';
 import Footer from '@/app/ui/footer';
 import CookieBanner from '@/app/ui/cookie-banner';

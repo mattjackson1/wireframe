@@ -1,7 +1,6 @@
 'use server';
 
 import { cookies } from 'next/headers';
-import { getData } from '@/app/lib/data';
 
 export async function ClearCookieMessage() {
     // Set cookie
@@ -14,10 +13,35 @@ export async function HasCookie(name) {
     return cookieStore.has(name);
 }
 
-export async function Typelists() {
-    const data = await getData(
-        `https://api.openobjects.com/v2/infolink/typelists?key=${process.env.API_KEY}`,
-    );
+export async function getData(endpoint) {
+    try {
+        const res = await fetch(endpoint, { cache: 'no-store' });
+        if (!res.ok) {
+            throw new Error(`Failed to fetch data from ${endpoint}: ${res.statusText}`);
+        }
+        return await res.json(); // parses JSON response into native JavaScript objects
+    } catch (error) {
+        if (error instanceof TypeError) {
+            console.error("Network error:", error);
+            //throw new Error("Failed to connect to the server. Please check your internet connection.");
+        } else {
+            console.error("Error fetching data:", error);
+            //throw error; // Rethrow other types of errors
+        }
+    }
+}
 
-    return data.typeLists;
+export async function Typelists() {
+    try {
+        const data = await getData(
+            `https://api.openobjects.com/v2/infolink/typelists?key=${process.env.API_KEY}`,
+        );
+        return data.typeLists;
+    } catch (error) {
+        if (error instanceof TypeError) {
+            console.error("Network error:", error);
+        } else {
+            console.error("Error fetching data:", error);
+        }
+    }
 }

@@ -14,6 +14,7 @@ export default function Header({ typeListsArray }: { typeListsArray: [] }) {
                         src={logo}
                         alt="Suffolk InfoLink"
                         height={50}
+                        width={455}
                     />
                 </Link>
                 <Search placeholder="Search Suffolk's API..." />

@@ -1,4 +1,4 @@
-import { getData } from '@/app/lib/data';
+import { getData } from '@/actions';
 import Channel from './channel';
 
 const data = await getData(
