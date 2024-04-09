@@ -23,6 +23,7 @@ export default function RootLayout({
 
     return (
         <html lang="en">
+            <title>Suffolk InfoLink</title>
             <body className={`${inter.className} antialiased`}>
                 <CookieBanner />
                 <Header typeListsArray={params.typeListsArray} />

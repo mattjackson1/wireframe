@@ -14,7 +14,11 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
 
     return (
         <>
-            <button onClick={toggleMenu} className="m-2 border p-1 md:hidden">
+            <button
+                onClick={toggleMenu}
+                className="m-2 border p-1 md:hidden"
+                aria-label="Navigation menu"
+            >
                 <Bars3Icon className="h-[32px] w-[32px]" />
             </button>
             <nav className="flex flex-row bg-blue-50">
