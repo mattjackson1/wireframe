@@ -14,10 +14,7 @@ export const fields: Field[] = [
     { name: 'ecd_sp_wheelchairaccess', label: 'Wheelchair access' },
     { name: 'ecd_sp_cultural', label: 'Cultural provisions' },
     { name: 'services', label: 'Age Groups' },
-    {
-        name: 'ecd_sp_specialneeds',
-        label: 'Recent experience of supporting children with additional needs',
-    },
+    { name: 'ecd_sp_specialneeds', label: 'Recent experience of supporting children with additional needs' },
     // Add more fields if needed...
 ].map((field: Field) => ({
     name: field.name,
