@@ -10,20 +10,14 @@ export default async function Results() {
     let data;
 
     try {
-        data = await getData(
-            `https://api.openobjects.com/v2/infolink/records?key=6037874de4b0d1e39971ca2e&count=10&query=${query}`,
-        );
+        data = await getData(`https://api.openobjects.com/v2/infolink/records?key=6037874de4b0d1e39971ca2e&count=10&query=${query}`);
     } catch (error) {
         throw error; // Throw the error to trigger Next.js error handling
     }
 
     return (
         <div className="grid gap-4">
-            <h1>
-                Found{' '}
-                {data.totalRecords > 0 ? data.totalRecords : ' no matching'}{' '}
-                services
-            </h1>
+            <h1>Found {data.totalRecords > 0 ? data.totalRecords : ' no matching'} services</h1>
 
             {data.records.map(
                 (
@@ -35,10 +29,7 @@ export default async function Results() {
                     index: Key | null | undefined,
                 ) => (
                     <Card key={index}>
-                        <Link
-                            className="block"
-                            href={`service/${record.externalId}`}
-                        >
+                        <Link className="block" href={`service/${record.externalId}`}>
                             <h2>{record.title}</h2>
                             {record.public_address_map_postcode}
                         </Link>

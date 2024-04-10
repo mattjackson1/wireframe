@@ -60,10 +60,9 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
                                     >
                                         <Menu.Items className="absolute z-10 w-60 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700">
                                             {type.types.map((type: any, subindex: number) => (
-                                                <Menu.Item>
+                                                <Menu.Item key={index + '-' + subindex}>
                                                     {({ active }) => (
                                                         <a
-                                                            key={index + '-' + subindex}
                                                             className={
                                                                 (isOpen && 'w-100') +
                                                                 ' flex items-center p-2 text-lg underline-offset-4 hover:underline md:text-base'

@@ -41,7 +41,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                                                 <>
                                                     {Array.isArray(record[field.name]) && (
                                                         <>
-                                                            {record[field.name].map((item, index) => (
+                                                            {record[field.name].map((item: any, index: number) => (
                                                                 <Fragment key={index}>
                                                                     {item.displayName}
                                                                     {/* Only show a comma if not at the end */}

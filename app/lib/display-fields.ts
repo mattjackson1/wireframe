@@ -1,7 +1,7 @@
 interface Field {
     name: string;
     label: string;
-    link_type: string;
+    link_type?: string;
 }
 
 export const fields: Field[] = [
