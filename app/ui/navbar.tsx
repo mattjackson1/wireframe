@@ -19,7 +19,7 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
                 <Bars3Icon className="h-[32px] w-[32px]" />
             </button>
             <nav className="flex flex-row bg-blue-50">
-                <div className={(!isOpen && 'hidden') + ' fixed inset-0 flex bg-gray-900/80'} onClick={toggleMenu}></div>
+                <div className={(!isOpen && 'hidden') + ' fixed inset-0 flex bg-gray-900/80 md:hidden'} onClick={toggleMenu}></div>
                 <ul
                     className={
                         'bg-blue-50 ' +
