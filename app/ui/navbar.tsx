@@ -23,7 +23,7 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
                 <ul
                     className={
                         'bg-blue-50 ' +
-                        (!isOpen ? '-left-3/4 w-3/4' : 'left-0 w-3/4') +
+                        (!isOpen ? '-left-3/4 w-3/4' : 'left-0 w-3/4 overflow-auto') +
                         ' fixed inset-y-0 justify-center gap-5 transition-all duration-500 md:relative md:left-0 md:flex md:w-auto'
                     }
                 >
@@ -47,7 +47,7 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
                                             (isOpen && 'w-100') + ' flex items-center p-2 text-lg underline-offset-4 hover:underline md:text-base'
                                         }
                                     >
-                                        {type.displayName}
+                                        {type.displayName} &#9662;
                                     </Menu.Button>
 
                                     <Transition
