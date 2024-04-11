@@ -5,9 +5,7 @@ import Header from '@/app/ui/results/header';
 import Footer from '@/app/ui/footer';
 import CookieBanner from '@/app/ui/cookie-banner';
 
-const data = await getData(
-    `https://api.openobjects.com/v2/infolink/typelists?key=${process.env.API_KEY}`,
-);
+const data = await getData(`https://api.openobjects.com/v2/infolink/typelists?key=${process.env.API_KEY}`);
 const typeListsArray = data.typeLists;
 
 export default function RootLayout({
@@ -24,10 +22,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${inter.className} antialiased`}>
+                <CookieBanner />
                 <Header typeListsArray={params.typeListsArray} />
                 {children}
                 <Footer />
-                <CookieBanner />
             </body>
         </html>
     );
