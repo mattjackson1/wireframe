@@ -2,16 +2,9 @@
 
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
+import { Button } from '@/app/ui/button';
 
-export default function MyModal({
-    children,
-    btnText,
-    title,
-}: {
-    children: React.ReactNode;
-    btnText: string | React.ReactNode;
-    title: string;
-}) {
+export default function MyModal({ children, btnText, title }: { children: React.ReactNode; btnText: string | React.ReactNode; title: string }) {
     let [isOpen, setIsOpen] = useState(false);
 
     function closeModal() {
@@ -24,13 +17,7 @@ export default function MyModal({
 
     return (
         <>
-            <button
-                type="button"
-                onClick={openModal}
-                className="mx-auto mb-1 rounded-md bg-black/20 px-4 py-2 text-sm text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
-            >
-                {btnText}
-            </button>
+            <Button onClick={openModal}>{btnText}</Button>
 
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -58,10 +45,7 @@ export default function MyModal({
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                                    <Dialog.Title
-                                        as="h3"
-                                        className="flex justify-between text-lg leading-6 text-gray-900"
-                                    >
+                                    <Dialog.Title as="h3" className="flex justify-between text-lg leading-6 text-gray-900">
                                         {title}
                                         <button
                                             type="button"

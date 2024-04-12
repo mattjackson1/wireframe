@@ -8,22 +8,12 @@ import CookieBanner from '@/app/ui/cookie-banner';
 const data = await getData(`https://api.openobjects.com/v2/infolink/typelists?key=${process.env.API_KEY}`);
 const typeListsArray = data.typeLists;
 
-export default function RootLayout({
-    children,
-    params,
-}: {
-    children: React.ReactNode;
-    params: {
-        typeListsArray: [];
-    };
-}) {
-    params.typeListsArray = typeListsArray;
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
             <body className={`${inter.className} antialiased`}>
                 <CookieBanner />
-                <Header typeListsArray={params.typeListsArray} />
+                <Header typeListsArray={typeListsArray} />
                 {children}
                 <Footer />
             </body>
