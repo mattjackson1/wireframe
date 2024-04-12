@@ -1,6 +1,7 @@
 import { Suspense, Fragment } from 'react';
 import { getData } from '@/actions';
 import Image from 'next/image';
+import Link from 'next/link';
 import Map from '@/app/ui/map';
 import { fields } from '@/app/lib/display-fields';
 import Share from '@/components/share';
@@ -43,8 +44,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                                                         <>
                                                             {record[field.name].map((item: any, index: number) => (
                                                                 <Fragment key={index}>
-                                                                    {item.displayName}
-                                                                    {/* Only show a comma if not at the end */}
+                                                                    {!!item.displayName ? item.displayName : item}
                                                                     {index !== record[field.name].length - 1 && ', '}
                                                                 </Fragment>
                                                             ))}
@@ -52,7 +52,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                                                     )}
                                                 </>
                                             ) : field.link_type === 'mailto' ? (
-                                                <a href={`mailto:${record[field.name]}`}>{record[field.name]}</a>
+                                                <Link href={`mailto:${record[field.name]}`}>{record[field.name]}</Link>
                                             ) : (
                                                 record[field.name]
                                             )}
