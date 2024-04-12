@@ -40,7 +40,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                                         <dt className="bg-gray-100 p-2">
                                             {typeof record[field.name] === 'object' ? (
                                                 <>
-                                                    {Array.isArray(record[field.name]) && (
+                                                    {Array.isArray(record[field.name]) ? (
                                                         <>
                                                             {record[field.name].map((item: any, index: number) => (
                                                                 <Fragment key={index}>
@@ -49,6 +49,8 @@ export default async function Page({ params }: { params: { id: string } }) {
                                                                 </Fragment>
                                                             ))}
                                                         </>
+                                                    ) : (
+                                                        <>{record[field.name].displayName}</>
                                                     )}
                                                 </>
                                             ) : field.link_type === 'mailto' ? (
