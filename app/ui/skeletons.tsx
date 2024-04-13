@@ -26,11 +26,14 @@ export function CardsSkeleton() {
 
 export function ResultsSkeleton() {
     return (
-        <div className="flex flex-col">
-            <CardSkeleton />
-            <CardSkeleton />
-            <CardSkeleton />
-            <CardSkeleton />
+        <div>
+            <h1>Finding services...</h1>
+            <div className="flex flex-col">
+                <CardSkeleton />
+                <CardSkeleton />
+                <CardSkeleton />
+                <CardSkeleton />
+            </div>
         </div>
     );
 }

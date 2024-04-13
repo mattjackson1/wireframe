@@ -5,29 +5,29 @@ import { ResultsSkeleton } from '@/app/ui/skeletons';
 import { Suspense, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 
-export default function Page() {
+export default async function Page({
+    searchParams,
+}: {
+    searchParams?: {
+        query?: string;
+        page?: string;
+    };
+}) {
+    const query = searchParams?.query || '';
+    const currentPage = Number(searchParams?.page) || 1;
+
     const Map = useMemo(
         () =>
             dynamic(() => import('@/app/ui/map'), {
                 loading: () => (
-                    <button
-                        type="button"
-                        className="text-gray inline-flex items-center px-4 py-2 transition duration-150 ease-in-out"
-                    >
+                    <button type="button" className="text-gray inline-flex items-center px-4 py-2 transition duration-150 ease-in-out">
                         <svg
                             className="text-gray -ml-1 mr-3 h-5 w-5 motion-safe:animate-spin"
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
                         >
-                            <circle
-                                className="opacity-25"
-                                cx="12"
-                                cy="12"
-                                r="10"
-                                stroke="currentColor"
-                                strokeWidth="4"
-                            ></circle>
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                             <path
                                 className="opacity-75"
                                 fill="currentColor"
@@ -46,16 +46,11 @@ export default function Page() {
         <main className="mb-3 flex flex-col p-6">
             <div className="grid grid-cols-3 gap-4">
                 <div className="col-span-3 md:col-span-1">
-                    <Suspense
-                        fallback={
-                            <div>
-                                <h1>Finding services...</h1>
-                                <ResultsSkeleton />
-                            </div>
-                        }
-                    >
-                        <Results />
+                    <Suspense key={query + currentPage} fallback={<ResultsSkeleton />}>
+                        <Results query={query} currentPage={currentPage} />
                     </Suspense>
+
+                    {/* <Pagination totalPages={totalPages} /> */}
                 </div>
 
                 <div className="col-span-3 md:col-span-2">

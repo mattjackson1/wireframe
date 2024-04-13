@@ -1,9 +1,7 @@
-import { getData } from '@/app/lib/data';
+import { getData } from '@/actions';
 import Channel from './channel';
 
-const data = await getData(
-    `https://api.openobjects.com/v2/infolink/typelists?key=${process.env.API_KEY}`,
-);
+const data = await getData(`https://api.openobjects.com/v2/infolink/typelists?key=${process.env.API_KEY}`);
 const typeListsArray2 = data.typeLists;
 
 export default async function Channels() {

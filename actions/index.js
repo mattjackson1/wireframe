@@ -23,10 +23,10 @@ export async function getData(endpoint) {
     } catch (error) {
         if (error instanceof TypeError) {
             console.error("Network error:", error);
-            //throw new Error("Failed to connect to the server. Please check your internet connection.");
+            throw new Error("Failed to connect to the server. Please check your internet connection.");
         } else {
             console.error("Error fetching data:", error);
-            //throw error; // Rethrow other types of errors
+            throw error; // Rethrow other types of errors
         }
     }
 }
