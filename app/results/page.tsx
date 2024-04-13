@@ -4,6 +4,7 @@ import Results from '@/app/results/results';
 import { ResultsSkeleton } from '@/app/ui/skeletons';
 import { Suspense, useMemo } from 'react';
 import dynamic from 'next/dynamic';
+import Pagination from './pagination';
 
 export default async function Page({
     searchParams,
@@ -54,7 +55,7 @@ export default async function Page({
                 </div>
 
                 <div className="col-span-3 md:col-span-2">
-                    <Suspense>
+                    <Suspense fallback={<div>Loading map... </div>}>
                         <Map latitude={52.2} longitude={0.75} zoom={10} />
                     </Suspense>
                 </div>
