@@ -1,6 +1,9 @@
+import { Suspense } from 'react';
 import { getData } from '@/actions';
 import { Card } from '@/app/ui/card';
 import Link from 'next/link';
+import Search from '@/app/ui/clientsearch';
+import Pagination from './pagination';
 
 interface Record {
     externalId: string;
@@ -23,6 +26,8 @@ export default async function Results({ query, currentPage }: { query: string; c
                     </Link>
                 </Card>
             ))}
+
+            <Pagination />
         </div>
     );
 }

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '@/app/ui/infolink-logo.svg';
-import Search from '@/app/ui/search';
 import Navbar from '@/app/ui/navbar';
 
 export default function Header({ typeListsArray }: { typeListsArray: [] }) {
@@ -11,7 +10,6 @@ export default function Header({ typeListsArray }: { typeListsArray: [] }) {
                 <Link href="/">
                     <Image priority src={logo} alt="Suffolk InfoLink" height={50} width={460} />
                 </Link>
-                <Search placeholder="Search Suffolk's API..." />
             </header>
             <Navbar typeListsArray={typeListsArray} />
         </>

@@ -1,7 +1,7 @@
 //import { lusitana } from '@/app/ui/fonts';
 import { HiOutlineArrowRightCircle } from 'react-icons/hi2';
 import Channels from './channels';
-//import { redirect } from "next/navigation";
+import Search from '@/app/ui/search';
 import NHSWidget from '@/app/ui/nhs-widget';
 
 export default function Page({ params }: { params: { typeListsArray: [] } }) {
@@ -12,6 +12,8 @@ export default function Page({ params }: { params: { typeListsArray: [] } }) {
                     <h2 className="mb-2 text-2xl font-semibold">Welcome to Suffolk InfoLink, your community directory</h2>
                     <p className="text-lg">Explore thousands of activities, services and events across Suffolk</p>
 
+                    <Search placeholder="Search Suffolk's API..." />
+
                     <div className="bg-yellow-300 p-3">Worried about the cost of living? Need some support? Find out more here</div>
 
                     <div className="p-3">
@@ -21,11 +23,11 @@ export default function Page({ params }: { params: { typeListsArray: [] } }) {
                                     <h2 className="font-semibold">Is your Organisation Listed?</h2>
                                     <p>Add and update your record today.</p>
                                 </div>
-                                <HiOutlineArrowRightCircle className="h-10 shrink-0 text-primary" />
+                                <HiOutlineArrowRightCircle className="h-10 shrink-0 text-[32px] text-primary" />
                             </div>
                             <div className="mb-3 flex content-center justify-between rounded-lg border border-gray-300 bg-gray-50 px-3 py-5 shadow transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:bg-gray-300 hover:shadow-lg">
                                 <h2 className="font-semibold">Do you need help to get online?</h2>
-                                <HiOutlineArrowRightCircle className="h-10 shrink-0 text-primary" />
+                                <HiOutlineArrowRightCircle className="h-10 shrink-0 text-[32px] text-primary" />
                             </div>
                         </div>
 

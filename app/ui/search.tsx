@@ -25,7 +25,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
     }
 
     return (
-        <form action="/results?query={query}" className="flex flex-1 flex-shrink-0 justify-center">
+        <form action="/results?query={query}" className="my-3 flex flex-1 flex-shrink-0 justify-center">
             <div className="relative flex min-w-[50%]">
                 <label htmlFor="search" className="sr-only">
                     Search
