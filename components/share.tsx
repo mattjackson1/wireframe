@@ -18,36 +18,34 @@ export default function Share() {
     };
 
     return (
-        <div className="mb-3 grid justify-items-end">
-            <MyModal
-                btnText={
-                    <>
-                        <HiOutlineShare className="mr-2 h-[18px] w-[18px]" />
-                        <span>Share</span>
-                    </>
-                }
-                title="Share this page"
-            >
-                <div className="flex gap-2">
-                    <EmailShareButton url={pathname} subject="Look at this...">
-                        <EmailIcon size={32} round={true} />
-                    </EmailShareButton>
+        <MyModal
+            btnText={
+                <>
+                    <HiOutlineShare className="mr-2 h-[18px] w-[18px]" />
+                    <span>Share</span>
+                </>
+            }
+            title="Share this page"
+        >
+            <div className="flex gap-2">
+                <EmailShareButton url={pathname} subject="Look at this...">
+                    <EmailIcon size={32} round={true} />
+                </EmailShareButton>
 
-                    <FacebookShareButton url={pathname}>
-                        <FacebookIcon size={32} round={true} />
-                    </FacebookShareButton>
+                <FacebookShareButton url={pathname}>
+                    <FacebookIcon size={32} round={true} />
+                </FacebookShareButton>
 
-                    <TwitterShareButton url={pathname}>
-                        <XIcon size={32} round={true} />
-                    </TwitterShareButton>
+                <TwitterShareButton url={pathname}>
+                    <XIcon size={32} round={true} />
+                </TwitterShareButton>
 
-                    <WhatsappShareButton url={pathname}>
-                        <WhatsappIcon size={32} round={true} />
-                    </WhatsappShareButton>
+                <WhatsappShareButton url={pathname}>
+                    <WhatsappIcon size={32} round={true} />
+                </WhatsappShareButton>
 
-                    <Button onClick={handleClick}>{btnText}</Button>
-                </div>
-            </MyModal>
-        </div>
+                <Button onClick={handleClick}>{btnText}</Button>
+            </div>
+        </MyModal>
     );
 }

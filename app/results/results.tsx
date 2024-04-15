@@ -1,8 +1,6 @@
-import { Suspense } from 'react';
 import { getData } from '@/actions';
 import { Card } from '@/app/ui/card';
 import Link from 'next/link';
-import Search from '@/app/ui/clientsearch';
 import Pagination from './pagination';
 
 interface Record {
@@ -20,7 +18,7 @@ export default async function Results({ query, currentPage }: { query: string; c
 
             {data.records.map((record: Record, index: number) => (
                 <Card key={index}>
-                    <Link className="block" href={`service/${record.externalId}`}>
+                    <Link className="block" href={`service/${record.externalId}?query=${query}`}>
                         <h2>{record.title}</h2>
                         {record.public_address_map_postcode}
                     </Link>

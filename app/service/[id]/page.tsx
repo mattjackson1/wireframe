@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Map from '@/app/ui/map';
 import { fields } from '@/app/lib/display-fields';
 import Search from '@/app/ui/clientsearch';
+import { Button } from '@/app/ui/button';
 import Share from '@/components/share';
 
 export default async function Page({ params }: { params: { id: string } }) {
@@ -31,11 +32,11 @@ export default async function Page({ params }: { params: { id: string } }) {
                 <Search placeholder="Search Suffolk's API..." />
             </div>
 
-            <Suspense fallback={<span>Loading social sharing...</span>}>
-                <div className="mx-6">
+            <div className="mx-6 mb-3 grid justify-items-end">
+                <Suspense fallback={<Button>Loading social sharing...</Button>}>
                     <Share />
-                </div>
-            </Suspense>
+                </Suspense>
+            </div>
 
             <div className="mx-6 grid grid-cols-3 gap-4">
                 <div className="col-span-3 bg-gray-50 p-3 md:col-span-2">
