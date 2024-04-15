@@ -1,7 +1,7 @@
 'use client';
 
 import { SetStateAction, useState } from 'react';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 
@@ -33,7 +33,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
                 <Suspense fallback={<>Loading inputs... </>}>
                     <SearchInput />
                 </Suspense>
-                <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-hover:text-gray-900 peer-focus:text-gray-900" />
+                <FaMagnifyingGlass className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-hover:text-gray-900 peer-focus:text-gray-900" />
             </div>
         </form>
     );

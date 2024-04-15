@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Bars3Icon } from '@heroicons/react/20/solid';
+import { FaBars } from 'react-icons/fa6';
 import { Menu, Transition } from '@headlessui/react';
 
 const menu = [
@@ -16,7 +16,7 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
     return (
         <>
             <button onClick={toggleMenu} className="m-2 border p-1 md:hidden" aria-label="Navigation menu">
-                <Bars3Icon className="h-[32px] w-[32px]" />
+                <FaBars className="h-[32px] w-[32px]" />
             </button>
             <nav className="flex flex-row bg-blue-50">
                 <div className={(!isOpen && 'hidden') + ' fixed inset-0 flex bg-gray-900/80 md:hidden'} onClick={toggleMenu}></div>

@@ -1,7 +1,7 @@
 'use client';
 
 import MyModal from '@/components/modal';
-import { ShareIcon } from '@heroicons/react/24/outline';
+import { HiOutlineShare } from 'react-icons/hi2';
 import { Button } from '@/app/ui/button';
 import { EmailShareButton, FacebookShareButton, TwitterShareButton, WhatsappShareButton } from 'react-share';
 import { EmailIcon, FacebookIcon, XIcon, WhatsappIcon } from 'react-share';
@@ -22,7 +22,7 @@ export default function Share() {
             <MyModal
                 btnText={
                     <>
-                        <ShareIcon className="mr-2 h-[18px] w-[18px]" />
+                        <HiOutlineShare className="mr-2 h-[18px] w-[18px]" />
                         <span>Share</span>
                     </>
                 }
