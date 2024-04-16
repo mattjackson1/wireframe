@@ -9,12 +9,21 @@ interface Record {
     public_address_map_postcode: string;
 }
 
-export default async function Results({ query, currentPage }: { query: string; currentPage: number }) {
-    const data = await getData(`https://api.openobjects.com/v2/infolink/records?key=6037874de4b0d1e39971ca2e&count=10&query=${query}`);
+interface ResultsProps {
+    query: string;
+    startIndex?: string;
+}
+
+export default async function Results({ query, startIndex = '1' }: ResultsProps) {
+    const data = await getData(
+        `https://api.openobjects.com/v2/infolink/records?key=6037874de4b0d1e39971ca2e&count=10&query=${query}&startIndex=${startIndex}`,
+    );
 
     return (
         <div className="grid gap-4">
-            <h1>Found {data.totalRecords > 0 ? data.totalRecords : ' no matching'} services</h1>
+            <h1>
+                {startIndex} to {9 + Number(startIndex)} of {data.totalRecords > 0 ? data.totalRecords : ' no matching'} services
+            </h1>
 
             {data.records.map((record: Record, index: number) => (
                 <Card key={index}>

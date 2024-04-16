@@ -1,10 +1,12 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useCallback } from 'react';
+import { FaAnglesRight } from 'react-icons/fa6';
 
 export default function Pagination() {
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
+    const startIndexMore = 10 + Number(searchParams?.get('startIndex'));
 
     // Get a new searchParams string by merging the current
     // searchParams with a provided key/value pair
@@ -22,12 +24,12 @@ export default function Pagination() {
         <>
             {/* using useRouter */}
             <button
+                className="flex items-center justify-center rounded border p-1"
                 onClick={() => {
-                    // <pathname>?sr=asc
-                    router.push(pathname + '?' + createQueryString('startIndex', '10'));
+                    router.push(pathname + '?' + createQueryString('startIndex', startIndexMore.toString()));
                 }}
             >
-                more...
+                <span className="mr-2">Next page</span> <FaAnglesRight />
             </button>
         </>
     );

@@ -5,18 +5,17 @@ import Results from '@/app/results/results';
 import { ResultsSkeleton } from '@/app/ui/skeletons';
 import { Suspense, useMemo } from 'react';
 import dynamic from 'next/dynamic';
-import Pagination from './pagination';
 
 export default async function Page({
     searchParams,
 }: {
     searchParams?: {
         query?: string;
-        page?: string;
+        startIndex?: string;
     };
 }) {
     const query = searchParams?.query || '';
-    const currentPage = Number(searchParams?.page) || 1;
+    const startIndex = searchParams?.startIndex || '1';
 
     const Map = useMemo(
         () =>
@@ -54,8 +53,8 @@ export default async function Page({
 
             <div className="grid grid-cols-3 gap-4">
                 <div className="col-span-3 md:col-span-1">
-                    <Suspense key={query + currentPage} fallback={<ResultsSkeleton />}>
-                        <Results query={query} currentPage={currentPage} />
+                    <Suspense key={query + startIndex} fallback={<ResultsSkeleton />}>
+                        <Results query={query} startIndex={startIndex} />
                     </Suspense>
 
                     {/* <Pagination totalPages={totalPages} /> */}
