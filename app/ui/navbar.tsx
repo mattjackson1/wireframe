@@ -11,15 +11,17 @@ const menu = [
 
 export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
     const [isOpen, setOpen] = useState(false);
-    const toggleMenu = () => setOpen(!isOpen);
+    function toggleMenuOpen() {
+        setOpen((isOpen) => !isOpen);
+    }
 
     return (
         <>
-            <button onClick={toggleMenu} className="m-2 border p-1 md:hidden" aria-label="Navigation menu">
+            <button onClick={toggleMenuOpen} className="m-2 border p-1 md:hidden" aria-label="Navigation menu">
                 <FaBars className="h-[32px] w-[32px]" />
             </button>
             <nav className="flex flex-row bg-blue-50">
-                <div className={(!isOpen && 'hidden') + ' fixed inset-0 flex bg-gray-900/80 md:hidden'} onClick={toggleMenu}></div>
+                <div className={(!isOpen && 'hidden') + ' fixed inset-0 flex bg-gray-900/80 md:hidden'} onClick={toggleMenuOpen}></div>
                 <ul
                     className={
                         'bg-blue-50 ' +
