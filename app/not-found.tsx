@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import puppy from '@/app/ui/images/404-puppy.png';
 
 export default function NotFound() {
     return (
@@ -14,7 +13,13 @@ export default function NotFound() {
                             Why not return to the home page?
                         </Link>
                     </p>
-                    <Image className="mx-auto" src={puppy} alt="A puppy sitting amongst a torn up cushion it has shredded" />
+                    <Image
+                        className="mx-auto"
+                        src="/images/404-puppy.png"
+                        width="500"
+                        height="332"
+                        alt="A puppy sitting amongst a torn up cushion it has shredded"
+                    />
                 </div>
             </main>
         </>
