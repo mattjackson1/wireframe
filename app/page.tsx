@@ -2,9 +2,10 @@
 import { HiOutlineArrowRightCircle } from 'react-icons/hi2';
 import Channels from './channels';
 import Search from '@/app/ui/search';
+
 import NHSWidget from '@/app/ui/nhs-widget';
 
-export default function Page({ params }: { params: { typeListsArray: [] } }) {
+export default function Page() {
     return (
         <>
             <main className="flex flex-col">
@@ -36,6 +37,7 @@ export default function Page({ params }: { params: { typeListsArray: [] } }) {
                         <div className="grid gap-4 sm:grid-cols-2">
                             <section className="mt-4 rounded bg-white p-3">
                                 <h2 className="mb-3">Latest News</h2>
+                                {/*carousel in here*/}
                             </section>
 
                             <NHSWidget uid="db37cf30-d9fa-11e9-b821-6d2c470f88f4" />

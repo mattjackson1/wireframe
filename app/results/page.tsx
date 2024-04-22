@@ -4,6 +4,8 @@ import Search from '@/app/ui/clientsearch';
 import Results from '@/app/results/results';
 import { ResultsSkeleton } from '@/app/ui/skeletons';
 import { Suspense, useMemo } from 'react';
+import MyModal from '@/components/modal';
+import { FaRegCircleQuestion } from 'react-icons/fa6';
 import dynamic from 'next/dynamic';
 
 export default async function Page({
@@ -51,13 +53,28 @@ export default async function Page({
                 </Suspense>
             </div>
 
+            <div className="mb-3 grid justify-items-end">
+                <MyModal
+                    btnText={
+                        <>
+                            <FaRegCircleQuestion className="mr-2 h-[18px] w-[18px]" />
+                            <span>Help</span>
+                        </>
+                    }
+                    title="Help with this page"
+                >
+                    <h2>The results</h2>
+                    We only show you 10 results at a time. You can change the ordering and view more results.
+                    <h2>The map</h2>
+                    <p>As you zoom and drag the map, the results returned will change.</p>
+                </MyModal>
+            </div>
+
             <div className="grid grid-cols-3 gap-4">
                 <div className="col-span-3 md:col-span-1">
                     <Suspense key={query + startIndex} fallback={<ResultsSkeleton />}>
                         <Results query={query} startIndex={startIndex} />
                     </Suspense>
-
-                    {/* <Pagination totalPages={totalPages} /> */}
                 </div>
 
                 <div className="col-span-3 md:col-span-2">

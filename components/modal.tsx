@@ -45,14 +45,23 @@ export default function MyModal({ children, btnText, title }: { children: React.
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                                    <Dialog.Title as="h3" className="flex justify-between text-lg leading-6 text-gray-900">
+                                    <Dialog.Title as="h2" className="mb-3 flex justify-between text-lg leading-6 text-gray-900">
                                         {title}
                                         <button
                                             type="button"
-                                            className="rounded bg-blue-100 px-4 py-2 text-sm text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                                            className="rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                                             onClick={closeModal}
                                         >
-                                            x
+                                            <svg
+                                                className="h-6 w-6 text-gray-700"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke-width="1.5"
+                                                stroke="currentColor"
+                                                aria-hidden="true"
+                                            >
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                                            </svg>
                                         </button>
                                     </Dialog.Title>
 
