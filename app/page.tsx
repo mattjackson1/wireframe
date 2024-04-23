@@ -4,7 +4,7 @@ import Channels from './channels';
 import Search from '@/app/ui/search';
 
 import Carousel from '@/components/carousel';
-import NHSWidget from '@/app/ui/nhs-widget';
+import NHSWidget from '@/components/nhs-widget';
 
 export default function Page() {
     const slides = [
@@ -54,7 +54,7 @@ export default function Page() {
 
                         <div className="grid gap-4 sm:grid-cols-2">
                             <section className="mt-4 flex flex-col rounded bg-white p-3">
-                                <h2 className="mb-3">Latest News</h2>
+                                <h2 className="mb-3 font-semibold">Latest News</h2>
                                 <Carousel slides={slides} />
                             </section>
 
