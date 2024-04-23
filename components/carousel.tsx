@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { FaPause, FaPlay } from 'react-icons/fa6';
 
 interface CarouselProps {
@@ -13,45 +13,40 @@ const PageDot: React.FC<{ active: boolean; onClick: () => void }> = ({ active, o
 
 export default function Carousel({ slides }: CarouselProps) {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
-    const [transition, setTransition] = useState<string>('');
     const [autoplayActive, setAutoplayActive] = useState<boolean>(true);
-    let intervalId: NodeJS.Timeout | null = null;
+    const intervalIdRef = useRef<any>(null);
 
-    const nextSlide = (): void => {
-        setTransition('slide-in-right');
+    const nextSlide = useCallback(() => {
         setCurrentIndex((prevIndex: number) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
-    };
+    }, [slides]);
 
-    const prevSlide = (): void => {
-        setTransition('slide-in-left');
-        setCurrentIndex((prevIndex: number) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
-    };
-
-    const toggleAutoplay = (): void => {
+    const toggleAutoplay = useCallback(() => {
         setAutoplayActive((prevActive) => !prevActive);
-    };
+    }, []);
+
+    const handlePageDotClick = useCallback(
+        (index: number) => {
+            setCurrentIndex(index);
+            if (autoplayActive) {
+                setAutoplayActive(false);
+                setTimeout(() => {
+                    setAutoplayActive(true);
+                }, 0);
+            }
+        },
+        [autoplayActive],
+    );
 
     useEffect(() => {
         if (autoplayActive) {
-            intervalId = setInterval(() => {
-                setTransition('slide-in-right');
-                setCurrentIndex((prevIndex: number) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
-            }, 3000);
+            intervalIdRef.current = setInterval(nextSlide, 3000);
+        } else {
+            if (intervalIdRef.current) clearInterval(intervalIdRef.current);
         }
         return () => {
-            if (intervalId) clearInterval(intervalId);
+            if (intervalIdRef.current) clearInterval(intervalIdRef.current);
         };
-    }, [autoplayActive, slides]);
-
-    const handlePageDotClick = (index: number) => {
-        setCurrentIndex(index);
-        if (autoplayActive) {
-            setAutoplayActive(false);
-            setTimeout(() => {
-                setAutoplayActive(true);
-            }, 0);
-        }
-    };
+    }, [autoplayActive, nextSlide]);
 
     return (
         <div className="carousel relative h-full overflow-hidden">
