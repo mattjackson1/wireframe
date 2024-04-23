@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { FaPause } from 'react-icons/fa6';
-import { FaPlay } from 'react-icons/fa6';
+import { FaPause, FaPlay } from 'react-icons/fa6';
 
 interface CarouselProps {
     slides: React.ReactNode[];
@@ -16,6 +15,7 @@ export default function Carousel({ slides }: CarouselProps) {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [transition, setTransition] = useState<string>('');
     const [autoplayActive, setAutoplayActive] = useState<boolean>(true);
+    let intervalId: NodeJS.Timeout | null = null;
 
     const nextSlide = (): void => {
         setTransition('slide-in-right');
@@ -32,7 +32,6 @@ export default function Carousel({ slides }: CarouselProps) {
     };
 
     useEffect(() => {
-        let intervalId: NodeJS.Timeout | null = null;
         if (autoplayActive) {
             intervalId = setInterval(() => {
                 setTransition('slide-in-right');
@@ -44,13 +43,18 @@ export default function Carousel({ slides }: CarouselProps) {
         };
     }, [autoplayActive, slides]);
 
+    const handlePageDotClick = (index: number) => {
+        setCurrentIndex(index);
+        if (autoplayActive) {
+            setAutoplayActive(false);
+            setTimeout(() => {
+                setAutoplayActive(true);
+            }, 0);
+        }
+    };
+
     return (
         <div className="carousel relative h-full overflow-hidden">
-            {/*
-                <button onClick={prevSlide} className="absolute left-0 top-1/2 -translate-y-1/2 transform">
-                    Prev
-                </button>
-            */}
             {slides.map((slide, index) => (
                 <div
                     key={index}
@@ -59,18 +63,13 @@ export default function Carousel({ slides }: CarouselProps) {
                     {slide}
                 </div>
             ))}
-            {/*
-                <button onClick={nextSlide} className="absolute right-0 top-1/2 -translate-y-1/2 transform">
-                    Next
-                </button>
-            */}
             <div className="absolute bottom-0 left-1/2 mb-2 flex -translate-x-1/2 transform gap-4">
                 <button onClick={toggleAutoplay} className="">
                     {autoplayActive ? <FaPause /> : <FaPlay />}
                 </button>
 
                 {slides.map((_, index) => (
-                    <PageDot key={index} active={index === currentIndex} onClick={() => setCurrentIndex(index)} />
+                    <PageDot key={index} active={index === currentIndex} onClick={() => handlePageDotClick(index)} />
                 ))}
             </div>
         </div>
