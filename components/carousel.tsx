@@ -1,13 +1,15 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { FaPause } from 'react-icons/fa6';
+import { FaPlay } from 'react-icons/fa6';
 
 interface CarouselProps {
     slides: React.ReactNode[];
 }
 
 const PageDot: React.FC<{ active: boolean; onClick: () => void }> = ({ active, onClick }) => (
-    <button onClick={onClick} className={`mx-1 h-3 w-3 rounded-full ${active ? 'bg-blue-500' : 'bg-gray-300'} focus:outline-none`} />
+    <button onClick={onClick} className={`h-4 w-4 rounded-full ${active ? 'bg-black' : 'bg-gray-300'}`} />
 );
 
 export default function Carousel({ slides }: CarouselProps) {
@@ -62,9 +64,9 @@ export default function Carousel({ slides }: CarouselProps) {
                     Next
                 </button>
             */}
-            <div className="absolute bottom-0 left-1/2 mb-2 flex -translate-x-1/2 transform space-x-2">
+            <div className="absolute bottom-0 left-1/2 mb-2 flex -translate-x-1/2 transform gap-4">
                 <button onClick={toggleAutoplay} className="">
-                    {autoplayActive ? 'Pause' : 'Play'}
+                    {autoplayActive ? <FaPause /> : <FaPlay />}
                 </button>
 
                 {slides.map((_, index) => (

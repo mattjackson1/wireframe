@@ -53,7 +53,7 @@ export default function Page() {
                         <Channels />
 
                         <div className="grid gap-4 sm:grid-cols-2">
-                            <section className="mt-4 rounded bg-white p-3">
+                            <section className="mt-4 flex flex-col rounded bg-white p-3">
                                 <h2 className="mb-3">Latest News</h2>
                                 <Carousel slides={slides} />
                             </section>
