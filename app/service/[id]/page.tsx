@@ -32,7 +32,8 @@ export default async function Page({ params }: { params: { id: string } }) {
                 <Search placeholder="Search Suffolk's API..." />
             </div>
 
-            <div className="mx-6 mb-3 grid justify-items-end">
+            <div className="justify-content-between mx-6 mb-3 flex">
+                <span>Back to search</span>
                 <Suspense fallback={<Button>Loading social sharing...</Button>}>
                     <Share />
                 </Suspense>

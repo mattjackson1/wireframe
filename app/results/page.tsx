@@ -7,6 +7,9 @@ import { Suspense, useMemo } from 'react';
 import MyModal from '@/components/modal';
 import { FaRegCircleQuestion } from 'react-icons/fa6';
 import dynamic from 'next/dynamic';
+import { Button } from '@/app/ui/button';
+import { BsPencil } from 'react-icons/bs';
+import { TfiRulerAlt } from 'react-icons/tfi';
 
 export default async function Page({
     searchParams,
@@ -53,7 +56,16 @@ export default async function Page({
                 </Suspense>
             </div>
 
-            <div className="mb-3 grid justify-items-end">
+            <div className="mb-3 flex gap-3">
+                <Button className="ml-auto">
+                    <BsPencil className="mr-2 h-[18px] w-[18px]" />
+                    Draw search area
+                </Button>
+                <Button>
+                    <TfiRulerAlt className="h-[18px] w-[18px]" />
+                </Button>
+                <Button>Save search</Button>
+
                 <MyModal
                     btnText={
                         <>
