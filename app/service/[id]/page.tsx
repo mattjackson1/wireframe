@@ -27,26 +27,33 @@ export default async function Page({ params }: { params: { id: string } }) {
     );
 
     return (
-        <main className="mb-3 flex flex-col">
+        <main className="mb-3 flex flex-col px-6">
             <div className="mb-3 bg-blue-100 p-4">
                 <Search placeholder="Search Suffolk's API..." />
             </div>
 
-            <div className="justify-content-between mx-6 mb-3 flex">
+            <div className="mb-3 flex justify-between">
                 <span>Back to search</span>
+
                 <Suspense fallback={<Button>Loading social sharing...</Button>}>
                     <Share />
                 </Suspense>
             </div>
 
-            <div className="mx-6 grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-4">
                 <div className="col-span-3 bg-gray-50 p-3 md:col-span-2">
                     <div className="mb-2 flex items-start">
                         <h1 className="grow">{record.title}</h1>
 
                         {!!record.logo && (
                             <Suspense fallback={<span>Loading...</span>}>
-                                <Image className="flex" src={record.logo.filename} alt={record.logo.description} width={200} height={200} />
+                                <Image
+                                    className="flex max-w-[33%]"
+                                    src={record.logo.filename}
+                                    alt={record.logo.description}
+                                    width={200}
+                                    height={200}
+                                />
                             </Suspense>
                         )}
                     </div>
@@ -77,7 +84,9 @@ export default async function Page({ params }: { params: { id: string } }) {
                                                     )}
                                                 </>
                                             ) : field.link_type === 'mailto' ? (
-                                                <Link href={`mailto:${record[field.name]}`}>{record[field.name]}</Link>
+                                                <Link className="break-words" href={`mailto:${record[field.name]}`}>
+                                                    {record[field.name]}
+                                                </Link>
                                             ) : (
                                                 record[field.name]
                                             )}

@@ -49,7 +49,7 @@ export default async function Page({
     );
 
     return (
-        <main className="mb-3 flex flex-col p-6">
+        <main className="mb-3 flex flex-col px-6">
             <div className="mb-3 bg-blue-100 p-4">
                 <Suspense fallback={<>Loading the search... </>}>
                     <Search placeholder="Search Suffolk's API..." />
