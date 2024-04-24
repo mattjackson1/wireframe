@@ -37,17 +37,17 @@ export default function Footer() {
             <ul className="flex flex-1 items-center pb-4 text-center md:mr-4 md:pb-0 md:text-left">
                 <li className="mr-3 inline-block">
                     <Link href="https://twitter.com/suffolkcc">
-                        <FaXTwitter size={36} color="white" />
+                        <FaXTwitter size={36} color="white" aria-label="Twitter" />
                     </Link>
                 </li>
                 <li className="mr-3 inline-block">
                     <Link href="https://en-gb.facebook.com/SuffolkCountyCouncil" target="_blank">
-                        <FaFacebook size={36} color="white" />
+                        <FaFacebook size={36} color="white" aria-label="Facebook" />
                     </Link>
                 </li>
                 <li className="mr-3 inline-block">
                     <Link href="https://www.youtube.com/user/Suffolkcc" target="_blank">
-                        <FaSquareYoutube size={36} color="white" />
+                        <FaSquareYoutube size={36} color="white" aria-label="YouTube" />
                     </Link>
                 </li>
             </ul>
