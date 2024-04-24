@@ -2,11 +2,15 @@ import { getData } from '@/actions';
 import { Card } from '@/app/ui/card';
 import Link from 'next/link';
 import Pagination from './pagination';
+import { FaSquarePhone } from 'react-icons/fa6';
+import { FaSquareEnvelope } from 'react-icons/fa6';
 
 interface Record {
     externalId: string;
     title: string;
     public_address_map_postcode: string;
+    contact_telephone: string;
+    contact_email: string;
 }
 
 interface ResultsProps {
@@ -29,7 +33,17 @@ export default async function Results({ query, startIndex = '1' }: ResultsProps)
                 <Card key={index}>
                     <Link className="block" href={`service/${record.externalId}?query=${query}`}>
                         <h2>{record.title}</h2>
-                        {record.public_address_map_postcode}
+                        <div className="flex flex-wrap justify-between">
+                            {record.public_address_map_postcode}
+                            <div className="flex gap-3">
+                                <Link className="text-blue-600" href={`tel:${record.contact_email}`}>
+                                    <FaSquarePhone size={18} />
+                                </Link>
+                                <Link className="text-blue-600" href={`mailto:${record.contact_email}`}>
+                                    <FaSquareEnvelope size={18} />
+                                </Link>
+                            </div>
+                        </div>
                     </Link>
                 </Card>
             ))}

@@ -9,7 +9,9 @@ import { FaRegCircleQuestion } from 'react-icons/fa6';
 import dynamic from 'next/dynamic';
 import { Button } from '@/app/ui/button';
 import { BsPencil } from 'react-icons/bs';
+import { FaRegFloppyDisk } from 'react-icons/fa6';
 import { TfiRulerAlt } from 'react-icons/tfi';
+import { FaSliders } from 'react-icons/fa6';
 
 export default async function Page({
     searchParams,
@@ -52,34 +54,18 @@ export default async function Page({
         <main className="mb-3 flex flex-col px-6">
             <div className="mb-3 bg-blue-100 p-4">
                 <Suspense fallback={<>Loading the search... </>}>
+                    <div className="flex flex-wrap gap-3">
+                        <Button>
+                            <FaSliders className="mr-2 h-[18px] w-[18px]" />
+                            Filters
+                        </Button>
+                        <Button>
+                            <FaRegFloppyDisk className="mr-2 h-[18px] w-[18px]" />
+                            Save search
+                        </Button>
+                    </div>
                     <Search placeholder="Search Suffolk's API..." />
                 </Suspense>
-            </div>
-
-            <div className="mb-3 flex gap-3">
-                <Button className="ml-auto">
-                    <BsPencil className="mr-2 h-[18px] w-[18px]" />
-                    Draw search area
-                </Button>
-                <Button>
-                    <TfiRulerAlt className="h-[18px] w-[18px]" />
-                </Button>
-                <Button>Save search</Button>
-
-                <MyModal
-                    btnText={
-                        <>
-                            <FaRegCircleQuestion className="mr-2 h-[18px] w-[18px]" />
-                            <span>Help</span>
-                        </>
-                    }
-                    title="Help with this page"
-                >
-                    <h2>The results</h2>
-                    We only show you 10 results at a time. You can change the ordering and view more results.
-                    <h2>The map</h2>
-                    <p>As you zoom and drag the map, the results returned will change.</p>
-                </MyModal>
             </div>
 
             <div className="grid grid-cols-3 gap-4">
@@ -90,6 +76,30 @@ export default async function Page({
                 </div>
 
                 <div className="col-span-3 md:col-span-2">
+                    <div className="mb-3 flex flex-wrap gap-3">
+                        <Button className="ml-auto">
+                            <BsPencil className="mr-2 h-[18px] w-[18px]" />
+                            Draw search area
+                        </Button>
+                        <Button>
+                            <TfiRulerAlt className="h-[18px] w-[18px]" />
+                        </Button>
+                        <MyModal
+                            btnText={
+                                <>
+                                    <FaRegCircleQuestion className="mr-2 h-[18px] w-[18px]" />
+                                    <span>Help</span>
+                                </>
+                            }
+                            title="Help with this page"
+                        >
+                            <h2>The results</h2>
+                            We only show you 10 results at a time. You can change the ordering and view more results.
+                            <h2>The map</h2>
+                            <p>As you zoom and drag the map, the results returned will change.</p>
+                        </MyModal>
+                    </div>
+
                     <Suspense fallback={<div>Loading map... </div>}>
                         <Map latitude={52.2} longitude={0.75} zoom={10} />
                     </Suspense>
