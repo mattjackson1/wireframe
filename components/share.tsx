@@ -10,7 +10,7 @@ import { useState } from 'react';
 
 export default function Share() {
     const pathname = `${window.location.origin}${usePathname()}`;
-    const [btnText, setbtnText] = useState('Copy page link');
+    const [btnText, setbtnText] = useState<string>('Copy page link');
 
     const handleClick = () => {
         navigator.clipboard.writeText(window.location.href);

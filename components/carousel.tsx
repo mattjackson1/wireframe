@@ -59,9 +59,7 @@ export default function Carousel({ slides }: CarouselProps) {
                 </div>
             ))}
             <div className="absolute bottom-0 left-1/2 mb-2 flex -translate-x-1/2 transform gap-4">
-                <button onClick={toggleAutoplay} className="">
-                    {autoplayActive ? <FaPause /> : <FaPlay />}
-                </button>
+                <button onClick={toggleAutoplay}>{autoplayActive ? <FaPause /> : <FaPlay />}</button>
 
                 {slides.map((_, index) => (
                     <PageDot key={index} active={index === currentIndex} onClick={() => handlePageDotClick(index)} />

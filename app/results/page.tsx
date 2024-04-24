@@ -5,13 +5,11 @@ import Results from '@/app/results/results';
 import { ResultsSkeleton } from '@/app/ui/skeletons';
 import { Suspense, useMemo } from 'react';
 import MyModal from '@/components/modal';
-import { FaRegCircleQuestion } from 'react-icons/fa6';
 import dynamic from 'next/dynamic';
 import { Button } from '@/app/ui/button';
 import { BsPencil } from 'react-icons/bs';
-import { FaRegFloppyDisk } from 'react-icons/fa6';
+import { FaRegCircleQuestion, FaRegFloppyDisk, FaSliders } from 'react-icons/fa6';
 import { TfiRulerAlt } from 'react-icons/tfi';
-import { FaSliders } from 'react-icons/fa6';
 
 export default async function Page({
     searchParams,
