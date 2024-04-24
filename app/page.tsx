@@ -7,20 +7,30 @@ import NHSWidget from '@/components/nhs-widget';
 
 export default function Page() {
     const slides = [
-        <p key="slide1">
-            The Norfolk and Suffolk NHS Foundation Trust&apos;s Psychology in Schools Team, which are a team of clinical psychologists and senior
-            psychotherapists from specialist mental health services, have lots of free online parent and carer workshops coming up between January and
-            May 2024! These free parent and carer workshops aim to provide families…
-        </p>,
-        <p key="slide2">
-            Norfolk and Suffolk NHS Foundation Trust (NSFT) has launched an updated referral form and referral criteria guidance for professionals who
-            need to refer a child or young person to Child and Adolescent Mental Health Services (CAMHS). The new referral criteria applies to GPs and
-            professionals (including school staff) who are referring…
-        </p>,
-        <p key="slide3">
-            We have gathered resources below to help you support your teenager with coping with exams. Young people can find useful advice and
-            revision tips for preparing for exams on the following websites: TheSource - Planning for exams
-        </p>,
+        <div key="slide1">
+            <h3 className="font-bold">Free Parent and Carer Wellbeing Workshops coming up in early 2024</h3>
+            <p>
+                The Norfolk and Suffolk NHS Foundation Trust&apos;s Psychology in Schools Team, which are a team of clinical psychologists and senior
+                psychotherapists from specialist mental health services, have lots of free online parent and carer workshops coming up between January
+                and May 2024! These free parent and carer workshops aim to provide families…
+            </p>
+        </div>,
+        <div key="slide2">
+            {' '}
+            <h3 className="font-bold">Updated Emotional Wellbeing Hub Referral Form and Guidance for Professionals</h3>
+            <p>
+                Norfolk and Suffolk NHS Foundation Trust (NSFT) has launched an updated referral form and referral criteria guidance for professionals
+                who need to refer a child or young person to Child and Adolescent Mental Health Services (CAMHS). The new referral criteria applies to
+                GPs and professionals (including school staff) who are referring…
+            </p>
+        </div>,
+        <div key="slide3">
+            <h3 className="font-bold">Supporting young people with exam stress</h3>
+            <p>
+                We have gathered resources below to help you support your teenager with coping with exams. Young people can find useful advice and
+                revision tips for preparing for exams on the following websites: TheSource - Planning for exams
+            </p>
+        </div>,
     ];
 
     return (
@@ -34,7 +44,7 @@ export default function Page() {
 
                     <div className="bg-yellow-300 p-3">Worried about the cost of living? Need some support? Find out more here</div>
 
-                    <div className="p-3">
+                    <div className="py-3">
                         <div className="grid gap-4 sm:grid-cols-2">
                             <div className="mb-3 flex content-center justify-between rounded-lg border border-gray-300 bg-gray-50 px-3 py-5 shadow transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:bg-gray-300 hover:shadow-lg">
                                 <div>
