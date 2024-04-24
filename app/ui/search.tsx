@@ -8,7 +8,7 @@ import { Suspense } from 'react';
 export default function Search({ placeholder }: { placeholder: string }) {
     function SearchInput() {
         const searchParams = useSearchParams();
-        const [query, setquery] = useState(searchParams.get('query'));
+        const [query, setquery] = useState<string | null>(searchParams.get('query'));
         const handleChange = (e: { target: { value: SetStateAction<string | null> } }) => {
             setquery(e.target.value);
         };
