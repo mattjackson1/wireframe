@@ -33,9 +33,9 @@ export default async function Results({ query, startIndex = '1' }: ResultsProps)
                 <Card key={index}>
                     <Link className="block" href={`service/${record.externalId}?query=${query}`}>
                         <h2>{record.title}</h2>
-                        <div className="flex flex-wrap justify-between">
+                        <div className="flex flex-wrap">
                             {record.public_address_map_postcode}
-                            <div className="flex gap-3">
+                            <div className="ml-auto flex gap-3">
                                 <Link className="text-blue-600" href={`tel:${record.contact_email}`}>
                                     <FaSquarePhone size={18} />
                                 </Link>

@@ -1,3 +1,5 @@
+'use client';
+
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useCallback } from 'react';
 import { FaAnglesRight } from 'react-icons/fa6';

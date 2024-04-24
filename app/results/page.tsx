@@ -1,5 +1,3 @@
-'use client';
-
 import Search from '@/app/ui/clientsearch';
 import Results from '@/app/results/results';
 import { ResultsSkeleton } from '@/app/ui/skeletons';

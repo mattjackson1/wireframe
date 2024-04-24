@@ -9,16 +9,16 @@ export default function Search({ placeholder }: { placeholder: string }) {
     const pathname = usePathname();
     const { replace } = useRouter();
 
-    const handleSearch = useDebouncedCallback((term: string) => {
+    function handleSearch(term: string) {
         console.log(`Searching... ${term}`);
-        const params = new URLSearchParams();
+        const params = new URLSearchParams(searchParams);
         if (term) {
             params.set('query', term);
         } else {
             params.delete('query');
         }
         replace(`${pathname}?${params.toString()}`);
-    }, 300);
+    }
 
     return (
         <div className="flex flex-1 flex-shrink-0 justify-center">
