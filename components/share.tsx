@@ -1,6 +1,6 @@
 'use client';
 
-import MyModal from '@/components/modal';
+import Modal from '@/components/modal';
 import { HiOutlineShare } from 'react-icons/hi2';
 import { Button } from '@/app/ui/button';
 import { EmailShareButton, FacebookShareButton, TwitterShareButton, WhatsappShareButton } from 'react-share';
@@ -18,7 +18,7 @@ export default function Share() {
     };
 
     return (
-        <MyModal
+        <Modal
             btnText={
                 <>
                     <HiOutlineShare className="mr-2 h-[18px] w-[18px]" />
@@ -46,6 +46,6 @@ export default function Share() {
 
                 <Button onClick={handleClick}>{btnText}</Button>
             </div>
-        </MyModal>
+        </Modal>
     );
 }

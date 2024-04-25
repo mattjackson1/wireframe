@@ -2,7 +2,7 @@ import Search from '@/app/ui/clientsearch';
 import Results from '@/app/results/results';
 import { ResultsSkeleton } from '@/app/ui/skeletons';
 import { Suspense, useMemo } from 'react';
-import MyModal from '@/components/modal';
+import Modal from '@/components/modal';
 import SlideOver from '@/components/slideover';
 import dynamic from 'next/dynamic';
 import { Button } from '@/app/ui/button';
@@ -52,6 +52,7 @@ export default async function Page({
             <div className="mb-3 bg-blue-100 p-4">
                 <Suspense fallback={<>Loading the search... </>}>
                     <div className="flex flex-wrap gap-3">
+                        {/* TO BE MOVED INTO A SEPARATE COMPONENT... ULTIMATELY */}
                         <SlideOver
                             btnText={
                                 <>
@@ -73,15 +74,15 @@ export default async function Page({
                 </Suspense>
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
-                <div className="col-span-3 md:col-span-1">
+            <div className="grid grid-cols-3">
+                <div className="col-span-3 h-[600px] md:col-span-1">
                     <Suspense key={query + startIndex} fallback={<ResultsSkeleton />}>
                         <Results query={query} startIndex={startIndex} />
                     </Suspense>
                 </div>
 
-                <div className="col-span-3 md:col-span-2">
-                    <div className="mb-3 flex flex-wrap gap-3">
+                <div className="col-span-3 h-[600px] md:col-span-2">
+                    <div className="mb-1 flex flex-wrap gap-3">
                         <Button className="ml-auto">
                             <BsPencil className="mr-2 h-[18px] w-[18px]" />
                             Draw search area
@@ -89,7 +90,7 @@ export default async function Page({
                         <Button>
                             <TfiRulerAlt className="h-[18px] w-[18px]" />
                         </Button>
-                        <MyModal
+                        <Modal
                             btnText={
                                 <>
                                     <FaRegCircleQuestion className="mr-2 h-[18px] w-[18px]" />
@@ -102,7 +103,7 @@ export default async function Page({
                             We only show you 10 results at a time. You can change the ordering and view more results.
                             <h2>The map</h2>
                             <p>As you zoom and drag the map, the results returned will change.</p>
-                        </MyModal>
+                        </Modal>
                     </div>
 
                     <Suspense fallback={<div>Loading map... </div>}>

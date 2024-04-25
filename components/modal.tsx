@@ -4,7 +4,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import { Button } from '@/app/ui/button';
 
-export default function MyModal({ children, btnText, title }: { children: React.ReactNode; btnText: string | React.ReactNode; title: string }) {
+export default function Modal({ children, btnText, title }: { children: React.ReactNode; btnText: string | React.ReactNode; title: string }) {
     let [isOpen, setIsOpen] = useState<boolean>(false);
 
     function closeModal() {
