@@ -41,3 +41,5 @@ npm run format
 ## Authors
 
 Matt Jackson
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fe63b8d4-9767-4333-8994-1b15f0e126ae/deploy-status)](https://app.netlify.com/sites/nextjs-directory-wireframe/deploys)
