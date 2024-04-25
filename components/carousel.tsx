@@ -28,10 +28,8 @@ export default function Carousel({ slides }: CarouselProps) {
         (index: number) => {
             setCurrentIndex(index);
             if (autoplayActive) {
-                setAutoplayActive(false);
-                setTimeout(() => {
-                    setAutoplayActive(true);
-                }, 0);
+                clearInterval(intervalIdRef.current);
+                intervalIdRef.current = setInterval(nextSlide, 3000);
             }
         },
         [autoplayActive],
