@@ -3,11 +3,11 @@ import Results from '@/app/results/results';
 import { ResultsSkeleton } from '@/app/ui/skeletons';
 import { Suspense, useMemo } from 'react';
 import Modal from '@/components/modal';
-import SlideOver from '@/components/slideover';
+import Facets from './facets';
 import dynamic from 'next/dynamic';
 import { Button } from '@/app/ui/button';
 import { BsPencil } from 'react-icons/bs';
-import { FaRegCircleQuestion, FaRegFloppyDisk, FaSliders } from 'react-icons/fa6';
+import { FaRegCircleQuestion, FaRegFloppyDisk } from 'react-icons/fa6';
 import { TfiRulerAlt } from 'react-icons/tfi';
 
 export default async function Page({
@@ -51,19 +51,8 @@ export default async function Page({
         <main className="mb-3 flex flex-col">
             <div className="mb-3 bg-blue-100 p-4">
                 <Suspense fallback={<>Loading the search... </>}>
-                    <div className="flex flex-wrap gap-3">
-                        {/* TO BE MOVED INTO A SEPARATE COMPONENT... ULTIMATELY */}
-                        <SlideOver
-                            btnText={
-                                <>
-                                    <FaSliders className="mr-2 h-[18px] w-[18px]" />
-                                    <span>Filters</span>
-                                </>
-                            }
-                            title="Filters"
-                        >
-                            <h2 className="mb-2 text-sm font-semibold leading-6 text-gray-950">Applied filters</h2>
-                        </SlideOver>
+                    <div className="flex shrink flex-wrap gap-3">
+                        <Facets />
 
                         <Button>
                             <FaRegFloppyDisk className="mr-2 h-[18px] w-[18px]" />

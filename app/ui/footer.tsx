@@ -6,7 +6,7 @@ import { FaSquareYoutube } from 'react-icons/fa6';
 
 export default function Footer() {
     return (
-        <footer className="flex flex-col bg-primary px-3 py-4 md:h-20 md:flex-row">
+        <footer className="flex flex-col bg-primary px-3 py-4 md:flex-row">
             <ul className="mr-6 flex items-center">
                 <li className="my-2 mr-3 inline-block">
                     <a className="text-white no-underline hover:underline" href="about.page">
@@ -51,7 +51,7 @@ export default function Footer() {
                     </Link>
                 </li>
             </ul>
-            <Link href="https://www.suffolk.gov.uk" className="mx-auto md:mx-0 md:mb-0" target="_blank">
+            <Link href="https://www.suffolk.gov.uk" className="mx-auto block md:mx-0" target="_blank">
                 <Image priority src="/images/suffolk-council-logo.png" width="220" height="67" alt="Suffolk County Council" />
             </Link>
         </footer>

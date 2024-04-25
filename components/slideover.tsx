@@ -43,7 +43,7 @@ export default function SlideOver({ children, btnText, title }: { children: Reac
                             leaveFrom="opacity-100 translate-x-0"
                             leaveTo="opacity-0 translate-x-10"
                         >
-                            <Dialog.Panel className="h-screen w-full transform overflow-y-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
+                            <Dialog.Panel className="flex h-screen w-full transform flex-col overflow-y-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
                                 <Dialog.Title as="h2" className="mb-3 flex justify-between text-lg leading-6 text-gray-900">
                                     {title}
                                     <button
