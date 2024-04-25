@@ -3,6 +3,7 @@ import Results from '@/app/results/results';
 import { ResultsSkeleton } from '@/app/ui/skeletons';
 import { Suspense, useMemo } from 'react';
 import MyModal from '@/components/modal';
+import SlideOver from '@/components/slideover';
 import dynamic from 'next/dynamic';
 import { Button } from '@/app/ui/button';
 import { BsPencil } from 'react-icons/bs';
@@ -51,10 +52,19 @@ export default async function Page({
             <div className="mb-3 bg-blue-100 p-4">
                 <Suspense fallback={<>Loading the search... </>}>
                     <div className="flex flex-wrap gap-3">
-                        <Button>
-                            <FaSliders className="mr-2 h-[18px] w-[18px]" />
-                            Filters
-                        </Button>
+                        <SlideOver
+                            btnText={
+                                <>
+                                    <FaSliders className="mr-2 h-[18px] w-[18px]" />
+                                    <span>Filters</span>
+                                </>
+                            }
+                            title="Help with this page"
+                        >
+                            <h2>Filters</h2>
+                            Selected Filters
+                        </SlideOver>
+
                         <Button>
                             <FaRegFloppyDisk className="mr-2 h-[18px] w-[18px]" />
                             Save search

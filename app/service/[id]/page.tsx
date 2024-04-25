@@ -7,7 +7,7 @@ import { fields } from '@/app/lib/display-fields';
 import Search from '@/app/ui/clientsearch';
 import { Button } from '@/app/ui/button';
 import Share from '@/components/share';
-import Back from '@/app/ui/back';
+import Backbutton from '@/components/backbutton';
 
 export default async function Page({ params }: { params: { id: string } }) {
     const record = await getData(`https://api.openobjects.com/v2/infolink/records/${params.id}?key=${process.env.API_KEY}`);
@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             </div>
 
             <div className="mb-3 flex justify-between">
-                <Back />
+                <Backbutton />
 
                 <Suspense fallback={<Button>Loading social sharing...</Button>}>
                     <Share />
