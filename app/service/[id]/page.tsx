@@ -28,12 +28,12 @@ export default async function Page({ params }: { params: { id: string } }) {
     );
 
     return (
-        <main className="mb-3 flex flex-col px-6">
+        <main className="mb-3 flex flex-col">
             <div className="mb-3 bg-blue-100 p-4">
                 <Search placeholder="Search Suffolk's API..." />
             </div>
 
-            <div className="mb-3 flex justify-between">
+            <div className="mx-6 mb-3 flex justify-between">
                 <Backbutton />
 
                 <Suspense fallback={<Button>Loading social sharing...</Button>}>
@@ -41,7 +41,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                 </Suspense>
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="mx-6 grid grid-cols-3 gap-4">
                 <div className="col-span-3 bg-gray-50 p-3 md:col-span-2">
                     <div className="mb-2 flex items-start">
                         <h1 className="grow">{record.title}</h1>

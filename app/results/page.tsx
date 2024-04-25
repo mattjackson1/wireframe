@@ -48,7 +48,7 @@ export default async function Page({
     );
 
     return (
-        <main className="mb-3 flex flex-col px-6">
+        <main className="mb-3 flex flex-col">
             <div className="mb-3 bg-blue-100 p-4">
                 <Suspense fallback={<>Loading the search... </>}>
                     <div className="flex flex-wrap gap-3">
@@ -82,7 +82,7 @@ export default async function Page({
                 </div>
 
                 <div className="col-span-3 h-[600px] md:col-span-2">
-                    <div className="mb-1 flex flex-wrap gap-3">
+                    <div className="mx-6 mb-1 flex flex-wrap gap-3">
                         <Button className="ml-auto">
                             <BsPencil className="mr-2 h-[18px] w-[18px]" />
                             Draw search area
