@@ -59,10 +59,9 @@ export default async function Page({
                                     <span>Filters</span>
                                 </>
                             }
-                            title="Help with this page"
+                            title="Filters"
                         >
-                            <h2>Filters</h2>
-                            Selected Filters
+                            <h2 className="mb-2 text-sm font-semibold leading-6 text-gray-950">Applied filters</h2>
                         </SlideOver>
 
                         <Button>
