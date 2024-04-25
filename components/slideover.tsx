@@ -37,11 +37,11 @@ export default function SlideOver({ children, btnText, title }: { children: Reac
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"
-                            enterFrom="opacity-0 scale-95"
-                            enterTo="opacity-100 scale-100"
+                            enterFrom="opacity-0 translate-x-10"
+                            enterTo="opacity-100 translate-x-0"
                             leave="ease-in duration-200"
-                            leaveFrom="opacity-100 scale-100"
-                            leaveTo="opacity-0 scale-95"
+                            leaveFrom="opacity-100 translate-x-0"
+                            leaveTo="opacity-0 translate-x-10"
                         >
                             <Dialog.Panel className="h-screen w-full transform overflow-y-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
                                 <Dialog.Title as="h2" className="mb-3 flex justify-between text-lg leading-6 text-gray-900">
