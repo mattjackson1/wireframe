@@ -32,7 +32,7 @@ export default function Carousel({ slides }: CarouselProps) {
                 intervalIdRef.current = setInterval(nextSlide, 3000);
             }
         },
-        [autoplayActive],
+        [autoplayActive, nextSlide],
     );
 
     useEffect(() => {

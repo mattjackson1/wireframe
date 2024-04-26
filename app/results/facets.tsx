@@ -4,7 +4,7 @@ import { Button } from '@/app/ui/button';
 import { FaSliders } from 'react-icons/fa6';
 import SlideOver from '@/components/slideover';
 
-export default async function Facets({
+export default function Facets({
     searchParams,
 }: {
     searchParams?: {
