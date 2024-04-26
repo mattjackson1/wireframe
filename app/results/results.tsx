@@ -51,7 +51,7 @@ export default async function Results({ query, startIndex = '1' }: ResultsProps)
                 </Card>
             ))}
 
-            <Pagination />
+            {data.totalRecords > 10 && <Pagination />}
         </div>
     );
 }
