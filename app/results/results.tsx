@@ -23,11 +23,14 @@ export default async function Results({ query, startIndex = '1' }: ResultsProps)
         `https://api.openobjects.com/v2/infolink/records?key=6037874de4b0d1e39971ca2e&count=10&query=${query}&startIndex=${startIndex}`,
     );
 
+    let title = 'no matching services';
+    if (data.totalRecords > 0) {
+        title = `${startIndex} to ${9 + Number(startIndex)} of ${data.totalRecords} services`;
+    }
+
     return (
         <div className="grid h-full gap-4 overflow-y-auto px-6">
-            <h1>
-                {startIndex} to {9 + Number(startIndex)} of {data.totalRecords > 0 ? data.totalRecords : ' no matching'} services
-            </h1>
+            <h1>{title}</h1>
 
             {data.records.map((record: Record, index: number) => (
                 <Card key={index}>
