@@ -22,27 +22,27 @@ export default function Share() {
             btnText={
                 <>
                     <HiOutlineShare className="mr-2 h-[18px] w-[18px]" />
-                    <span>Share</span>
+                    <span>Share by email</span>
                 </>
             }
             title="Share this page"
         >
-            <div className="flex gap-2">
-                <EmailShareButton url={pathname} subject="Look at this...">
-                    <EmailIcon size={32} round={true} />
+            <div className="flex flex-col gap-2">
+                <EmailShareButton url={pathname} className="mb-2 flex items-center gap-3" subject="Look at this...">
+                    <EmailIcon size={32} round={true} /> Share by Email
                 </EmailShareButton>
 
-                <FacebookShareButton url={pathname}>
-                    <FacebookIcon size={32} round={true} />
+                <FacebookShareButton url={pathname} className="mb-2 flex items-center gap-3">
+                    <FacebookIcon size={32} round={true} /> Share on Facebook
                 </FacebookShareButton>
 
-                <TwitterShareButton url={pathname}>
-                    <XIcon size={32} round={true} />
-                </TwitterShareButton>
-
-                <WhatsappShareButton url={pathname}>
-                    <WhatsappIcon size={32} round={true} />
+                <WhatsappShareButton url={pathname} className="mb-2 flex items-center gap-3">
+                    <WhatsappIcon size={32} round={true} /> Share on WhatsApp
                 </WhatsappShareButton>
+
+                <TwitterShareButton url={pathname} className="mb-2 flex items-center gap-3">
+                    <XIcon size={32} round={true} /> Tweet
+                </TwitterShareButton>
 
                 <Button onClick={handleClick}>{btnText}</Button>
             </div>
