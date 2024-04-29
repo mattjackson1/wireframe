@@ -6,24 +6,24 @@ import { FaSquareYoutube } from 'react-icons/fa6';
 
 export default function Footer() {
     return (
-        <footer className="flex flex-col bg-primary px-3 py-4 md:flex-row">
+        <footer className="flex flex-col flex-wrap bg-primary px-3 py-4 md:flex-row">
             <ul className="mr-6 flex items-center">
-                <li className="my-2 mr-3 inline-block">
+                <li className="mx-2 my-2 inline-block">
                     <a className="text-white no-underline hover:underline" href="about.page">
                         About Us
                     </a>
                 </li>
-                <li className="my-2 mr-3 inline-block">
+                <li className="mx-2 my-2 inline-block">
                     <a className="text-white no-underline hover:underline" href="contact.page">
                         Contact Suffolk InfoLink
                     </a>
                 </li>
-                <li className="my-2 mr-3 inline-block">
+                <li className="mx-2 my-2 inline-block">
                     <a className="text-white no-underline hover:underline" href="disclaimer.page">
                         Disclaimer
                     </a>
                 </li>
-                <li className="my-2 mr-3 inline-block">
+                <li className="mx-2 my-2 inline-block">
                     <a className="text-white no-underline hover:underline" href="privacy_policy.page">
                         Privacy
                     </a>
@@ -34,18 +34,18 @@ export default function Footer() {
                     </a>
                 </li>
             </ul>
-            <ul className="flex flex-1 items-center pb-4 text-center md:mr-4 md:pb-0 md:text-left">
-                <li className="mr-3 inline-block">
+            <ul className="flex flex-1 items-center justify-center pb-4 md:mr-4 md:justify-start md:pb-0">
+                <li className="mx-2 inline-block">
                     <Link href="https://twitter.com/suffolkcc">
                         <FaXTwitter size={36} color="white" aria-label="Twitter" />
                     </Link>
                 </li>
-                <li className="mr-3 inline-block">
+                <li className="mx-2 inline-block">
                     <Link href="https://en-gb.facebook.com/SuffolkCountyCouncil" target="_blank">
                         <FaFacebook size={36} color="white" aria-label="Facebook" />
                     </Link>
                 </li>
-                <li className="mr-3 inline-block">
+                <li className="mx-2 inline-block">
                     <Link href="https://www.youtube.com/user/Suffolkcc" target="_blank">
                         <FaSquareYoutube size={36} color="white" aria-label="YouTube" />
                     </Link>

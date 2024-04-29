@@ -2,9 +2,9 @@
 
 import Modal from '@/components/modal';
 import { HiOutlineShare } from 'react-icons/hi2';
-import { Button } from '@/app/ui/button';
 import { EmailShareButton, FacebookShareButton, TwitterShareButton, WhatsappShareButton } from 'react-share';
 import { EmailIcon, FacebookIcon, XIcon, WhatsappIcon } from 'react-share';
+import { FaLink } from 'react-icons/fa6';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
@@ -22,7 +22,7 @@ export default function Share() {
             btnText={
                 <>
                     <HiOutlineShare className="mr-2 h-[18px] w-[18px]" />
-                    <span>Share by email</span>
+                    <span>Share</span>
                 </>
             }
             title="Share this page"
@@ -44,7 +44,12 @@ export default function Share() {
                     <XIcon size={32} round={true} /> Tweet
                 </TwitterShareButton>
 
-                <Button onClick={handleClick}>{btnText}</Button>
+                <button className="flex items-center gap-3" onClick={handleClick}>
+                    <span className="h-[32px] w-[32px] content-center rounded-full bg-gray-300">
+                        <FaLink size={22} className="mx-auto" />
+                    </span>
+                    {btnText}
+                </button>
             </div>
         </Modal>
     );

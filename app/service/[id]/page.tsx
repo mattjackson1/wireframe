@@ -12,6 +12,7 @@ import Backbutton from '@/components/backbutton';
 export default async function Page({ params }: { params: { id: string } }) {
     const record = await getData(`https://api.openobjects.com/v2/infolink/records/${params.id}?key=${process.env.API_KEY}`);
     const markup = { __html: record.description };
+    const lastUpdate = record.lastUpdate.split(' ')[0].split('-').reverse().join('/');
 
     const renderMapFallback = () => (
         <button type="button" className="text-gray inline-flex items-center px-4 py-2 transition duration-150 ease-in-out">
@@ -62,7 +63,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                     <div dangerouslySetInnerHTML={markup} className="mb-3"></div>
 
                     {/* Loop through and display each display field that has a value */}
-                    <dl className="grid grid-cols-2 gap-2">
+                    <dl className="mb-3 grid grid-cols-2 gap-2">
                         {fields.map(
                             (field, index) =>
                                 record[field.name] && (
@@ -96,6 +97,8 @@ export default async function Page({ params }: { params: { id: string } }) {
                                 ),
                         )}
                     </dl>
+
+                    <p>Last updated: {lastUpdate}</p>
                 </div>
 
                 <Suspense fallback={renderMapFallback()}>
