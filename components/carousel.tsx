@@ -47,7 +47,7 @@ export default function Carousel({ slides }: CarouselProps) {
     }, [autoplayActive, nextSlide]);
 
     return (
-        <div className="carousel relative h-full overflow-hidden">
+        <div className="carousel relative h-full min-h-40 overflow-hidden">
             {slides.map((slide, index) => (
                 <div
                     key={index}

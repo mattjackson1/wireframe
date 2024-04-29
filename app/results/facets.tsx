@@ -21,7 +21,7 @@ export default function Facets({
             }
             title="Filters"
         >
-            <div className="grow overflow-y-auto">
+            <div className="grow overflow-y-auto ">
                 <div className="mb-3">
                     <h2 className="mb-2 text-sm font-semibold leading-6 text-gray-950">Applied filters</h2>
                     <a className="mb-2 mr-2 rounded-lg border px-2 py-1">Free</a>

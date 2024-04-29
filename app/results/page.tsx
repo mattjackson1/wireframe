@@ -48,7 +48,7 @@ export default async function Page({
     );
 
     return (
-        <main className="mb-3 flex flex-col">
+        <main className="flex flex-col">
             <div className="mb-3 bg-blue-100 p-4">
                 <Suspense fallback={<>Loading the search... </>}>
                     <div className="flex shrink flex-wrap gap-3">
@@ -64,7 +64,7 @@ export default async function Page({
             </div>
 
             <div className="grid grid-cols-3">
-                <div className="col-span-3 h-[600px] md:col-span-1">
+                <div className="col-span-3 mb-3 h-[600px] md:col-span-1">
                     <Suspense key={query + startIndex} fallback={<ResultsSkeleton />}>
                         <Results query={query} startIndex={startIndex} />
                     </Suspense>
@@ -86,12 +86,19 @@ export default async function Page({
                                     <span>Help</span>
                                 </>
                             }
-                            title="Help with this page"
+                            title="Help with searching for services"
                         >
-                            <h2>The results</h2>
-                            We only show you 10 results at a time. You can change the ordering and view more results.
+                            <h2>Limited results</h2>
+                            <p>
+                                For clarity, we only plot 10 results at a time. You can change the ordering and view the next 10 results by selecting
+                                "Next page"
+                            </p>
                             <h2>The map</h2>
-                            <p>As you zoom and drag the map, the results returned will change.</p>
+                            <p>As you zoom and drag the map, your results will change to reflect this</p>
+                            <h2>Draw search area</h2>
+                            <p>You can draw a box on the map to filter your results by location</p>
+                            <h2>Measure</h2>
+                            <p>You can easily get distance measurements from the map, to give you some idea on scales</p>
                         </Modal>
                     </div>
 
