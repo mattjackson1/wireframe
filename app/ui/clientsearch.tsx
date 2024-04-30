@@ -28,7 +28,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
                 </label>
                 <input
                     id="search"
-                    className="peer block w-full border-0 border-b border-blue-600 bg-white py-[9px] pl-10 text-sm text-blue-600 outline-2 transition-all placeholder:text-blue-600 hover:text-gray-900 hover:placeholder:text-gray-500 focus:text-gray-900 focus:placeholder:text-gray-500"
+                    className="peer block w-full border-0 border-b border-blue-600 bg-white py-[9px] pl-10 text-sm text-blue-600 outline-2 transition-all placeholder:text-blue-600 hover:text-gray-900 hover:placeholder:text-gray-500 focus:text-gray-900 focus:placeholder:text-gray-500 dark:border-gray-600 dark:bg-black dark:text-white dark:hover:text-gray-200 dark:focus:text-gray-200"
                     placeholder={placeholder}
                     onChange={(e) => {
                         handleSearch(e.target.value);
