@@ -35,7 +35,7 @@ export default async function Results({ query, startIndex = '1' }: ResultsProps)
 
             {data.records.map((record: Record, index: number) => (
                 <Card key={index}>
-                    <Link className="block" href={`service/${record.externalId}?query=${query}`}>
+                    <Link className="block hover:underline" href={`service/${record.externalId}?query=${query}`}>
                         <h2>{record.title}</h2>
                     </Link>
                     <div className="flex flex-wrap">

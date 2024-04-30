@@ -2,7 +2,7 @@ import Search from '@/app/ui/clientsearch';
 import Results from '@/app/results/results';
 import { ResultsSkeleton } from '@/app/ui/skeletons';
 import { Suspense, useMemo } from 'react';
-import Modal from '@/components/modal';
+import HelpButton from './helpButton';
 import Facets from './facets';
 import dynamic from 'next/dynamic';
 import { Button } from '@/app/ui/button';
@@ -79,27 +79,7 @@ export default async function Page({
                         <Button>
                             <TfiRulerAlt className="h-[18px] w-[18px]" />
                         </Button>
-                        <Modal
-                            btnText={
-                                <>
-                                    <FaRegCircleQuestion className="mr-2 h-[18px] w-[18px]" />
-                                    <span>Help</span>
-                                </>
-                            }
-                            title="Help with searching for services"
-                        >
-                            <h2>Limited results</h2>
-                            <p>
-                                For clarity, we only plot 10 results at a time. You can change the ordering and view the next 10 results by selecting
-                                &quot;Next page&quot;
-                            </p>
-                            <h2>The map</h2>
-                            <p>As you zoom and drag the map, your results will change to reflect this</p>
-                            <h2>Draw search area</h2>
-                            <p>You can draw a box on the map to filter your results by location</p>
-                            <h2>Measure</h2>
-                            <p>You can easily get distance measurements from the map, to give you some idea on scales</p>
-                        </Modal>
+                        <HelpButton />
                     </div>
 
                     <Suspense fallback={<div>Loading map... </div>}>
