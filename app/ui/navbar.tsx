@@ -24,9 +24,9 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
                 <div className={(!isOpen && 'hidden') + ' fixed inset-0 flex bg-gray-900/80 md:hidden'} onClick={toggleMenuOpen}></div>
                 <ul
                     className={
-                        'bg-blue-50 dark:bg-black' +
+                        'bg-blue-50 dark:bg-black ' +
                         (!isOpen ? '-left-3/4 w-3/4' : 'left-0 w-3/4 overflow-auto') +
-                        ' fixed inset-y-0 justify-center gap-5 transition-all duration-500 md:relative md:left-0 md:flex md:w-auto'
+                        ' fixed inset-y-0 justify-center gap-5 transition-all duration-500 md:relative md:left-0 md:flex md:w-auto md:duration-0'
                     }
                 >
                     {menu.map((item, index) => (
@@ -60,7 +60,7 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
                                         leaveFrom="transform scale-100 opacity-100"
                                         leaveTo="transform scale-90 opacity-0"
                                     >
-                                        <Menu.Items className="z-[1001] ml-3 w-60 rounded-lg md:absolute md:ml-0 md:divide-y md:divide-gray-100 md:bg-white md:shadow dark:bg-gray-700">
+                                        <Menu.Items className="z-[1001] ml-3 w-60 rounded-lg md:absolute md:z-10 md:ml-0 md:divide-y md:divide-gray-100 md:bg-white md:shadow dark:bg-gray-700">
                                             {type.types.map((type: any, subindex: number) => (
                                                 <Menu.Item key={index + '-' + subindex}>
                                                     {({ active }) => (
