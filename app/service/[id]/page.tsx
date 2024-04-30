@@ -22,7 +22,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                     className="opacity-75"
                     fill="currentColor"
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                ></path>
+                />
             </svg>
             Rendering the map...
         </button>
@@ -42,8 +42,8 @@ export default async function Page({ params }: { params: { id: string } }) {
                 </Suspense>
             </div>
 
-            <div className="mx-6 grid grid-cols-3 gap-4">
-                <div className="col-span-3 bg-gray-50 p-3 md:col-span-2">
+            <div className="mx-6 grid grid-cols-3 gap-x-4">
+                <div className="col-span-3 md:col-span-2">
                     <div className="mb-2 flex items-start">
                         <h1 className="grow">{record.title}</h1>
 
@@ -98,12 +98,14 @@ export default async function Page({ params }: { params: { id: string } }) {
                         )}
                     </dl>
 
-                    <p>Last updated: {lastUpdate}</p>
+                    <p className="mb-3">Last updated: {lastUpdate}</p>
                 </div>
 
-                <Suspense fallback={renderMapFallback()}>
-                    <Map latitude={record.location_postcode?.latitude} longitude={record.location_postcode?.longitude} />
-                </Suspense>
+                <div className="col-span-3 mb-3 md:col-span-1">
+                    <Suspense fallback={renderMapFallback()}>
+                        <Map latitude={record.location_postcode?.latitude} longitude={record.location_postcode?.longitude} />
+                    </Suspense>
+                </div>
             </div>
         </main>
     );

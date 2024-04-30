@@ -7,7 +7,7 @@ import Facets from './facets';
 import dynamic from 'next/dynamic';
 import { Button } from '@/app/ui/button';
 import { BsPencil } from 'react-icons/bs';
-import { FaRegCircleQuestion, FaRegFloppyDisk } from 'react-icons/fa6';
+import { FaRegFloppyDisk } from 'react-icons/fa6';
 import { TfiRulerAlt } from 'react-icons/tfi';
 
 export default async function Page({
