@@ -36,24 +36,24 @@ export default function Page() {
     return (
         <>
             <main className="flex flex-col">
-                <div className="bg-blue-100 p-4">
+                <div className="bg-blue-100 p-4 dark:bg-black">
                     <h2 className="mb-2 text-2xl font-semibold">Welcome to Suffolk InfoLink, your community directory</h2>
                     <p className="text-lg">Explore thousands of activities, services and events across Suffolk</p>
 
                     <Search placeholder="Search Suffolk's API..." />
 
-                    <div className="bg-yellow-300 p-3">Worried about the cost of living? Need some support? Find out more here</div>
+                    <div className="bg-yellow-300 p-3 dark:bg-gray-700">Worried about the cost of living? Need some support? Find out more here</div>
 
                     <div className="py-3">
                         <div className="grid gap-4 sm:grid-cols-2">
-                            <div className="mb-3 flex content-center justify-between rounded-lg border border-gray-300 bg-gray-50 px-3 py-5 shadow transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:bg-gray-300 hover:shadow-lg">
+                            <div className="mb-3 flex content-center justify-between rounded-lg border border-gray-300 bg-gray-50 px-3 py-5 shadow transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:bg-gray-300 hover:shadow-lg dark:bg-gray-900">
                                 <div>
                                     <h2 className="font-semibold">Is your Organisation Listed?</h2>
                                     <p>Add and update your record today.</p>
                                 </div>
                                 <HiOutlineArrowRightCircle className="h-10 shrink-0 text-[32px] text-primary" />
                             </div>
-                            <div className="mb-3 flex content-center justify-between rounded-lg border border-gray-300 bg-gray-50 px-3 py-5 shadow transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:bg-gray-300 hover:shadow-lg">
+                            <div className="mb-3 flex content-center justify-between rounded-lg border border-gray-300 bg-gray-50 px-3 py-5 shadow transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:bg-gray-300 hover:shadow-lg dark:bg-gray-900">
                                 <h2 className="font-semibold">Do you need help to get online?</h2>
                                 <HiOutlineArrowRightCircle className="h-10 shrink-0 text-[32px] text-primary" />
                             </div>
@@ -62,7 +62,7 @@ export default function Page() {
                         <Channels />
 
                         <div className="grid gap-4 sm:grid-cols-2">
-                            <section className="mt-4 flex flex-col rounded bg-white p-3">
+                            <section className="mt-4 flex flex-col rounded bg-white p-3 dark:bg-gray-800">
                                 <h2 className="mb-3 font-semibold">Latest News</h2>
                                 <Carousel slides={slides} />
                             </section>
