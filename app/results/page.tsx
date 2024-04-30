@@ -91,7 +91,7 @@ export default async function Page({
                             <h2>Limited results</h2>
                             <p>
                                 For clarity, we only plot 10 results at a time. You can change the ordering and view the next 10 results by selecting
-                                "Next page"
+                                &quot;Next page&quot;
                             </p>
                             <h2>The map</h2>
                             <p>As you zoom and drag the map, your results will change to reflect this</p>
