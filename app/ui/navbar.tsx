@@ -21,11 +21,14 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
                 <FaBars className="h-[18px] w-[18px]" />
             </button>
             <nav className="flex flex-row bg-blue-50 dark:bg-black">
-                <div className={(!isOpen && 'hidden') + ' fixed inset-0 flex bg-gray-900/80 md:hidden'} onClick={toggleMenuOpen}></div>
+                <div
+                    className={(!isOpen && 'hidden') + ' fixed inset-0 z-40 flex overflow-auto bg-gray-900/80 md:hidden'}
+                    onClick={toggleMenuOpen}
+                ></div>
                 <ul
                     className={
                         (!isOpen ? '-left-3/4 w-3/4 ' : 'left-0 w-3/4 ') +
-                        'fixed inset-y-0 justify-center gap-5 overflow-auto bg-blue-50 px-2 transition-all duration-500 md:relative md:left-0 md:flex md:w-auto md:duration-0 dark:bg-black'
+                        'fixed inset-y-0 z-50 justify-center gap-5  bg-blue-50 px-2 transition-all duration-500 md:relative md:left-0 md:flex md:w-auto md:duration-0 dark:bg-black'
                     }
                 >
                     {menu.map((item, index) => (

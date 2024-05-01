@@ -10,7 +10,7 @@ export default function ThemeSwitch() {
 
     useEffect(() => setMounted(true), []);
 
-    if (!mounted) return 'Loading';
+    if (!mounted) return <span className="p-2">&nbsp;</span>;
 
     if (resolvedTheme === 'dark') {
         return (
