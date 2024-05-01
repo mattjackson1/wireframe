@@ -36,7 +36,7 @@ export default function Footer() {
             </ul>
             <ul className="flex flex-1 items-center justify-center pb-4 md:mr-4 md:justify-start md:pb-0">
                 <li className="mx-2 inline-block">
-                    <Link href="https://twitter.com/suffolkcc">
+                    <Link href="https://twitter.com/suffolkcc" target="_blank">
                         <FaXTwitter size={36} color="white" aria-label="Twitter" />
                     </Link>
                 </li>
