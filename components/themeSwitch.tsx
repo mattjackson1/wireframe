@@ -14,14 +14,14 @@ export default function ThemeSwitch() {
 
     if (resolvedTheme === 'dark') {
         return (
-            <button onClick={() => setTheme('light')} className="flex items-center gap-2 p-2">
+            <button onClick={() => setTheme('light')} className="flex items-center gap-2 p-2" aria-label="Light mode">
                 <FiSun /> <span className="hidden md:inline">Light mode</span>
             </button>
         );
     }
     if (resolvedTheme === 'light') {
         return (
-            <button onClick={() => setTheme('dark')} className="flex items-center gap-2 p-2">
+            <button onClick={() => setTheme('dark')} className="flex items-center gap-2 p-2" aria-label="Dark mode">
                 <FiMoon /> <span className="hidden md:inline">Dark mode</span>
             </button>
         );

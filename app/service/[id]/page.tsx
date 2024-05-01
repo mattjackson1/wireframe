@@ -1,5 +1,6 @@
 import { Suspense, Fragment } from 'react';
 import { getData } from '@/actions';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Map from '@/app/ui/map';
@@ -9,7 +10,15 @@ import { Button } from '@/app/ui/button';
 import Share from '@/components/share';
 import Backbutton from '@/components/backbutton';
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const record = await getData(`https://api.openobjects.com/v2/infolink/records/${params.id}?key=${process.env.API_KEY}`);
+    return {
+        description: record.description.replace(/(<([^>]+)>)/gi, ''),
+    };
+}
+
 export default async function Page({ params }: { params: { id: string } }) {
+    // fetching again!, but don't worry, Next.js caches the `fetch()` calls
     const record = await getData(`https://api.openobjects.com/v2/infolink/records/${params.id}?key=${process.env.API_KEY}`);
     const markup = { __html: record.description };
     const lastUpdate = record.lastUpdate.split(' ')[0].split('-').reverse().join('/');
@@ -52,7 +61,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                                 <Image
                                     className="flex max-w-[33%]"
                                     src={record.logo.filename}
-                                    alt={record.logo.description}
+                                    alt={record.logo.description || ''}
                                     width={200}
                                     height={200}
                                 />
