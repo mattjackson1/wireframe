@@ -8,7 +8,7 @@ export default function Backbutton() {
     const router = useRouter();
 
     return (
-        <Button onClick={() => router.back()}>
+        <Button role="link" onClick={() => router.back()}>
             <FaArrowLeftLong className="mr-2" />
             Back
         </Button>

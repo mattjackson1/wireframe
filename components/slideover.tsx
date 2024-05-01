@@ -30,20 +30,21 @@ export default function SlideOver({ children, btnText, title }: { children: Reac
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <div className="fixed inset-0 z-[1040] bg-black/25" />
+                        <div className="fixed inset-0 z-[1040] overflow-hidden bg-black/50" />
                     </Transition.Child>
 
-                    <div className="fixed inset-y-0 right-0 z-[1050] w-4/5 overflow-y-auto md:w-3/5 lg:w-2/5 xl:w-1/5">
+                    <div className="fixed inset-y-0 right-0 z-[1050]">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"
-                            enterFrom="opacity-0 translate-x-10"
-                            enterTo="opacity-100 translate-x-0"
+                            enterFrom="translate-x-full"
+                            enterTo="translate-x-0"
                             leave="ease-in duration-200"
-                            leaveFrom="opacity-100 translate-x-0"
-                            leaveTo="opacity-0 translate-x-10"
+                            leaveFrom="translate-x-0"
+                            leaveTo="translate-x-full"
+                            entered=""
                         >
-                            <Dialog.Panel className="flex h-screen w-full transform flex-col overflow-y-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
+                            <Dialog.Panel className="flex h-screen flex-col overflow-y-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
                                 <Dialog.Title as="h2" className="mb-3 flex justify-between text-lg leading-6 text-gray-900">
                                     {title}
                                     <button

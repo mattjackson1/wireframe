@@ -13,7 +13,7 @@ import Backbutton from '@/components/backbutton';
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const record = await getData(`https://api.openobjects.com/v2/infolink/records/${params.id}?key=${process.env.API_KEY}`);
     return {
-        description: record.description.replace(/(<([^>]+)>)/gi, ''),
+        description: record.description.replace(/(<([^>]+)>)/gi, '').substring(0, 160),
     };
 }
 
