@@ -17,16 +17,15 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
 
     return (
         <>
-            <button onClick={toggleMenuOpen} className="m-2 border p-1 md:hidden" aria-label="Navigation menu">
-                <FaBars className="h-[32px] w-[32px]" />
+            <button onClick={toggleMenuOpen} className="absolute right-0 top-2 p-2 md:hidden" aria-label="Navigation menu">
+                <FaBars className="h-[18px] w-[18px]" />
             </button>
             <nav className="flex flex-row bg-blue-50 dark:bg-black">
                 <div className={(!isOpen && 'hidden') + ' fixed inset-0 flex bg-gray-900/80 md:hidden'} onClick={toggleMenuOpen}></div>
                 <ul
                     className={
-                        'bg-blue-50 dark:bg-black ' +
-                        (!isOpen ? '-left-3/4 w-3/4' : 'left-0 w-3/4 overflow-auto') +
-                        ' fixed inset-y-0 justify-center gap-5 transition-all duration-500 md:relative md:left-0 md:flex md:w-auto md:duration-0'
+                        (!isOpen ? '-left-3/4 w-3/4 ' : 'left-0 w-3/4 ') +
+                        'fixed inset-y-0 justify-center gap-5 overflow-auto bg-blue-50 px-2 transition-all duration-500 md:relative md:left-0 md:flex md:w-auto md:duration-0 dark:bg-black'
                     }
                 >
                     {menu.map((item, index) => (
