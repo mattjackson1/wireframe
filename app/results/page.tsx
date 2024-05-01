@@ -7,7 +7,7 @@ import Facets from './facets';
 import dynamic from 'next/dynamic';
 import { Button } from '@/app/ui/button';
 import { BsPencil } from 'react-icons/bs';
-import { FaRegFloppyDisk } from 'react-icons/fa6';
+import { FaRegMap, FaRegFloppyDisk } from 'react-icons/fa6';
 import { TfiRulerAlt } from 'react-icons/tfi';
 
 export default async function Page({
@@ -73,11 +73,16 @@ export default async function Page({
                 <div className="col-span-3 h-[600px] md:col-span-2">
                     <div className="mx-6 mb-1 flex flex-wrap gap-3">
                         <Button className="ml-auto">
-                            <BsPencil className="mr-2 h-[18px] w-[18px]" />
-                            Draw search area
+                            <FaRegMap className="h-[18px] w-[18px] sm:mr-2" />
+                            <span className="hidden sm:block">Childrens centre areas</span>
                         </Button>
                         <Button>
-                            <TfiRulerAlt className="h-[18px] w-[18px]" />
+                            <BsPencil className="h-[18px] w-[18px] sm:mr-2" />
+                            <span className="hidden sm:block">Draw search area</span>
+                        </Button>
+                        <Button>
+                            <TfiRulerAlt className="h-[18px] w-[18px] sm:mr-2" />
+                            <span className="hidden sm:block">Measure</span>
                         </Button>
                         <HelpButton />
                     </div>
