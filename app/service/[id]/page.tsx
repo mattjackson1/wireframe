@@ -39,7 +39,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
     return (
         <main className="flex flex-col">
-            <div className="mb-3 bg-blue-100 p-4">
+            <div className="mb-3 bg-blue-100 p-4 dark:bg-gray-800">
                 <Search placeholder="Search Suffolk's API..." />
             </div>
 
