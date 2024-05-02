@@ -45,7 +45,7 @@ export default function SlideOver({ children, btnText, title }: { children: Reac
                             entered=""
                         >
                             <Dialog.Panel className="flex h-screen flex-col overflow-y-hidden bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-black">
-                                <Dialog.Title as="h2" className="mb-3 flex justify-between text-lg leading-6 text-gray-900">
+                                <Dialog.Title as="h2" className="mb-3 flex justify-between text-lg leading-6 text-gray-900 dark:text-white">
                                     {title}
                                     <button
                                         type="button"
@@ -53,7 +53,7 @@ export default function SlideOver({ children, btnText, title }: { children: Reac
                                         onClick={closeSlideOver}
                                     >
                                         <svg
-                                            className="h-6 w-6 text-gray-700"
+                                            className="h-6 w-6 text-gray-700 dark:text-white"
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke-width="1.5"

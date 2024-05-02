@@ -45,7 +45,10 @@ export default function Modal({ children, btnText, title }: { children: React.Re
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-black">
-                                    <Dialog.Title as="h2" className="mb-3 flex justify-between text-lg font-bold leading-6 text-gray-900">
+                                    <Dialog.Title
+                                        as="h2"
+                                        className="mb-3 flex justify-between text-lg font-bold leading-6 text-gray-900 dark:text-white"
+                                    >
                                         {title}
                                         <button
                                             type="button"
@@ -53,7 +56,7 @@ export default function Modal({ children, btnText, title }: { children: React.Re
                                             onClick={closeModal}
                                         >
                                             <svg
-                                                className="h-6 w-6 text-gray-700"
+                                                className="h-6 w-6 text-gray-700 dark:text-white"
                                                 fill="none"
                                                 viewBox="0 0 24 24"
                                                 stroke-width="1.5"
