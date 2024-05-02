@@ -30,7 +30,7 @@ export default function SlideOver({ children, btnText, title }: { children: Reac
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <div className="fixed inset-0 z-[1040] overflow-hidden bg-black/50 dark:bg-white/10" />
+                        <div className="fixed inset-0 z-[1040] overflow-hidden bg-black/50 dark:bg-black/80" />
                     </Transition.Child>
 
                     <div className="fixed inset-y-0 right-0 z-[1050]">
