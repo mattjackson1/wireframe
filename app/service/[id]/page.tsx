@@ -77,8 +77,8 @@ export default async function Page({ params }: { params: { id: string } }) {
                             (field, index) =>
                                 record[field.name] && (
                                     <Fragment key={index}>
-                                        <dd className="bg-gray-200 p-2">{`${field.label}`}</dd>
-                                        <dt className="bg-gray-100 p-2">
+                                        <dd className="bg-gray-200 p-2 dark:bg-gray-800">{`${field.label}`}</dd>
+                                        <dt className="bg-gray-100 p-2 dark:bg-gray-800">
                                             {typeof record[field.name] === 'object' ? (
                                                 <>
                                                     {Array.isArray(record[field.name]) ? (
