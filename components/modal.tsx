@@ -30,7 +30,7 @@ export default function Modal({ children, btnText, title }: { children: React.Re
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <div className="fixed inset-0 z-[1040] bg-black/50" />
+                        <div className="fixed inset-0 z-[1040] bg-black/50 dark:bg-white/10" />
                     </Transition.Child>
 
                     <div className="fixed inset-0 z-[1050] overflow-y-auto">
