@@ -7,7 +7,7 @@ import ThemeSwitch from '@/components/themeSwitch';
 export default function Header({ typeListsArray }: { typeListsArray: [] }) {
     return (
         <>
-            <header className="mb-3 flex shrink-0 items-start justify-between bg-gradient-to-r from-blue-100 to-transparent p-2 pr-12 md:h-20">
+            <header className="mb-3 flex shrink-0 items-start justify-between bg-gradient-to-r from-blue-500/20 p-2 pr-12 md:h-20">
                 <Link href="/" className="mr-3">
                     <Image priority src={logo} alt="Suffolk InfoLink" height={50} width={460} />
                 </Link>
