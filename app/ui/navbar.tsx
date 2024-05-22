@@ -62,7 +62,7 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
                                         leaveFrom="transform scale-100 opacity-100"
                                         leaveTo="transform scale-90 opacity-0"
                                     >
-                                        <Menu.Items className="z-[1001] ml-3 w-60 rounded-lg md:absolute md:z-10 md:ml-0 md:divide-y md:divide-gray-100 md:bg-white md:shadow dark:bg-gray-700">
+                                        <Menu.Items className="z-[1001] ml-3 w-60 rounded-lg md:absolute md:z-10 md:ml-0 md:divide-y md:divide-gray-100 md:bg-white md:shadow dark:md:divide-gray-500 dark:md:bg-gray-900">
                                             {type.types.map((type: any, subindex: number) => (
                                                 <Menu.Item key={index + '-' + subindex}>
                                                     {({ active }) => (
