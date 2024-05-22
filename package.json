@@ -5,7 +5,8 @@
     "dev": "next dev",
     "start": "next start",
     "format": "prettier --write 'app/**/*.{js,jsx,ts,tsx}'",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
