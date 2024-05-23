@@ -3,13 +3,14 @@
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
+import { use } from 'react';
 
 export default function Search({ placeholder }: { placeholder: string }) {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const { replace } = useRouter();
 
-    function handleSearch(term: string) {
+    const handleSearch = useDebouncedCallback((term) => {
         console.log(`Searching... ${term}`);
         const params = new URLSearchParams(searchParams);
         if (term) {
@@ -18,7 +19,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
             params.delete('query');
         }
         replace(`${pathname}?${params.toString()}`);
-    }
+    }, 300);
 
     return (
         <form className="my-3 flex flex-1 flex-shrink-0 justify-center">

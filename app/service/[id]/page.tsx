@@ -85,7 +85,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                                                         <>
                                                             {record[field.name].map((item: any, index: number) => (
                                                                 <Fragment key={index}>
-                                                                    {!!item.displayName ? item.displayName : item}
+                                                                    {item.displayName ?? item}
                                                                     {index !== record[field.name].length - 1 && ', '}
                                                                 </Fragment>
                                                             ))}
