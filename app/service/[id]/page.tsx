@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Map from '@/app/ui/map';
 import { fields } from '@/app/lib/display-fields';
-import Search from '@/app/ui/clientsearch';
+import Search from '@/app/ui/search';
 import { Button } from '@/app/ui/button';
 import Share from '@/components/share';
 import Backbutton from '@/components/backbutton';
