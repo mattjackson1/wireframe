@@ -34,7 +34,7 @@ const config: Config = {
   },
   plugins: [
     require('@tailwindcss/forms'),
-    function({ addComponents }) {
+    function({ addComponents }: { addComponents: Function }) {
       addComponents({
         'input, select': {
           transitionDuration: '200ms',
