@@ -45,7 +45,7 @@ export default function Share() {
                 </TwitterShareButton>
 
                 <button className="flex items-center gap-3" onClick={handleClick}>
-                    <span className="h-[32px] w-[32px] content-center rounded-full bg-gray-300">
+                    <span className="h-[32px] w-[32px] content-center rounded-full bg-gray-300 align-middle">
                         <FaLink size={22} className="mx-auto" />
                     </span>
                     {btnText}
