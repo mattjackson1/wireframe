@@ -20,16 +20,34 @@ const config: Config = {
         },
         primary: '#1766A1',
       },
-    },
-    keyframes: {
-      shimmer: {
-        '100%': {
-          transform: 'translateX(100%)',
+      keyframes: {
+        shimmer: {
+          '100%': {
+            transform: 'translateX(100%)',
+          },
         },
+      },
+      animation: {
+        shimmer: 'shimmer 2s infinite',
       },
     },
   },
-
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    function({ addComponents }) {
+      addComponents({
+        'input, select': {
+          transitionDuration: '200ms',
+        },
+        'main a': {
+          textDecoration: 'underline',
+        },
+        'main a:hover': {
+          textDecorationThickness: '2px',
+        },
+      });
+    },
+  ],
 };
+
 export default config;
