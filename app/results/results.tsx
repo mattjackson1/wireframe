@@ -42,10 +42,10 @@ export default async function Results({ query, startIndex = '1' }: ResultsProps)
                         {record.public_address_map_postcode}
                         <div className="ml-auto flex gap-3">
                             <Link className="text-blue-600" href={`tel:${record.contact_email}`}>
-                                <FaSquarePhone size={18} />
+                                <FaSquarePhone size={18} title={`Telephone ${record.title}`} />
                             </Link>
                             <Link className="text-blue-600" href={`mailto:${record.contact_email}`}>
-                                <FaSquareEnvelope size={18} />
+                                <FaSquareEnvelope size={18} title={`Email ${record.title}`} />
                             </Link>
                         </div>
                     </div>
