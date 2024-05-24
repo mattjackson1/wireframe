@@ -18,7 +18,7 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
 
     return (
         <>
-            <button onClick={toggleMenuOpen} className="absolute right-0 top-2 p-2 md:hidden" aria-label="Navigation menu">
+            <button onClick={toggleMenuOpen} className="absolute right-0 top-2 mr-2 rounded border p-2 md:hidden" aria-label="Navigation menu">
                 <FaBars className="h-[18px] w-[18px]" />
             </button>
             <nav className="flex flex-row bg-blue-50 dark:bg-black">
@@ -29,17 +29,17 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
                 <div
                     className={
                         (!isOpen ? '-left-3/4 w-3/4 ' : 'left-0 w-3/4 ') +
-                        'fixed inset-y-0 z-50 justify-center gap-5  bg-blue-50 px-2 transition-all duration-500 md:relative md:left-0  md:w-auto md:duration-0 dark:bg-black'
+                        'fixed inset-y-0 z-50 justify-center gap-5 bg-blue-50 px-2 transition-all duration-500 md:relative md:left-0  md:w-auto md:duration-0 dark:bg-black'
                     }
                 >
                     <button
                         onClick={toggleMenuOpen}
-                        className="rounded p-2 pt-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 md:hidden"
+                        className="absolute right-0 m-2 rounded border p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 md:hidden"
                         aria-label="Close navigation menu"
                     >
                         <FaX />
                     </button>
-                    <ul className="md:flex">
+                    <ul className="pt-6 md:flex md:pt-0">
                         {menu.map((item, index) => (
                             <li key={index}>
                                 <a

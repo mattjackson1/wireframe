@@ -53,23 +53,25 @@ export default async function Page({ params }: { params: { id: string } }) {
 
             <div className="mx-6 grid grid-cols-3 gap-x-4">
                 <div className="col-span-3 md:col-span-2">
-                    <div className="mb-2 flex items-start">
-                        <h1 className="grow">{record.title}</h1>
+                    <div className="mb-2">
+                        <div className="inline-block">
+                            <h1 className="mb-3 inline-block">{record.title}</h1>
 
-                        {!!record.logo && (
-                            <Suspense fallback={<span>Loading...</span>}>
-                                <Image
-                                    className="flex max-w-[33%]"
-                                    src={record.logo.filename}
-                                    alt={record.logo.description || ''}
-                                    width={200}
-                                    height={200}
-                                />
-                            </Suspense>
-                        )}
+                            {!!record.logo && (
+                                <Suspense fallback={<span>Loading...</span>}>
+                                    <Image
+                                        className="float-right mb-3 ml-3 max-w-[33%]"
+                                        src={record.logo.filename}
+                                        alt={record.logo.description || ''}
+                                        width={200}
+                                        height={200}
+                                    />
+                                </Suspense>
+                            )}
+
+                            <span dangerouslySetInnerHTML={markup} className="mb-3"></span>
+                        </div>
                     </div>
-
-                    <div dangerouslySetInnerHTML={markup} className="mb-3"></div>
 
                     {/* Loop through and display each display field that has a value */}
                     <dl className="mb-3 grid grid-cols-2 gap-2">
