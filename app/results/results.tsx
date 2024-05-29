@@ -35,7 +35,7 @@ export default async function Results({ query, startIndex = '1' }: ResultsProps)
     }
 
     if (error) {
-        return <div className="px-6">{error}</div>;
+        return <div className="px-6 text-red-500">{error}</div>;
     }
 
     let title = 'no matching services';
