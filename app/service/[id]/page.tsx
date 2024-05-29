@@ -9,18 +9,18 @@ import { Button } from '@/app/ui/button';
 import Share from '@/components/share';
 import Backbutton from '@/components/backbutton';
 
-interface Params {
-    id: string;
+interface PageProps {
+    params: { id: string };
 }
 
-export async function generateMetadata(params: Params) {
+export async function generateMetadata({ params }: PageProps) {
     const record = await getData(`https://api.openobjects.com/v2/infolink/records/${params.id}?key=${process.env.API_KEY}`);
     return {
         description: record.description.replace(/(<([^>]+)>)/gi, '').substring(0, 160),
     };
 }
 
-export default async function Page(params: Params) {
+export default async function Page({ params }: PageProps) {
     // fetching again!, but don't worry, Next.js caches the `fetch()` calls
     const record = await getData(`https://api.openobjects.com/v2/infolink/records/${params.id}?key=${process.env.API_KEY}`);
     const markup = { __html: record.description };
