@@ -54,7 +54,7 @@ export default function Page() {
                                 <HiOutlineArrowRightCircle className="h-10 shrink-0 text-[32px] text-primary" />
                             </div>
                             <div className="mb-3 flex content-center justify-between rounded-lg border border-gray-300 bg-gray-50 px-3 py-5 shadow transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:bg-gray-300 hover:shadow-lg dark:bg-gray-900">
-                                <h2 className="font-semibold">Do you need help to get online?</h2>
+                                <h2 className="font-semibold">Help to get online</h2>
                                 <HiOutlineArrowRightCircle className="h-10 shrink-0 text-[32px] text-primary" />
                             </div>
                         </div>
