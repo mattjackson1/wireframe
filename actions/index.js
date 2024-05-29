@@ -17,7 +17,7 @@ export async function getData(endpoint) {
     try {
         const res = await fetch(endpoint, { cache: 'no-store' });
         if (!res.ok) {
-            throw new Error(`Failed to fetch data from ${endpoint}: ${res.statusText}`);
+            throw new Error(`Failed to fetch data from ${endpoint} --- ${res.statusText}`);
         }
         return await res.json(); // parses JSON response into native JavaScript objects
     } catch (error) {

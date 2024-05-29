@@ -5,6 +5,7 @@ import Header from '@/app/ui/header';
 import Footer from '@/app/ui/footer';
 import CookieBanner from '@/app/ui/cookie-banner';
 import { Providers } from '@/app/providers';
+import { FaTriangleExclamation } from 'react-icons/fa6';
 
 let data: any = null;
 let error: string | null = null;
@@ -26,7 +27,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         return (
             <html lang="en" suppressHydrationWarning>
                 <title>Connection error</title>
-                <body className="flex min-h-screen items-center justify-center">
+                <body className="flex min-h-screen flex-col items-center justify-center">
+                    <FaTriangleExclamation className="mb-6 text-[50px] text-red-500" />
                     <div className="text-red-500">{error}</div>
                 </body>
             </html>
