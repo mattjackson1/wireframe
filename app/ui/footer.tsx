@@ -6,7 +6,7 @@ import { FaSquareYoutube } from 'react-icons/fa6';
 
 export default function Footer() {
     return (
-        <footer className="flex flex-col flex-wrap bg-primary px-3 py-4 md:flex-row">
+        <footer className="flex flex-col flex-wrap bg-primary px-3 py-4 md:flex-row dark:bg-black">
             <ul className="mr-6 flex items-center">
                 <li className="mx-2 my-2 inline-block">
                     <a className="text-white no-underline hover:underline" href="about.page">
