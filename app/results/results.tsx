@@ -19,15 +19,19 @@ interface ResultsProps {
 }
 
 export default async function Results({ query, startIndex = '1' }: ResultsProps) {
-    let data;
-    let error;
+    let data: any = null;
+    let error: string | null = null;
 
     try {
         const data = await getData(
             `https://api.openobjects.com/v2/infolink/records?key=6037874de4b0d1e39971ca2e&count=10&query=${query}&startIndex=${startIndex}`,
         );
-    } catch (err: any) {
-        error = err.message;
+    } catch (err: unknown) {
+        if (err instanceof Error) {
+            error = err.message;
+        } else {
+            error = 'An unknown error occurred.';
+        }
     }
 
     if (error) {
