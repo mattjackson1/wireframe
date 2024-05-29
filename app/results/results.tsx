@@ -23,7 +23,7 @@ export default async function Results({ query, startIndex = '1' }: ResultsProps)
     let error: string | null = null;
 
     try {
-        const data = await getData(
+        data = await getData(
             `https://api.openobjects.com/v2/infolink/records?key=6037874de4b0d1e39971ca2e&count=10&query=${query}&startIndex=${startIndex}`,
         );
     } catch (err: unknown) {
@@ -35,7 +35,7 @@ export default async function Results({ query, startIndex = '1' }: ResultsProps)
     }
 
     if (error) {
-        return <div className="text-red">{error}</div>;
+        return <div className="px-6">{error}</div>;
     }
 
     let title = 'no matching services';
