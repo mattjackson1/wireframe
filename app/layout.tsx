@@ -19,11 +19,18 @@ try {
     }
 }
 
-const typeListsArray = data.typeLists;
+const typeListsArray = data?.typeLists;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     if (error) {
-        return <div className="text-red-500">{error}</div>;
+        return (
+            <html lang="en" suppressHydrationWarning>
+                <title>Connection error</title>
+                <body className="flex min-h-screen items-center justify-center">
+                    <div className="text-red-500">{error}</div>
+                </body>
+            </html>
+        );
     }
     return (
         <html lang="en" suppressHydrationWarning>

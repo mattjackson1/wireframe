@@ -3,7 +3,7 @@ import { getData } from '@/actions';
 import Image from 'next/image';
 import { fields } from '@/app/lib/display-fields';
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page(params: { id: string }) {
     const record = await getData(`https://api.openobjects.com/v2/infolink/records/${params.id}?key=${process.env.API_KEY}`);
 
     return (

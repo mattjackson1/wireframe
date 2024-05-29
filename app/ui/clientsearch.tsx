@@ -3,7 +3,6 @@
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
-import { use } from 'react';
 
 export default function Search({ placeholder }: { placeholder: string }) {
     const searchParams = useSearchParams();

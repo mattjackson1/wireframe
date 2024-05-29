@@ -14,7 +14,7 @@ try {
     }
 }
 
-const typeListsArray = data.typeLists;
+const typeListsArray = data?.typeLists;
 
 export default async function Channels() {
     if (error) {

@@ -1,6 +1,5 @@
 import { Suspense, Fragment } from 'react';
 import { getData } from '@/actions';
-import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Map from '@/app/ui/map';
@@ -10,14 +9,18 @@ import { Button } from '@/app/ui/button';
 import Share from '@/components/share';
 import Backbutton from '@/components/backbutton';
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
+interface Params {
+    id: string;
+}
+
+export async function generateMetadata(params: Params) {
     const record = await getData(`https://api.openobjects.com/v2/infolink/records/${params.id}?key=${process.env.API_KEY}`);
     return {
         description: record.description.replace(/(<([^>]+)>)/gi, '').substring(0, 160),
     };
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page(params: Params) {
     // fetching again!, but don't worry, Next.js caches the `fetch()` calls
     const record = await getData(`https://api.openobjects.com/v2/infolink/records/${params.id}?key=${process.env.API_KEY}`);
     const markup = { __html: record.description };
