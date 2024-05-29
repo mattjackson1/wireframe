@@ -27,9 +27,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         return (
             <html lang="en" suppressHydrationWarning>
                 <title>Connection error</title>
-                <body className="flex min-h-screen flex-col items-center justify-center">
-                    <FaTriangleExclamation className="mb-6 text-[50px] text-red-500" />
-                    <div className="text-red-500">{error}</div>
+                <body className="flex min-h-screen flex-col items-center justify-center text-red-500">
+                    <FaTriangleExclamation className="mb-6 text-[50px]" />
+                    <p>{error}</p>
                 </body>
             </html>
         );
