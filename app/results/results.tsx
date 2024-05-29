@@ -19,9 +19,20 @@ interface ResultsProps {
 }
 
 export default async function Results({ query, startIndex = '1' }: ResultsProps) {
-    const data = await getData(
-        `https://api.openobjects.com/v2/infolink/records?key=6037874de4b0d1e39971ca2e&count=10&query=${query}&startIndex=${startIndex}`,
-    );
+    let data;
+    let error;
+
+    try {
+        const data = await getData(
+            `https://api.openobjects.com/v2/infolink/records?key=6037874de4b0d1e39971ca2e&count=10&query=${query}&startIndex=${startIndex}`,
+        );
+    } catch (err: any) {
+        error = err.message;
+    }
+
+    if (error) {
+        return <div className="text-red">{error}</div>;
+    }
 
     let title = 'no matching services';
     if (data.totalRecords > 0) {
