@@ -56,12 +56,14 @@ export default function Carousel({ slides }: CarouselProps) {
                     {slide}
                 </div>
             ))}
-            <div className="absolute bottom-0 left-1/2 mb-2 flex -translate-x-1/2 transform gap-4">
-                <button onClick={toggleAutoplay}>{autoplayActive ? <FaPause aria-label="Pause" /> : <FaPlay aria-label="Play" />}</button>
+            <div className="absolute bottom-0 w-full transform justify-center bg-gradient-to-t from-white">
+                <div className="flex justify-center gap-4">
+                    <button onClick={toggleAutoplay}>{autoplayActive ? <FaPause aria-label="Pause" /> : <FaPlay aria-label="Play" />}</button>
 
-                {slides.map((_, index) => (
-                    <PageDot key={index} active={index === currentIndex} onClick={() => handlePageDotClick(index)} />
-                ))}
+                    {slides.map((_, index) => (
+                        <PageDot key={index} active={index === currentIndex} onClick={() => handlePageDotClick(index)} />
+                    ))}
+                </div>
             </div>
         </div>
     );
