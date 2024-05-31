@@ -57,7 +57,7 @@ export default async function Page({ params }: PageProps) {
             <div className="mx-6 grid grid-cols-3 gap-x-4">
                 <div className="col-span-3 md:col-span-2">
                     <div className="mb-2">
-                        <div className="inline-block">
+                        <div className="inline-block w-full">
                             <h1 className="mb-3 inline-block">{record.title}</h1>
 
                             {!!record.logo && (
@@ -116,7 +116,8 @@ export default async function Page({ params }: PageProps) {
                 </div>
 
                 <div className="col-span-3 mb-3 md:col-span-1">
-                    {!record.location_postcode.latitude && (
+                    {!record.location_postcode && <p className="flex h-full items-center justify-center text-red-500">Postcode not set</p>}
+                    {!record.location_postcode?.latitude && (
                         <p className="flex h-full items-center justify-center text-red-500">Postcode not found in PAF data</p>
                     )}
 
