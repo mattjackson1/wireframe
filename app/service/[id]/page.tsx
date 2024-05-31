@@ -116,9 +116,15 @@ export default async function Page({ params }: PageProps) {
                 </div>
 
                 <div className="col-span-3 mb-3 md:col-span-1">
-                    <Suspense fallback={renderMapFallback()}>
-                        <Map latitude={record.location_postcode?.latitude} longitude={record.location_postcode?.longitude} />
-                    </Suspense>
+                    {!record.location_postcode.latitude && (
+                        <p className="flex h-full items-center justify-center text-red-500">Postcode not found in PAF data</p>
+                    )}
+
+                    {!!record.location_postcode.latitude && !!record.location_postcode.longitude && (
+                        <Suspense fallback={renderMapFallback()}>
+                            <Map latitude={record.location_postcode.latitude} longitude={record.location_postcode.longitude} />
+                        </Suspense>
+                    )}
                 </div>
             </div>
         </main>

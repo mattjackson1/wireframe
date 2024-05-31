@@ -13,7 +13,7 @@ interface MapProps {
 }
 
 export default function Map({ latitude, longitude, zoom = 13 }: MapProps) {
-    const [center, setCenter] = useState<[number, number]>([latitude, longitude]);
+    const [center, setCenter] = useState([latitude, longitude]);
 
     function MapEvents() {
         const map = useMapEvents({
