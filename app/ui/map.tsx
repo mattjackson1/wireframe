@@ -1,6 +1,8 @@
 'use client';
 
-import { MapContainer as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
+import { useState } from 'react';
+import { MapContainer as LeafletMap, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
 
@@ -11,19 +13,40 @@ interface MapProps {
 }
 
 export default function Map({ latitude, longitude, zoom = 13 }: MapProps) {
+    const [center, setCenter] = useState<[number, number]>([latitude, longitude]);
+
+    function MapEvents() {
+        const map = useMapEvents({
+            moveend: () => {
+                const newCenter = map.getCenter();
+                setCenter([newCenter.lat, newCenter.lng]);
+            },
+        });
+        return null;
+    }
+
     return (
-        <LeafletMap className="w-100 col-span-3 h-[555px] md:col-auto" center={[latitude, longitude]} zoom={zoom} scrollWheelZoom={false}>
-            <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            {zoom === 13 && (
-                <Marker position={[latitude, longitude]}>
-                    <Popup>
-                        lat: {latitude}, lng: {longitude}
-                    </Popup>
-                </Marker>
+        <>
+            {zoom !== 13 && (
+                <p>
+                    Centre: ({center[0].toFixed(2)}, {center[1].toFixed(2)}) - now just need to update the API query...
+                </p>
             )}
-        </LeafletMap>
+            <LeafletMap className="w-100 col-span-3 h-[555px] md:col-auto" center={center} zoom={zoom} scrollWheelZoom={false}>
+                <MapEvents />
+
+                <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                {zoom === 13 && (
+                    <Marker position={center}>
+                        <Popup>
+                            lat: {center[0]}, lng: {center[1]}
+                        </Popup>
+                    </Marker>
+                )}
+            </LeafletMap>
+        </>
     );
 }

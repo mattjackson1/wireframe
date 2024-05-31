@@ -16,7 +16,7 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps) {
     const record = await getData(`https://api.openobjects.com/v2/infolink/records/${params.id}?key=${process.env.API_KEY}`);
     return {
-        description: record.description.replace(/(<([^>]+)>)/gi, '').substring(0, 160),
+        description: record.description?.replace(/(<([^>]+)>)/gi, '').substring(0, 160),
     };
 }
 
@@ -24,7 +24,7 @@ export default async function Page({ params }: PageProps) {
     // fetching again!, but don't worry, Next.js caches the `fetch()` calls
     const record = await getData(`https://api.openobjects.com/v2/infolink/records/${params.id}?key=${process.env.API_KEY}`);
     const markup = { __html: record.description };
-    const lastUpdate = record.lastUpdate.split(' ')[0].split('-').reverse().join('/');
+    const lastUpdate = record.lastUpdate?.split(' ')[0].split('-').reverse().join('/');
 
     const renderMapFallback = () => (
         <button type="button" className="text-gray inline-flex items-center px-4 py-2 transition duration-150 ease-in-out">
