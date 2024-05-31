@@ -32,7 +32,7 @@ export default function Map({ latitude, longitude, zoom = 13 }: MapProps) {
                     Centre: ({center[0].toFixed(2)}, {center[1].toFixed(2)}) - now just need to update the API query...
                 </p>
             )}
-            <LeafletMap className="w-100 col-span-3 h-[555px] md:col-auto" center={center} zoom={zoom} scrollWheelZoom={false}>
+            <LeafletMap className="w-100 col-span-3 h-[555px] md:col-auto" center={[center[0], center[1]]} zoom={zoom} scrollWheelZoom={false}>
                 <MapEvents />
 
                 <TileLayer
@@ -40,7 +40,7 @@ export default function Map({ latitude, longitude, zoom = 13 }: MapProps) {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 {zoom === 13 && (
-                    <Marker position={center}>
+                    <Marker position={[center[0], center[1]]}>
                         <Popup>
                             lat: {center[0]}, lng: {center[1]}
                         </Popup>
