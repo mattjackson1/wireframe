@@ -4,19 +4,7 @@ import Link from 'next/link';
 import Pagination from './pagination';
 import { FaSquarePhone } from 'react-icons/fa6';
 import { FaSquareEnvelope } from 'react-icons/fa6';
-
-interface Record {
-    externalId: string;
-    title: string;
-    public_address_map_postcode: string;
-    contact_telephone: string;
-    contact_email: string;
-}
-
-interface ResultsProps {
-    query: string;
-    startIndex?: string;
-}
+import { Record, ResultsProps } from '@/app/lib/definitions';
 
 export default async function Results({ query, startIndex = '1' }: ResultsProps) {
     let data: any = null;
