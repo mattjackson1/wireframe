@@ -34,7 +34,7 @@ export default function Facets({
                     <span>Parking</span>
                 </label>
             </div>
-            <Button>Apply filters</Button>
+            <Button className="mb-6">Apply filters</Button>
         </SlideOver>
     );
 }

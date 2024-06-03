@@ -5,7 +5,7 @@ export default function NotFound() {
     return (
         <>
             <main className="flex flex-col">
-                <div className="grid grid-cols-1 justify-center gap-3 bg-blue-100 p-4 text-center">
+                <div className="grid grid-cols-1 justify-center gap-3 bg-blue-100 p-4 text-center dark:bg-gray-900">
                     <h1 className="font-bold">Error 404 - Page not found</h1>
                     <p className="font-semibold">Nothing to see here... please move along.</p>
                     <p className="font-semibold">

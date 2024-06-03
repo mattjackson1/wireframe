@@ -14,3 +14,9 @@ export type ResultsProps = {
     query: string;
     startIndex?: string;
 };
+
+export type MapProps = {
+    latitude: number;
+    longitude: number;
+    zoom?: number; // Make the 'zoom' prop optional
+};

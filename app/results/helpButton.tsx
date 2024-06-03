@@ -18,6 +18,7 @@ export default function HelpButton() {
                 page&quot;
             </p>
             <h2>The map</h2>
+            <p>Set the centre of the map as your currect location, select the "Center on my Current Location" button</p>
             <p>As you zoom and drag the map, your results will change to reflect this</p>
             <h2>Draw search area</h2>
             <p>You can draw a box on the map to filter your results by location</p>
