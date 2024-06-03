@@ -28,11 +28,16 @@ export default function Map({ latitude, longitude, zoom = 13 }: MapProps) {
     return (
         <>
             {zoom !== 13 && (
-                <p>
+                <p className="px-4 md:px-0">
                     Centre: ({center[0].toFixed(2)}, {center[1].toFixed(2)}) - now just need to update the API query...
                 </p>
             )}
-            <LeafletMap className="w-100 col-span-3 h-[555px] md:col-auto" center={[center[0], center[1]]} zoom={zoom} scrollWheelZoom={false}>
+            <LeafletMap
+                className="w-100 col-span-3 h-[555px] px-4 md:col-auto md:px-0"
+                center={[center[0], center[1]]}
+                zoom={zoom}
+                scrollWheelZoom={false}
+            >
                 <MapEvents />
 
                 <TileLayer
