@@ -56,7 +56,7 @@ export default function Carousel({ slides }: CarouselProps) {
                     {slide}
                 </div>
             ))}
-            <div className="absolute bottom-0 w-full transform justify-center bg-gradient-to-t from-white">
+            <div className="absolute bottom-0 w-full transform justify-center bg-gradient-to-t from-white dark:from-gray-800">
                 <div className="flex justify-center gap-4">
                     <button onClick={toggleAutoplay}>{autoplayActive ? <FaPause aria-label="Pause" /> : <FaPlay aria-label="Play" />}</button>
 
