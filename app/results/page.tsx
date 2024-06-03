@@ -64,13 +64,13 @@ export default async function Page({
             </div>
 
             <div className="grid grid-cols-3">
-                <div className="col-span-3 mb-3 h-[600px] md:col-span-1">
+                <div className="col-span-3 mb-3 md:col-span-1 md:h-[600px]">
                     <Suspense key={query + startIndex} fallback={<ResultsSkeleton />}>
                         <Results query={query} startIndex={startIndex} />
                     </Suspense>
                 </div>
 
-                <div className="col-span-3 h-[600px] md:col-span-2">
+                <div className="col-span-3 h-full md:col-span-2">
                     <div className="mx-6 mb-1 flex flex-wrap gap-3">
                         <Button className="ml-auto">
                             <FaRegMap className="h-[18px] w-[18px] sm:mr-2" />
