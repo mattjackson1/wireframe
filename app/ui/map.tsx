@@ -65,7 +65,7 @@ export default function Map({ latitude, longitude, zoom = 13 }: MapProps) {
                 scrollWheelZoom={false}
             >
                 {interactiveMap && <MapEvents />}
-                {navigator.geolocation && <CenterOnCurrentLocationButton setCenter={setCenter} />}
+                {interactiveMap && navigator.geolocation && <CenterOnCurrentLocationButton setCenter={setCenter} />}
 
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
