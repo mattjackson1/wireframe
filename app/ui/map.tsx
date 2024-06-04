@@ -73,6 +73,7 @@ export default function Map({ latitude, longitude, zoom = 13 }: MapProps) {
                 center={[center[0], center[1]]}
                 zoom={zoom}
                 scrollWheelZoom={false}
+                dragging={interactiveMap}
             >
                 {interactiveMap && <MapEvents />}
                 {interactiveMap && navigator.geolocation && <CenterOnCurrentLocationButton setCenter={setCenter} />}
