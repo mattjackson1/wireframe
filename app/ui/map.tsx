@@ -45,7 +45,7 @@ export default function Map({ latitude, longitude, zoom = 13 }: MapProps) {
                 onClick={handleCenterOnCurrentLocation}
                 className="absolute bottom-0 left-0 z-[400] m-3 rounded bg-blue-500 p-2 text-white dark:bg-gray-500"
             >
-                Center on my Current Location
+                Centre on my Current Location
             </button>
         );
     }
