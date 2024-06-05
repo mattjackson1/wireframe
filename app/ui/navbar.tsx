@@ -72,7 +72,7 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
                                             leaveTo="transform scale-90 opacity-0"
                                         >
                                             <Menu.Items className="z-[1001] ml-3 w-60 rounded-lg md:absolute md:z-10 md:ml-0 md:divide-y md:divide-gray-100 md:bg-white md:shadow dark:md:divide-gray-500 dark:md:bg-gray-900">
-                                                {type.types.map((type: any, subindex: number) => (
+                                                {type.types.map((subtype: any, subindex: number) => (
                                                     <Menu.Item key={index + '-' + subindex}>
                                                         {({ active }) => (
                                                             <a
@@ -80,9 +80,9 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
                                                                     (isOpen && 'w-100') +
                                                                     ' flex items-center p-2 text-lg underline-offset-4 hover:underline md:text-base'
                                                                 }
-                                                                href="#"
+                                                                href={`results?query=${typeList.name}:${subtype.name}`}
                                                             >
-                                                                {type.displayName}
+                                                                {subtype.displayName}
                                                             </a>
                                                         )}
                                                     </Menu.Item>
