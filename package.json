@@ -4,6 +4,7 @@
     "build": "next build",
     "dev": "next dev",
     "start": "next start",
+    "lint": "next lint",
     "format": "prettier --write 'app/**/*.{js,jsx,ts,tsx}'",
     "test": "jest",
     "test:watch": "jest --watch"

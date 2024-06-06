@@ -51,14 +51,6 @@ export default async function Page({
         <main className="flex flex-col">
             <div className="mb-3 bg-blue-100 p-4 dark:bg-gray-800">
                 <Suspense fallback={<>Loading the search... </>}>
-                    <div className="flex shrink flex-wrap gap-3">
-                        <Facets />
-
-                        <Button>
-                            <FaRegFloppyDisk className="mr-2 h-[18px] w-[18px]" />
-                            Save search
-                        </Button>
-                    </div>
                     <Search placeholder="Search Suffolk's API..." />
                 </Suspense>
             </div>
@@ -71,18 +63,17 @@ export default async function Page({
                 </div>
 
                 <div className="col-span-3 h-full md:col-span-2">
-                    <div className="mx-6 mb-1 flex flex-wrap gap-3">
-                        <Button className="ml-auto">
-                            <FaRegMap className="h-[18px] w-[18px] sm:mr-2" />
-                            <span className="hidden sm:block">Childrens centre areas</span>
-                        </Button>
+                    <div className="mx-6 mb-1 flex flex-wrap justify-end gap-3">
+                        <Suspense fallback={<>Loading the search... </>}>
+                            <Facets />
+                        </Suspense>
                         <Button>
                             <BsPencil className="h-[18px] w-[18px] sm:mr-2" />
                             <span className="hidden sm:block">Draw search area</span>
                         </Button>
                         <Button>
-                            <TfiRulerAlt className="h-[18px] w-[18px] sm:mr-2" />
-                            <span className="hidden sm:block">Measure</span>
+                            <FaRegFloppyDisk className="mr-2 h-[18px] w-[18px]" />
+                            Save search
                         </Button>
                         <HelpButton />
                     </div>
