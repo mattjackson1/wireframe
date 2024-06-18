@@ -19,11 +19,6 @@ export default function HelpButton() {
             </p>
             <h2>The map</h2>
             <p>Set the centre of the map as your currect location, select the &ldquo;Center on my Current Location&rdquo; button</p>
-            <p>As you zoom and drag the map, your results will change to reflect this</p>
-            <h2>Draw search area</h2>
-            <p>You can draw a box on the map to filter your results by location</p>
-            <h2>Measure</h2>
-            <p>You can easily get distance measurements from the map, to give you some idea on scales</p>
         </Modal>
     );
 }

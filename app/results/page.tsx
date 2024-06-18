@@ -6,7 +6,6 @@ import HelpButton from './helpButton';
 import Facets from './facets';
 import dynamic from 'next/dynamic';
 import { Button } from '@/app/ui/button';
-import { BsPencil } from 'react-icons/bs';
 import { FaRegFloppyDisk } from 'react-icons/fa6';
 import { TfiRulerAlt } from 'react-icons/tfi';
 
@@ -67,10 +66,6 @@ export default async function Page({
                         <Suspense fallback={<>Loading the search... </>}>
                             <Facets />
                         </Suspense>
-                        <Button>
-                            <BsPencil className="h-[18px] w-[18px] sm:mr-2" />
-                            <span className="hidden sm:block">Draw search area</span>
-                        </Button>
                         <Button>
                             <FaRegFloppyDisk className="mr-2 h-[18px] w-[18px]" />
                             Save search
