@@ -26,7 +26,7 @@ export function CardsSkeleton() {
 
 export function ResultsSkeleton() {
     return (
-        <div className="grid gap-4 px-6">
+        <div className="grid h-full gap-4 overflow-y-auto px-4">
             <h1>Finding services...</h1>
             <CardSkeleton />
             <CardSkeleton />
