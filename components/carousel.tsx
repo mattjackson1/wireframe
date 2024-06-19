@@ -8,7 +8,11 @@ interface CarouselProps {
 }
 
 const PageDot: React.FC<{ active: boolean; onClick: () => void }> = ({ active, onClick }) => (
-    <button onClick={onClick} aria-label="jump to slide" className={`h-4 w-4 rounded-full ${active ? 'bg-black' : 'bg-gray-300'}`} />
+    <button
+        onClick={onClick}
+        aria-label="jump to slide"
+        className={`h-4 w-4 rounded-full border border-white hover:bg-gray-600 ${active ? 'bg-gray-500' : 'bg-gray-300'}`}
+    />
 );
 
 export default function Carousel({ slides }: CarouselProps) {
@@ -47,7 +51,7 @@ export default function Carousel({ slides }: CarouselProps) {
     }, [autoplayActive, nextSlide]);
 
     return (
-        <div className="carousel relative h-full min-h-40 overflow-hidden">
+        <div className="carousel relative h-full min-h-64 overflow-hidden">
             {slides.map((slide, index) => (
                 <div
                     key={index}
