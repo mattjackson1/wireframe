@@ -100,14 +100,14 @@ export default async function Page({ params }: PageProps) {
                             <span dangerouslySetInnerHTML={markup} className="mb-3"></span>
                         </div>
                     </div>
-                    {fieldgroup.map((group, index) => {
+                    {fieldgroup.map((group, groupIndex) => {
                         // Check if the group has at least one defined field value
                         const hasDefinedFields = group.fields.some((field) => typeof record[field.name] !== 'undefined');
 
                         // Only render the section if it has defined fields
                         if (hasDefinedFields) {
                             return (
-                                <section key={index}>
+                                <section key={groupIndex}>
                                     <h2>{group.title}</h2>
                                     <dl className="mb-3 grid grid-cols-2 gap-2">
                                         {group.fields.map((field, fieldIndex) => {
