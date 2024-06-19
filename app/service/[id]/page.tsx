@@ -100,23 +100,33 @@ export default async function Page({ params }: PageProps) {
                             <span dangerouslySetInnerHTML={markup} className="mb-3"></span>
                         </div>
                     </div>
-                    {fieldgroup.map((group, index) => (
-                        <div key={index}>
-                            <h2>{group.title}</h2>
-                            <dl className="mb-3 grid grid-cols-2 gap-2">
-                                {group.fields.map(
-                                    (field, fieldIndex) =>
-                                        /* Loop through displaying each display field that has a value */
-                                        typeof record[field.name] != 'undefined' && (
-                                            <Fragment key={fieldIndex}>
-                                                <dd className="bg-gray-200 p-2 dark:bg-gray-800">{field.label}</dd>
-                                                <dt className="bg-gray-100 p-2 dark:bg-gray-800">{renderFieldValue(field, record)}</dt>
-                                            </Fragment>
-                                        ),
-                                )}
-                            </dl>
-                        </div>
-                    ))}
+                    {fieldgroup.map((group, index) => {
+                        // Check if the group has at least one defined field value
+                        const hasDefinedFields = group.fields.some((field) => typeof record[field.name] !== 'undefined');
+
+                        // Only render the section if it has defined fields
+                        if (hasDefinedFields) {
+                            return (
+                                <section key={index}>
+                                    <h2>{group.title}</h2>
+                                    <dl className="mb-3 grid grid-cols-2 gap-2">
+                                        {group.fields.map((field, fieldIndex) => {
+                                            if (typeof record[field.name] !== 'undefined') {
+                                                return (
+                                                    <Fragment key={fieldIndex}>
+                                                        <dd className="bg-gray-200 p-2 dark:bg-gray-800">{field.label}</dd>
+                                                        <dt className="bg-gray-100 p-2 dark:bg-gray-800">{renderFieldValue(field, record)}</dt>
+                                                    </Fragment>
+                                                );
+                                            }
+                                            return null;
+                                        })}
+                                    </dl>
+                                </section>
+                            );
+                        }
+                        return null; // Skip rendering this section if no fields are defined
+                    })}
 
                     <p className="mb-3">Last updated: {lastUpdate}</p>
                 </div>

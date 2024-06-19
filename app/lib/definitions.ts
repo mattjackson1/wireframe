@@ -16,6 +16,11 @@ export type Field = {
     link_type?: string;
 };
 
+export type FieldGroup = {
+    title: string;
+    fields: Field[];
+};
+
 export type ResultsProps = {
     query: string;
     startIndex?: string;

@@ -1,9 +1,4 @@
-import { Field } from '@/app/lib/definitions';
-
-interface FieldGroup {
-    title: string;
-    fields: Field[];
-}
+import { Field, FieldGroup } from '@/app/lib/definitions';
 
 export const fieldgroup: FieldGroup[] = [
     {
@@ -29,7 +24,7 @@ export const fieldgroup: FieldGroup[] = [
             { name: 'ecd_sp_specialneeds', label: 'Recent experience of supporting children with additional needs' },
         ],
     },
-    // Add more fieldgroups if needed...
+    // Add more fieldgroups as needed...
 ].map((fieldgroup: FieldGroup) => ({
     title: fieldgroup.title,
     fields: fieldgroup.fields.map((field: Field) => ({
