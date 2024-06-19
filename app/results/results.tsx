@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Pagination from './pagination';
 import { FaSquarePhone } from 'react-icons/fa6';
 import { FaSquareEnvelope } from 'react-icons/fa6';
-import { Record, ResultsProps } from '@/app/lib/definitions';
+import { ShortRecord, ResultsProps } from '@/app/lib/definitions';
 
 export default async function Results({ query, startIndex = '1' }: ResultsProps) {
     let data: any = null;
@@ -36,7 +36,7 @@ export default async function Results({ query, startIndex = '1' }: ResultsProps)
         <div className="grid h-full auto-rows-min gap-4 overflow-y-auto px-4">
             <h1>{title}</h1>
 
-            {data.records.map((record: Record, index: number) => (
+            {data.records.map((record: ShortRecord, index: number) => (
                 <Card key={index}>
                     <Link className="block hover:underline" href={`service/${record.externalId}?query=${query}`}>
                         <h2>{record.title}</h2>

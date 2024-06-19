@@ -3,11 +3,12 @@ import { getData } from '@/actions';
 import Image from 'next/image';
 import Link from 'next/link';
 import Map from '@/app/ui/map';
-import { fields } from '@/app/lib/display-fields';
+import { fieldgroup } from '@/app/lib/display-fields';
 import Search from '@/app/ui/search';
 import { Button } from '@/app/ui/button';
 import Share from '@/components/share';
 import Backbutton from '@/components/backbutton';
+import { Field } from '@/app/lib/definitions';
 
 interface PageProps {
     params: { id: string };
@@ -19,6 +20,30 @@ export async function generateMetadata({ params }: PageProps) {
         description: record.description?.replace(/(<([^>]+)>)/gi, '').substring(0, 160),
     };
 }
+
+// Function to render field value
+const renderFieldValue = (field: Field, record: any) => {
+    if (typeof record[field.name] === 'object') {
+        if (Array.isArray(record[field.name])) {
+            return record[field.name].map((item, index: number) => (
+                <Fragment key={index}>
+                    {item.displayName ?? item}
+                    {index !== record[field.name].length - 1 && ', '}
+                </Fragment>
+            ));
+        } else {
+            return <>{record[field.name].displayName}</>;
+        }
+    } else if (field.link_type === 'mailto') {
+        return (
+            <Link className="break-words" href={`mailto:${record[field.name]}`}>
+                {record[field.name]}
+            </Link>
+        );
+    } else {
+        return record[field.name];
+    }
+};
 
 export default async function Page({ params }: PageProps) {
     // fetching again!, but don't worry, Next.js caches the `fetch()` calls
@@ -75,42 +100,23 @@ export default async function Page({ params }: PageProps) {
                             <span dangerouslySetInnerHTML={markup} className="mb-3"></span>
                         </div>
                     </div>
-
-                    {/* Loop through and display each display field that has a value */}
-                    <dl className="mb-3 grid grid-cols-2 gap-2">
-                        {fields.map(
-                            (field, index) =>
-                                record[field.name] && (
-                                    <Fragment key={index}>
-                                        <dd className="bg-gray-200 p-2 dark:bg-gray-800">{`${field.label}`}</dd>
-                                        <dt className="bg-gray-100 p-2 dark:bg-gray-800">
-                                            {typeof record[field.name] === 'object' ? (
-                                                <>
-                                                    {Array.isArray(record[field.name]) ? (
-                                                        <>
-                                                            {record[field.name].map((item: any, index: number) => (
-                                                                <Fragment key={index}>
-                                                                    {item.displayName ?? item}
-                                                                    {index !== record[field.name].length - 1 && ', '}
-                                                                </Fragment>
-                                                            ))}
-                                                        </>
-                                                    ) : (
-                                                        <>{record[field.name].displayName}</>
-                                                    )}
-                                                </>
-                                            ) : field.link_type === 'mailto' ? (
-                                                <Link className="break-words" href={`mailto:${record[field.name]}`}>
-                                                    {record[field.name]}
-                                                </Link>
-                                            ) : (
-                                                record[field.name]
-                                            )}
-                                        </dt>
-                                    </Fragment>
-                                ),
-                        )}
-                    </dl>
+                    {fieldgroup.map((group, index) => (
+                        <div key={index}>
+                            <h2>{group.title}</h2>
+                            <dl className="mb-3 grid grid-cols-2 gap-2">
+                                {group.fields.map(
+                                    (field, fieldIndex) =>
+                                        /* Loop through displaying each display field that has a value */
+                                        typeof record[field.name] != 'undefined' && (
+                                            <Fragment key={fieldIndex}>
+                                                <dd className="bg-gray-200 p-2 dark:bg-gray-800">{field.label}</dd>
+                                                <dt className="bg-gray-100 p-2 dark:bg-gray-800">{renderFieldValue(field, record)}</dt>
+                                            </Fragment>
+                                        ),
+                                )}
+                            </dl>
+                        </div>
+                    ))}
 
                     <p className="mb-3">Last updated: {lastUpdate}</p>
                 </div>

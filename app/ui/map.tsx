@@ -11,6 +11,11 @@ const Red_MARKER = `data:image/svg+xml;utf8,${encodeURIComponent(`<?xml version=
         <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"></path>
     </svg>
     `)}`;
+const Blue_MARKER = `data:image/svg+xml;utf8,${encodeURIComponent(`<?xml version="1.0" encoding="iso-8859-1"?>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="blue" width="200px" height="200px" viewBox="0 0 384 512">
+        <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"></path>
+    </svg>
+    `)}`;
 
 const DefaultIcon = L.icon({
     iconUrl: Red_MARKER,
@@ -69,7 +74,7 @@ export default function Map({ latitude, longitude, zoom = 13 }: MapProps) {
             )}
 
             <LeafletMap
-                className="w-100 col-span-3 h-[555px] px-4 md:col-auto md:px-0"
+                className="w-100 col-span-3 mx-4 h-[555px] md:col-auto md:mx-0"
                 center={[center[0], center[1]]}
                 zoom={zoom}
                 scrollWheelZoom={false}
