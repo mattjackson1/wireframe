@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps) {
 const renderFieldValue = (field: Field, record: any) => {
     if (typeof record[field.name] === 'object') {
         if (Array.isArray(record[field.name])) {
-            return record[field.name].map((item, index: number) => (
+            return record[field.name].map((item: { displayName: string }, index: number) => (
                 <Fragment key={index}>
                     {item.displayName ?? item}
                     {index !== record[field.name].length - 1 && ', '}
