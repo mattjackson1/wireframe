@@ -35,7 +35,9 @@ export default function Search({ placeholder }: { placeholder: string }) {
                     }}
                     defaultValue={searchParams.get('query')?.toString()}
                 />
-                <button className="bg-primary px-3 text-white">Search</button>
+                <button className="bg-blue-500 px-3 text-white transition-colors hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:bg-blue-600 dark:bg-gray-500">
+                    Search
+                </button>
                 <FaMagnifyingGlass className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-hover:text-gray-900 peer-focus:text-gray-900" />
             </div>
         </form>
