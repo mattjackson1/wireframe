@@ -36,7 +36,7 @@ const HomeIcon = L.icon({
 
 export default function Map({ latitude, longitude, zoom = 13 }: MapProps) {
     const [center, setCenter] = useState([latitude, longitude]);
-    const [home, setHome] = useState([]);
+    const [home, setHome] = useState<(number | null)[]>([]);
 
     const interactiveMap = zoom !== 13;
 
