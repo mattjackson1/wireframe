@@ -36,7 +36,7 @@ const HomeIcon = L.icon({
 
 export default function Map({ latitude, longitude, zoom = 13 }: MapProps) {
     const [center, setCenter] = useState([latitude, longitude]);
-    const [home, setHome] = useState<(number | null)[]>([]);
+    const [home, setHome] = useState<number[]>([]);
 
     const interactiveMap = zoom !== 13;
 
@@ -109,7 +109,7 @@ export default function Map({ latitude, longitude, zoom = 13 }: MapProps) {
                     </Marker>
                 )}
 
-                {home.length > 0 && <Marker position={[home[0], home[1]]} icon={HomeIcon}></Marker>}
+                {home.length === 2 && <Marker position={[home[0], home[1]]} icon={HomeIcon}></Marker>}
             </LeafletMap>
         </>
     );
