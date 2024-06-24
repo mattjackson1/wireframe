@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTheme } from 'next-themes';
 import { MapContainer as LeafletMap, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
 import { MapProps } from '@/app/lib/definitions';
 import 'leaflet/dist/leaflet.css';
@@ -17,7 +18,7 @@ const Blue_MARKER = `data:image/svg+xml;utf8,${encodeURIComponent(`<?xml version
     </svg>
     `)}`;
 const Home_MARKER = `data:image/svg+xml;utf8,${encodeURIComponent(`<?xml version="1.0" encoding="iso-8859-1"?>
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" height="200px" width="200px" viewBox="0 0 576 512">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="rgb(0 112 243)" height="200px" width="200px" viewBox="0 0 576 512">
         <path d="M543.8 287.6c17 0 32-14 32-32.1c1-9-3-17-11-24L512 185V64c0-17.7-14.3-32-32-32H448c-17.7 0-32 14.3-32 32v36.7L309.5 7c-6-5-14-7-21-7s-15 1-22 8L10 231.5c-7 7-10 15-10 24c0 18 14 32.1 32 32.1h32v69.7c-.1 .9-.1 1.8-.1 2.8V472c0 22.1 17.9 40 40 40h16c1.2 0 2.4-.1 3.6-.2c1.5 .1 3 .2 4.5 .2H160h24c22.1 0 40-17.9 40-40V448 384c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v64 24c0 22.1 17.9 40 40 40h24 32.5c1.4 0 2.8 0 4.2-.1c1.1 .1 2.2 .1 3.3 .1h16c22.1 0 40-17.9 40-40V455.8c.3-2.6 .5-5.3 .5-8.1l-.7-160.2h32z"></path>
     </svg>
     `)}`;
@@ -37,6 +38,7 @@ const HomeIcon = L.icon({
 export default function Map({ latitude, longitude, zoom = 13 }: MapProps) {
     const [center, setCenter] = useState([latitude, longitude]);
     const [home, setHome] = useState<number[]>([]);
+    const { resolvedTheme } = useTheme();
 
     const interactiveMap = zoom !== 13;
 
@@ -109,7 +111,11 @@ export default function Map({ latitude, longitude, zoom = 13 }: MapProps) {
                     </Marker>
                 )}
 
-                {home.length === 2 && <Marker position={[home[0], home[1]]} icon={HomeIcon}></Marker>}
+                {home.length === 2 && (
+                    <Marker position={[home[0], home[1]]} icon={HomeIcon}>
+                        <Popup>Your current location</Popup>
+                    </Marker>
+                )}
             </LeafletMap>
         </>
     );
