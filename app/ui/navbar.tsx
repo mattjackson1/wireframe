@@ -18,7 +18,11 @@ export default function Navbar({ typeListsArray }: { typeListsArray: [] }) {
 
     return (
         <>
-            <button onClick={toggleMenuOpen} className="absolute right-0 top-2 mr-2 rounded border p-2 md:hidden" aria-label="Navigation menu">
+            <button
+                onClick={toggleMenuOpen}
+                className="absolute right-0 top-2 mr-2 rounded border p-2 md:hidden print:hidden"
+                aria-label="Navigation menu"
+            >
                 <FaBars className="h-[18px] w-[18px]" />
             </button>
             <nav className="flex flex-row bg-blue-50 dark:bg-black">
