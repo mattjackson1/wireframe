@@ -8,6 +8,7 @@ export const fieldgroup: FieldGroup[] = [
             { name: 'contact_position', label: 'Position' },
             { name: 'contact_telephone', label: 'Telephone' },
             { name: 'contact_email', label: 'Email', link_type: 'mailto' },
+            { name: 'website', label: 'Website', link_type: 'web' },
         ],
     },
     {

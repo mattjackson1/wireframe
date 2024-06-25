@@ -9,6 +9,7 @@ import { Button } from '@/app/ui/button';
 import Share from '@/components/share';
 import Backbutton from '@/components/backbutton';
 import { Field } from '@/app/lib/definitions';
+import QRCodeGen from '@/components/QrCodeGen';
 
 interface PageProps {
     params: { id: string };
@@ -34,6 +35,15 @@ const renderFieldValue = (field: Field, record: any) => {
         } else {
             return <>{record[field.name].displayName}</>;
         }
+    } else if (field.link_type === 'web') {
+        return (
+            <>
+                <Link className="break-words" href={`${record[field.name]}`}>
+                    {record[field.name]}
+                </Link>
+                <QRCodeGen className="hidden p-3 print:block" url={`${record[field.name]}`} />
+            </>
+        );
     } else if (field.link_type === 'mailto') {
         return (
             <Link className="break-words" href={`mailto:${record[field.name]}`}>
@@ -107,22 +117,24 @@ export default async function Page({ params }: PageProps) {
                         // Only render the section if it has defined fields
                         if (hasDefinedFields) {
                             return (
-                                <section key={groupIndex}>
-                                    <h2>{group.title}</h2>
-                                    <dl className="mb-3 grid grid-cols-2 gap-2">
-                                        {group.fields.map((field, fieldIndex) => {
-                                            if (typeof record[field.name] !== 'undefined') {
-                                                return (
-                                                    <Fragment key={fieldIndex}>
-                                                        <dd className="bg-gray-200 p-2 dark:bg-gray-800">{field.label}</dd>
-                                                        <dt className="bg-gray-100 p-2 dark:bg-gray-800">{renderFieldValue(field, record)}</dt>
-                                                    </Fragment>
-                                                );
-                                            }
-                                            return null;
-                                        })}
-                                    </dl>
-                                </section>
+                                <>
+                                    <section key={groupIndex}>
+                                        <h2>{group.title}</h2>
+                                        <dl className="mb-3 grid grid-cols-2 gap-2">
+                                            {group.fields.map((field, fieldIndex) => {
+                                                if (typeof record[field.name] !== 'undefined') {
+                                                    return (
+                                                        <Fragment key={fieldIndex}>
+                                                            <dd className="bg-gray-200 p-2 dark:bg-gray-800">{field.label}</dd>
+                                                            <dt className="bg-gray-100 p-2 dark:bg-gray-800">{renderFieldValue(field, record)}</dt>
+                                                        </Fragment>
+                                                    );
+                                                }
+                                                return null;
+                                            })}
+                                        </dl>
+                                    </section>
+                                </>
                             );
                         }
                         return null; // Skip rendering this section if no fields are defined
