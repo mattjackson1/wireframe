@@ -77,11 +77,11 @@ export default async function Page({ params }: PageProps) {
 
     return (
         <main className="flex flex-col">
-            <div className="mb-3 bg-blue-100 p-4 dark:bg-gray-800">
+            <div className="mb-3 bg-blue-100 p-4 dark:bg-gray-800 print:hidden">
                 <Search placeholder="Search Suffolk's API..." />
             </div>
 
-            <div className="mx-6 mb-3 flex justify-between">
+            <div className="mx-6 mb-3 flex justify-between print:hidden">
                 <Backbutton />
 
                 <Suspense fallback={<Button>Loading social sharing...</Button>}>
