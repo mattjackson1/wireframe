@@ -5,6 +5,6 @@ interface QRCodeProps {
     url: string;
 }
 
-export default function QRCodeGen({ className, url }: QRCodeProps) {
+export default function QRCodeGen({ className = '', url }: QRCodeProps) {
     return <QRCode value={url} size={250} className={className} />;
 }
